@@ -9,4 +9,4 @@
 #SBATCH --mail-user=thomaskolb@live.nl
 #SBATCH --mail-type=BEGIN,END,FAIL
 
-python3 heuristicfilter.py "~/bsc/thomas/data"
+python3 heuristicfilter.py "/home/tkolb/bsc/thomas/data"
