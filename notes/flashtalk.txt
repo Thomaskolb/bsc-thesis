@@ -1,0 +1,24 @@
+Supervisor:
+David van Leeuwen, specialized in deep learning in particular speech/speaker recognition
+
+Area:
+Automatic speech recognition using deep neural networks, in particular the wav2vec 2.0
+model.
+
+Research question:
+When training the wav2vec 2.0 model using data with subtitles how well does it perform compared to a normal ASR model?
+
+subtitles introduce some interesting aspects to speech recognition compared to normal speech recognition. For example the sentences in subtitles are gramatically correct, use interpunction and start with capital letters
+wav2vec 2.0 is a transformer model made by facebook ai that works well for speech recognition tasks. One of the advantages of this model is that does not need hundreds of hours of training data to work well
+
+Motivation:
+Has not be done before, at least I couldn't easily find something about it. This particular model wav2vec2.0 is relatively new and has not been used in a lot of research so far according to my supervisor. So naturally it would be interesting to see how this model performs with subtitles
+(with lots of problems with designing and training the models that can be used for ASR.)
+
+Answer:
+The answer of this thesis will be in the form of results from the comparisons we made, as well as some scripts that we used to prepare the raw input data for the training
+
+Strategy:
+The collection of data will take some time since the data available contains a lot of errors and needs to be prepared in such a way that we can use it as input for the training. Then we need to test the model and find ways to compare its quality with normal ASR models
+
+

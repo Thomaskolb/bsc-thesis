@@ -1,0 +1,18 @@
+Vragen voor meeting straks:
+-Ik begrijp denk ik het doel nog niet helemaal. Is de output van het spraakherkenningsnetwerk ook ondertiteling? Of is het puur de input voor de training van het netwerk wat anders is, dus audio en ondertiteling
+-Wat was ook alweer de format van de ondertiteling? teletekst, en waar zou ik voorbeelden van deze input data kunnen vinden?
+-Is het nog mogelijk om andere formats voor ondertiteling te gebruiken, of misschien te experimenteren met verschillende formats?
+-In de paper ging werd benadrukt dat het model weinig data gebruikt, dat het met 10m audio al zou moeten werken en dan ook nog eens gebruikt het veel unlabeled data, maar word uiteindelijk nog wel gefinetuned met labeled data. Is dit ook hoe wij het gaan doen? Is dit ook iets waar we mee gaan experimenteren
+-U heeft het gehad over het prepareren van de data met gebruik van scripts voordat het werd gebruikt voor de training, hoe zat dit precies?
+-De paper die u stuurde beschreef het wav2vec 2.0 framework, betekent dit dat ik het model zelf nog moet maken gebaseerd op dit framework, of bestaat deze al ergens?
+-Welke software/tools kan ik gebruiken?
+-Cluster?
+-Preciese onderzoeksvraag? hoe kunnen we het specifieker/unieker maken?
+-Area, Motivation, Answer, Strategy?
+-Andere scripties gemaakt met u als supervisor
+-Dingen die ik kan lezen om mn kennis te verhogen? transformers, ASR
+
+-vergelijk met normale spraakherkenner
+-maak pairs audio en tt, klopt nog niet
+-tt is niet perfect
+-tt iin zinnen

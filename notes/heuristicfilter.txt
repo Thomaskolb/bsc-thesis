@@ -1,0 +1,40 @@
+David:
+Ik hoop dat je alvast een idee kunt krijgen van de informatie die in de .webm.vtt files staan en hoe je op grond hiervan een heuristisch filter kunt bouwen dat "betrouwbare" en "zinvolle" uitzendingen kan bepalen, bijvoorbeeld
+- geen live uitzendingen
+- geen vreemde talen (alleen Nederlands)
+- geen muziek, reclame
+
+Kenmerken live uitzending:
+-LIVEPROGRAMMA, ONDERTITELING KAN ACHTERLOPEN
+-DIT PROGRAMMA WERD LIVE ONDERTITELD
+-U kijkt naar een programma met automatische ondertiteling
+-U hebt gekeken naar een programma met automatische ondertiteling
+-888?
+
+Kenmerken nederlands:
+-hoe doen we dit?
+
+Kenmerken wav files?
+-reden om daar naar te kijken?
+
+Kenmerken reclame:
+-veel uitroeptekens
+-website links
+-woorden als: AH, jumbo, korting
+
+Andere kenmerken:
+-Sommige webVTT files zijn leeg, of erg kort
+-MUZIEK wegfilteren
+-* wegfilteren
+-woorden met alleen hoofdletters wegfilteren
+
+Notes:
+-de .hyp files lijken afkomstig te zijn uit een spraakherkennermodel, klopt dit?
+-is er ook data met de echte labels (transcript) van wat gezegd is?
+-dingen beter wel wegfilteren dan niet, voor de zekerheid, er is toch genoeg data
+-begin eind zin doen
+-hoe doe ik het? gewoon de data naar mn computer kopieren, het dan aanpassen met mn scripts en dan weer op de cluster zetten?
+-Fragmenten zijn best wel kort
+
+Notes:
+-Heel veel service.npo.nl die houden we denk ik

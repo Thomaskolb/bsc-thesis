@@ -1,0 +1,33 @@
+-framework for self-supervised learning of representations from raw audio data
+-encoding of audio via multi-layer convolutional neural network -> latent speech representations
+-> fed to transformer to build contextualized representations, trained via contrastive task where true latent is to be dinstinguished from distractors
+-pretrained on unlabeled speech
+-fine tuned on labeled speech with CTC loss
+
+Model:
+-multilayer convolutional feature encoder f: X -> Z
+-takes raw audio X and outputs latent speech repr. z1-zt for T timesteps
+-transformer g: Z -> C
+-captures info from entire sequence c1-cT
+-quantifier Z -> Q represents targets in self supervised objective
+
+Feature encoder:
+-several blocks of temporal convolution
+-followed by layer normalization (to zer and unit variance)
+-stride determines number of timesteps which are input to transformer
+
+Transformer:
+-instead of fixed positional embeddings which encode absolute positional infor
+-we use a convolutional layer for relatiove positional embeddings
+-GELU
+-layer normalization
+
+Quantization module:
+-discretize output of ft encoder to set of speech representations via product quantization
+
+Training:
+-objective: indentify correct quantized latent audio representation in a set of distractors for reahc masked timestep
+-final model is fine-tuned on labeled data
+
+Vragen:
+-Wat is het nut van de quantifier? wat doet het precies?

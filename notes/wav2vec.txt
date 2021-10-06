@@ -1,0 +1,10 @@
+https://www.kdnuggets.com/2021/03/speech-text-wav2vec.html
+https://ai.facebook.com/blog/wav2vec-20-learning-the-structure-of-speech-from-raw-audio/
+
+Intro:
+-learn representations from speech audio using self-supervision (no labeled data)
+-wav2vec masks speech input into latent space and solves contrastive task defined over a quantization of latent representations which are jointly learned
+-mask out frames in audio
+-latent space: similare DP are closer together
+-quantized = discrete latent space
+-low amount of data
