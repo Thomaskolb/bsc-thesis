@@ -23,6 +23,7 @@ def filter_vtt_data(path):
             captions = webvttparser.read(f"{path}/{folder}/{vttfile}")
             if meets_data_requirements(captions):
                 filtered_paths.append(f"{folder}/{vttfile}")
+        print("folder finished..")
     percentage = "{:.1f}".format((len(filtered_paths)/path_count)*100)
     return filtered_paths, percentage
 
