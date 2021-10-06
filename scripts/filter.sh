@@ -10,4 +10,4 @@
 #SBATCH --mail-type=BEGIN,END,FAIL
 
 echo "Let's filter some data.."
-python "~/bsc/thesis/scripts/heuristicfilter.py"
+python heuristicfilter.py
