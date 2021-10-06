@@ -14,6 +14,7 @@ min_caption_count = 10
 # Function that traverses all 'webm.vtt' files within a given directory
 # and filters them based on requirements
 def filter_vtt_data(path):
+    print("starting..")
     filtered_paths = []
     path_count = 0
     for folder in os.listdir(path):
