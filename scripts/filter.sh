@@ -9,5 +9,4 @@
 #SBATCH --mail-user=thomaskolb@live.nl
 #SBATCH --mail-type=BEGIN,END,FAIL
 
-echo "Let's filter some data.."
-python3 heuristicfilter.py
+python3 heuristicfilter.py "~/bsc/thomas/data"

@@ -52,7 +52,7 @@ def write_data(data, percentage):
     txtfile.close()
 
 if(len(sys.argv) < 2):
-    print("Please enter the data path!")
+    print("Please enter the data path.")
 else:
     # List of file paths that will be used for training
     filepaths, percentage = filter_vtt_data(sys.argv[1])
