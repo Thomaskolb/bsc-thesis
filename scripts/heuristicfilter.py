@@ -1,7 +1,7 @@
 # Thomas Kolb s1027332
 # This program filters data that is not useful for training the wav2vec2 model
 
-import webvtt
+import webvttparser
 import sys
 import os
 import re
@@ -20,7 +20,7 @@ def filter_vtt_data(path):
         vttfiles = [f for f in os.listdir(f"{path}/{folder}") if os.path.splitext(f)[1] == subtitle_ext]
         path_count += len(vttfiles)
         for vttfile in vttfiles:
-            captions = webvtt.read(f"{path}/{folder}/{vttfile}")
+            captions = webvttparser.read(f"{path}/{folder}/{vttfile}")
             if meets_data_requirements(captions):
                 filtered_paths.append(f"{folder}/{vttfile}")
     percentage = "{:.1f}".format((len(filtered_paths)/path_count)*100)
