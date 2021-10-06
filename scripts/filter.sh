@@ -9,4 +9,5 @@
 #SBATCH --mail-user=thomaskolb@live.nl
 #SBATCH --mail-type=BEGIN,END,FAIL
 
-echo "Filter test"
+echo "Let's filter some data.."
+python "~/bsc/thesis/scripts/heuristicfilter.py"
