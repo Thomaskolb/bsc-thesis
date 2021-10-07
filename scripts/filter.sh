@@ -9,4 +9,6 @@
 #SBATCH --mail-user=thomaskolb@live.nl
 #SBATCH --mail-type=BEGIN,END,FAIL
 
+source env/bin/activate
 python3 heuristicfilter.py "/home/tkolb/bsc/thomas/data"
+deactivate
