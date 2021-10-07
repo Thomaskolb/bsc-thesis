@@ -8,13 +8,12 @@ import re
 
 subtitle_ext = '.vtt'
 weblink_exceptions = ['nos.nl', 'service.npo.nl']
-live_broadcast_indicators = ['LIVEPROGRAMMA,', 'LIVEPROGRAMMA', 'LIVE', 'ONDERTITELD', 'ACHTERLOPEN']
+unfit_data_indicators = ['LIVEPROGRAMMA,', 'LIVEPROGRAMMA', 'LIVE', 'ONDERTITELD', 'ACHTERLOPEN', 'MUZIEK']
 min_caption_count = 10
 
 # Function that traverses all 'webm.vtt' files within a given directory
 # and filters them based on requirements
 def filter_vtt_data(path):
-    print("starting..")
     filtered_paths = []
     path_count = 0
     for folder in os.listdir(path):
@@ -24,15 +23,16 @@ def filter_vtt_data(path):
             captions = webvttparser.read(f"{path}/{folder}/{vttfile}")
             if meets_data_requirements(captions):
                 filtered_paths.append(f"{folder}/{vttfile}")
-        print("folder finished..")
     percentage = "{:.1f}".format((len(filtered_paths)/path_count)*100)
     return filtered_paths, percentage
 
 # Function that decides whether data can be used
 def meets_data_requirements(captions):
+    if len(captions) < min_caption_count:
+        return False
     for caption in [c.text.split() for c in captions]:
         for word in caption:
-            if is_weblink(word) or is_livebroadcast(word) or len(captions) < 10:
+            if is_weblink(word) or is_livebroadcast(word):
                 return False
     return True
 
@@ -44,7 +44,7 @@ def is_weblink(word):
 
 # Checks whether a string is an indicator of a live broadcast
 def is_livebroadcast(word):
-    return word in live_broadcast_indicators
+    return word in unfit_data_indicators
 
 # Write data to txt file
 def write_data(data, percentage):
