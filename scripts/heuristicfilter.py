@@ -2,6 +2,7 @@
 # This program filters data that is not useful for training the wav2vec2 model
 
 import webvttparser
+import wave
 import sys
 import os
 import re
@@ -21,20 +22,28 @@ def filter_vtt_data(path):
         path_count += len(vttfiles)
         for vttfile in vttfiles:
             captions = webvttparser.read(f"{path}/{folder}/{vttfile}")
-            if meets_data_requirements(captions):
-                filtered_paths.append(f"{folder}/{vttfile}")
+            wavfile = vttfile.split('.')[0] + '.wav'
+            if len(captions) >= min_caption_count and synchronized(captions, f'{path}/{folder}/{wavfile}') and meets_data_requirements(captions):
+                filtered_paths.append(f"{folder}/{vttfile.split('.')[0]}")
     percentage = "{:.1f}".format((len(filtered_paths)/path_count)*100)
     return filtered_paths, percentage
 
 # Function that decides whether data can be used
 def meets_data_requirements(captions):
-    if len(captions) < min_caption_count:
-        return False
     for caption in [c.text.split() for c in captions]:
         for word in caption:
             if is_weblink(word) or is_livebroadcast(word):
                 return False
     return True
+
+# Function that checks whether caption times are within wavfile length
+def synchronized(captions, wavpath):
+    if os.path.isfile(wavpath):
+        with wave.open(wavpath, 'r') as wavfile:
+            # I also tried this for end_frame, but hardly any data was salvaged (< 3%)
+            start_frame = int(webvttparser.get_time_in_seconds(captions[len(captions)-1].start) * wavfile.getframerate())
+            return start_frame <= wavfile.getnframes()
+    return False
 
 # Checks whether a string contains a weblink
 def is_weblink(word):
@@ -48,12 +57,11 @@ def is_livebroadcast(word):
 
 # Write data to txt file
 def write_data(data, percentage):
-    txtfile = open('filtered_data.txt', 'w')
-    txtfile.write(f"{percentage}% of data salvaged\n")
-    [txtfile.write(path + '\n') for path in data]
-    txtfile.close()
+    with open('filtered_data.txt', 'w') as txtfile:
+        txtfile.write(f"{percentage}% of data salvaged\n")
+        [txtfile.write(path + '\n') for path in data]
 
-if(len(sys.argv) < 2):
+if len(sys.argv) < 2:
     print("Please enter the data path.")
 else:
     # List of file paths that will be used for training
