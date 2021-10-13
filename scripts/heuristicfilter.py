@@ -2,6 +2,9 @@
 # This program filters data that is not useful for training the wav2vec2 model
 
 import webvttparser
+import captionparser
+import worderrorrate
+import asrparser
 import wave
 import sys
 import os
@@ -23,8 +26,13 @@ def filter_vtt_data(path):
         for vttfile in vttfiles:
             captions = webvttparser.read(f"{path}/{folder}/{vttfile}")
             wavfile = vttfile.split('.')[0] + '.wav'
-            if len(captions) >= min_caption_count and synchronized(captions, f'{path}/{folder}/{wavfile}') and meets_data_requirements(captions):
+            asrfile = vttfile.split('.')[0] + '.hyp'
+            similarity_sample(captions[:10], f'{path}/{folder}/{asrfile}')
+            break
+            if (len(captions) >= min_caption_count and synchronized(captions, f'{path}/{folder}/{wavfile}') and
+                    meets_data_requirements(captions) and similarity_sample(captions[:10], f'{path}/{folder}/{asrfile}')):
                 filtered_paths.append(f"{folder}/{vttfile.split('.')[0]}")
+        break
     percentage = "{:.1f}".format((len(filtered_paths)/path_count)*100)
     return filtered_paths, percentage
 
@@ -43,6 +51,20 @@ def synchronized(captions, wavpath):
             # I also tried this for end_frame, but hardly any data was salvaged (< 3%)
             start_frame = int(webvttparser.get_time_in_seconds(captions[len(captions)-1].start) * wavfile.getframerate())
             return start_frame <= wavfile.getnframes()
+    return False
+
+# For the first 10 captions
+def similarity_sample(captions_sample, asrpath):
+    wordsequence = asrparser.read(asrpath)
+    for caption in captions_sample:
+        new_caption_text = captionparser.acceptable_caption_text(caption.text)
+        if len(new_caption_text) > 0:
+            sequence = asrparser.search_sequence(wordsequence, 
+                webvttparser.get_time_in_seconds(caption.start), webvttparser.get_time_in_seconds(caption.end))
+            w = worderrorrate.WER(new_caption_text.split(' '), sequence)
+            print(w)
+            print(w.wer())
+        # break
     return False
 
 # Checks whether a string contains a weblink

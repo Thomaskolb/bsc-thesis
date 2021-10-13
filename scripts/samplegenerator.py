@@ -9,18 +9,11 @@
 # TODO 3e argument van outputlist
 # TODO filter nutteloze data
 
-# interpunctie vast aan woorden probleem
-
-from num2words import num2words
-from nltk.tokenize import word_tokenize
 import webvttparser
+import captionparser
 import wave
 import sys
 import os
-import re
-
-interpunction = ['.', ',', '!', '?']
-forbidden_formats = ['.{1,}\-.{1,}', '[A-Z]{1,}\:', '[0-9]{1,}\.', '.{0,}�.{0,}']
 
 # Function that creates the same folders as found in the datapath directory
 def create_directories(datapath, outputpath):
@@ -38,7 +31,6 @@ def generate_pairlist(listpath, datapath, outputpath):
         for filepath in filepaths:
             file_id = 0
             generate_pairs(f'{datapath}/{filepath}', outputpath, filepath, file_id, pairlist)
-            return
 
 # Function that generates pairs for a single file
 def generate_pairs(filepath, outputpath, folder, file_id, pairlist):
@@ -49,7 +41,7 @@ def generate_pairs(filepath, outputpath, folder, file_id, pairlist):
         pass
     with wave.open(f'{filepath}.wav', 'r') as wavfile:
         for caption in captions:
-            new_caption_text = acceptable_caption_text(caption.text)
+            new_caption_text = captionparser.acceptable_caption_text(caption.text)
             if len(new_caption_text) > 0:
                 start_frame = int(webvttparser.get_time_in_seconds(caption.start) * wavfile.getframerate())
                 end_frame = int(webvttparser.get_time_in_seconds(caption.end) * wavfile.getframerate())
@@ -59,23 +51,6 @@ def generate_pairs(filepath, outputpath, folder, file_id, pairlist):
                     wavfile.getframerate(), outputpath, folder, file_id)
                 file_id = file_id + 1
                 pairlist.write('{"' + new_caption_text + '", "' + samplepath + '"}\n')
-            return
-
-# Function that filters out captions that don't match requirements
-# If it is acceptable it will return an edited caption text
-def acceptable_caption_text(caption_text):
-    word_list = word_tokenize(caption_text)
-    new_caption_text = ''
-    for word in word_list:
-        # filter for all upper letters and 'phonenumber' format 
-        if word.isupper() or any([re.match(exp, word) for exp in forbidden_formats]):
-            return ''
-        try:
-            num = int(word)
-            new_caption_text += num2words(num, lang='nl') + ' '
-        except:
-            new_caption_text += word + ' '
-    return new_caption_text[:len(new_caption_text)-1].capitalize()
 
 # Function that takes sampleframes and generates a new wav file
 def generate_sample(sampleframes, channels, samplewidth, framerate, outputpath, folder, file_id):
