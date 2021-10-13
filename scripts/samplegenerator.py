@@ -7,10 +7,12 @@
 # TODO subtitles aanpassen
 #      X-getallen naar nummers
 # TODO 3e argument van outputlist
+# TODO filter nutteloze data
 
 # interpunctie vast aan woorden probleem
 
 from num2words import num2words
+from nltk.tokenize import word_tokenize
 import webvttparser
 import wave
 import sys
@@ -36,6 +38,7 @@ def generate_pairlist(listpath, datapath, outputpath):
         for filepath in filepaths:
             file_id = 0
             generate_pairs(f'{datapath}/{filepath}', outputpath, filepath, file_id, pairlist)
+            return
 
 # Function that generates pairs for a single file
 def generate_pairs(filepath, outputpath, folder, file_id, pairlist):
@@ -56,11 +59,12 @@ def generate_pairs(filepath, outputpath, folder, file_id, pairlist):
                     wavfile.getframerate(), outputpath, folder, file_id)
                 file_id = file_id + 1
                 pairlist.write('{"' + new_caption_text + '", "' + samplepath + '"}\n')
+            return
 
 # Function that filters out captions that don't match requirements
 # If it is acceptable it will return an edited caption text
 def acceptable_caption_text(caption_text):
-    word_list = caption_text.split(' ')
+    word_list = word_tokenize(caption_text)
     new_caption_text = ''
     for word in word_list:
         # filter for all upper letters and 'phonenumber' format 
