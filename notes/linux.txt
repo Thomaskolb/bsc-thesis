@@ -3,7 +3,10 @@ Activate/deactivate virtualenv:
 -deactivate
 
 Test samplegenerator:
--python -u "c:\Users\Thoma\OneDrive\Bureaublad\Thesis\thesis\scripts\samplegenerator.py" "C:\Users\Thoma\OneDrive\Bureaublad\Thesis\thesis\scripts\filtered_data.txt" "C:\Users\Thoma\OneDrive\Bureaublad\Thesis\data" "C:\Users\Thoma\OneDrive\Bureaublad\Thesis\outputtest"
+python -u "c:\Users\Thoma\OneDrive\Bureaublad\Thesis\thesis\scripts\samplegenerator.py" "C:\Users\Thoma\OneDrive\Bureaublad\Thesis\thesis\scripts\filtered_data.txt" "C:\Users\Thoma\OneDrive\Bureaublad\Thesis\data" "C:\Users\Thoma\OneDrive\Bureaublad\Thesis\outputtest"
 
 Test heuristicfilter:
--python -u "c:\Users\Thoma\OneDrive\Bureaublad\Thesis\thesis\scripts\heuristicfilter.py" "C:\Users\Thoma\OneDrive\Bureaublad\Thesis\data"
+python -u "c:\Users\Thoma\OneDrive\Bureaublad\Thesis\thesis\scripts\heuristicfilter.py" "C:\Users\Thoma\OneDrive\Bureaublad\Thesis\data"
+
+Play sound:
+python -u "c:\Users\Thoma\OneDrive\Bureaublad\Thesis\thesis\scripts\sampleplayer.py" "C:\Users\Thoma\OneDrive\Bureaublad\Thesis\outputtest\pairlist.json"

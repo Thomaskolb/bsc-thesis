@@ -17,7 +17,7 @@ def read(path):
 def search_sequence(wordsequence, start_time, end_time):
     index = binary_search_closest(wordsequence, start_time)
     sequence = []
-    while wordsequence[index].start_time < end_time:
+    while index < len(wordsequence) and wordsequence[index].start_time < end_time:
         sequence.append(wordsequence[index].word)
         index += 1
     return sequence
