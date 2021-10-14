@@ -12,6 +12,7 @@ subtitle_ext = '.vtt'
 weblink_exceptions = ['nos.nl', 'service.npo.nl']
 unfit_data_indicators = ['LIVEPROGRAMMA,', 'LIVEPROGRAMMA', 'LIVE', 'ONDERTITELD', 'ACHTERLOPEN', 'MUZIEK']
 min_caption_count = 10
+subtract_start_time = 0.3
 
 # Function that traverses all 'webm.vtt' files within a given directory
 # and filters them based on requirements

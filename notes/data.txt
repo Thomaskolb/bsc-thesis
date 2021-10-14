@@ -1,0 +1,12 @@
+Measuring WER sums (the sum of the total WER that was collected of all subtitle-wav pairs) with different subtract_start_time's
+
+subtract_start_time	data salvaged	WER SUM	TOTAL	WER SUM DATA	WER SUM AVG
+================================================================================================
+0.0			34.8		3121.7		627.6		0.180
+0.1			35.3		3148.2		636.2		0.182
+0.2			35.5		3179.5		638.6		0.183
+0.3			35.5		3214.8		642.2		0.184
+0.4			35.8		3254.1		655.6		0.188
+0.5			35.7		3300.5		659.8		0.188
+
+Duidelijk gaat de error rate

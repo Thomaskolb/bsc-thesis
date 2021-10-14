@@ -17,7 +17,11 @@ import wave
 import sys
 import os
 
-min_wer = 0.8
+# Minimum error rate allowed
+min_wer = 0.5
+
+# Amount of seconds that are subtracted from start time to compensate for subtitles being displayed too late
+subtract_start_time = 0.0
 
 # Function that creates the same folders as found in the datapath directory
 def create_directories(datapath, outputpath):
@@ -31,22 +35,25 @@ def create_directories(datapath, outputpath):
 def generate_pairlist(listpath, datapath, outputpath):
     caption_count = 0
     total_caption_count = 0
+    wer_sum = 0
     with open(listpath, 'r') as data, open(f'{outputpath}/pairlist.json', 'w') as pairlist:
         datalist = data.read().split('\n')
         filepaths = datalist[1:len(datalist)-1]
         for filepath in filepaths:
             file_id = 0
-            tcc, cc = generate_pairs(f'{datapath}/{filepath}', outputpath, filepath, file_id, pairlist)
+            tcc, cc, wer = generate_pairs(f'{datapath}/{filepath}', outputpath, filepath, file_id, pairlist)
             total_caption_count += tcc
             caption_count += cc
+            wer_sum += wer
     percentage = "{:.1f}".format((caption_count/total_caption_count)*100)
-    print(f'{percentage}% of data salvaged')
+    print(f'{percentage}% of data salvaged\ttotal WER sum: {wer_sum/total_caption_count}')
 
 # Function that generates pairs for a single file
 def generate_pairs(filepath, outputpath, folder, file_id, pairlist):
     captions = webvttparser.read(f'{filepath}.webm.vtt')
     wordsequence = asrparser.read(f'{filepath}.hyp')
     caption_count = 0
+    wer_total = 0
     try:
         os.makedirs(f'{outputpath}/{folder}')
     except:
@@ -59,7 +66,7 @@ def generate_pairs(filepath, outputpath, folder, file_id, pairlist):
                 # check for the WER with the caption and the asr data to be lower than our threshold
                 wer = similar_caption_text(new_caption_text, caption.start, caption.end, wordsequence)
                 if wer <= min_wer:
-                    start_frame = int(webvttparser.get_time_in_seconds(caption.start) * wavfile.getframerate())
+                    start_frame = int((webvttparser.get_time_in_seconds(caption.start) - subtract_start_time) * wavfile.getframerate())
                     end_frame = int(webvttparser.get_time_in_seconds(caption.end) * wavfile.getframerate())
                     wavfile.setpos(start_frame)
                     sampleframes = wavfile.readframes(end_frame-start_frame)
@@ -68,7 +75,8 @@ def generate_pairs(filepath, outputpath, folder, file_id, pairlist):
                     file_id = file_id + 1
                     pairlist.write('{"text": "' + new_caption_text + '", "path": "' + samplepath + '", "wer": ' + str(wer) + '}\n')
                     caption_count += 1
-    return len(captions), caption_count
+                    wer_total += wer
+    return len(captions), caption_count, wer_total
 
 # Function that takes sampleframes and generates a new wav file
 def generate_sample(sampleframes, channels, samplewidth, framerate, outputpath, folder, file_id):
@@ -85,7 +93,7 @@ def generate_sample(sampleframes, channels, samplewidth, framerate, outputpath, 
 def similar_caption_text(new_caption_text, caption_start, caption_end, wordsequence):
     if len(new_caption_text) > 0:
         sequence = asrparser.search_sequence(wordsequence, 
-            webvttparser.get_time_in_seconds(caption_start), webvttparser.get_time_in_seconds(caption_end))
+            (webvttparser.get_time_in_seconds(caption_start) - subtract_start_time), webvttparser.get_time_in_seconds(caption_end))
         return worderrorrate.WER(new_caption_text.split(' '), sequence).wer()
 
 if len(sys.argv) < 4:
