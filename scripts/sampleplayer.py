@@ -6,8 +6,6 @@ import random
 import time
 import json
 import sys
-import os
-os.environ['SDL_AUDIODRIVER'] = 'dsp'
 
 # Function that plays a random sound and displays some info
 def play_sound_and_display_info(path):
