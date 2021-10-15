@@ -21,7 +21,7 @@ import os
 min_wer = 0.5
 
 # Amount of seconds that are subtracted from start time to compensate for subtitles being displayed too late
-subtract_start_time = 0.0
+subtract_start_time = 0.1
 
 # Function that creates the same folders as found in the datapath directory
 def create_directories(datapath, outputpath):
@@ -45,8 +45,10 @@ def generate_pairlist(listpath, datapath, outputpath):
             total_caption_count += tcc
             caption_count += cc
             wer_sum += wer
+            # Stop early for now
+            break
     percentage = "{:.1f}".format((caption_count/total_caption_count)*100)
-    print(f'{percentage}% of data salvaged\ttotal WER sum: {wer_sum/total_caption_count}')
+    print(f'{percentage}% of data salvaged\ttotal WER sum: {wer_sum}')
 
 # Function that generates pairs for a single file
 def generate_pairs(filepath, outputpath, folder, file_id, pairlist):
@@ -75,7 +77,7 @@ def generate_pairs(filepath, outputpath, folder, file_id, pairlist):
                     file_id = file_id + 1
                     pairlist.write('{"text": "' + new_caption_text + '", "path": "' + samplepath + '", "wer": ' + str(wer) + '}\n')
                     caption_count += 1
-                    wer_total += wer
+                wer_total += wer
     return len(captions), caption_count, wer_total
 
 # Function that takes sampleframes and generates a new wav file

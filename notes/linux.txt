@@ -2,11 +2,14 @@ Activate/deactivate virtualenv:
 -source env/bin/activate
 -deactivate
 
+Move data:
+scp -r tkolb@cn47.science.ru.nl:\ceph\csedu-scratch\other\david\thomas\data\2021-05-13 C:\Users\Thoma\OneDrive\Bureaublad\Thesis\data\2021-05-13
+
 Test samplegenerator:
-python -u "c:\Users\Thoma\OneDrive\Bureaublad\Thesis\thesis\scripts\samplegenerator.py" "C:\Users\Thoma\OneDrive\Bureaublad\Thesis\thesis\scripts\filtered_data.txt" "C:\Users\Thoma\OneDrive\Bureaublad\Thesis\data" "C:\Users\Thoma\OneDrive\Bureaublad\Thesis\outputtest"
+python -u "c:\Users\Thoma\OneDrive\Bureaublad\Thesis\thesis\scripts\samplegenerator.py" "C:\Users\Thoma\OneDrive\Bureaublad\Thesis\thesis\filtered_data.txt" "C:\Users\Thoma\OneDrive\Bureaublad\Thesis\data" "C:\Users\Thoma\OneDrive\Bureaublad\Thesis\outputtest"
 
 Test heuristicfilter:
-python -u "c:\Users\Thoma\OneDrive\Bureaublad\Thesis\thesis\scripts\heuristicfilter.py" "C:\Users\Thoma\OneDrive\Bureaublad\Thesis\data"
+python -u "c:\Users\Thoma\OneDrive\Bureaublad\Thesis\thesis\scripts\heuristicfilter.py" "C:\Users\Thoma\OneDrive\Bureaublad\Thesis\data" "C:\Users\Thoma\OneDrive\Bureaublad\Thesis\thesis\filtered_data.txt"
 
 Play sound:
 python -u "c:\Users\Thoma\OneDrive\Bureaublad\Thesis\thesis\scripts\sampleplayer.py" "C:\Users\Thoma\OneDrive\Bureaublad\Thesis\outputtest\pairlist.json"

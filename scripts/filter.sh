@@ -10,5 +10,5 @@
 #SBATCH --mail-type=BEGIN,END,FAIL
 
 source "/home/tkolb/bsc/thesis/env/bin/activate"
-python3 heuristicfilter.py "/home/tkolb/bsc/thomas/data"
+python3 heuristicfilter.py "/home/tkolb/bsc/thomas/data" "/home/tkolb/bsc/thesis/filtered_data.txt"
 deactivate

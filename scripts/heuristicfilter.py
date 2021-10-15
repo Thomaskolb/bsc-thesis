@@ -59,14 +59,14 @@ def is_livebroadcast(word):
     return word in unfit_data_indicators
 
 # Write data to txt file
-def write_data(data, percentage):
-    with open('filtered_data.txt', 'w') as txtfile:
+def write_data(data, percentage, outfile):
+    with open(outfile, 'w') as txtfile:
         txtfile.write(f"{percentage}% of data salvaged\n")
         [txtfile.write(path + '\n') for path in data]
 
-if len(sys.argv) < 2:
-    print("Please enter the data path.")
+if len(sys.argv) < 3:
+    print("Please enter the data path and the outputfile")
 else:
     # List of file paths that will be used for training
     filepaths, percentage = filter_vtt_data(sys.argv[1])
-    write_data(filepaths, percentage)
+    write_data(filepaths, percentage, sys.argv[2])
