@@ -4,8 +4,8 @@
 #SBATCH --mem=1G
 #SBATCH --cpus-per-task=1
 #SBATCH --time=1:00:00
-#SBATCH --output=filter-%J.out
-#SBATCH --error=filter-%J.err
+#SBATCH --output=generator-%J.out
+#SBATCH --error=generator-%J.err
 #SBATCH --mail-user=thomaskolb@live.nl
 #SBATCH --mail-type=BEGIN,END,FAIL
 
