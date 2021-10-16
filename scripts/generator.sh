@@ -1,9 +1,9 @@
 #!/bin/bash -e
 #SBATCH --partition=csedu
 #SBATCH --gres=gpu:1
-#SBATCH --mem=1G
+#SBATCH --mem=10G
 #SBATCH --cpus-per-task=1
-#SBATCH --time=1:00:00
+#SBATCH --time=16:00:00
 #SBATCH --output=generator-%J.out
 #SBATCH --error=generator-%J.err
 #SBATCH --mail-user=thomaskolb@live.nl
