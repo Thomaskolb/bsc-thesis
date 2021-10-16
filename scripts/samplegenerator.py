@@ -68,7 +68,7 @@ def generate_pairs(filepath, outputpath, folder, file_id, pairlist):
             # If caption was accepted the length is > 0
             if len(new_caption_text) > 0:
                 # check for the WER with the caption and the asr data to be lower than our threshold
-                wer = similar_caption_text(new_caption_text, caption.start, caption.end, wordsequence)
+                wer, asr_words = similar_caption_text(new_caption_text, caption.start, caption.end, wordsequence)
                 if wer <= min_wer:
                     start_seconds = webvttparser.get_time_in_seconds(caption.start) - subtract_start_time
                     end_seconds = webvttparser.get_time_in_seconds(caption.end)
@@ -79,7 +79,7 @@ def generate_pairs(filepath, outputpath, folder, file_id, pairlist):
                     samplepath = generate_sample(sampleframes, wavfile.getnchannels(), wavfile.getsampwidth(), 
                         wavfile.getframerate(), outputpath, folder, file_id)
                     file_id = file_id + 1
-                    pairlist.write('{"text": "' + new_caption_text + '", "path": "' + samplepath + '", "wer": ' + str(wer) + '}\n')
+                    pairlist.write('{"text": "' + new_caption_text + '", "path": "' + samplepath + '", "asr": ' + asr_words + '}\n')
                     caption_count += 1
                     seconds_count += end_seconds - start_seconds
                 wer_total += wer
@@ -101,7 +101,7 @@ def similar_caption_text(new_caption_text, caption_start, caption_end, wordseque
     if len(new_caption_text) > 0:
         sequence = asrparser.search_sequence(wordsequence, 
             (webvttparser.get_time_in_seconds(caption_start) - subtract_start_time), webvttparser.get_time_in_seconds(caption_end))
-        return worderrorrate.WER(new_caption_text.split(' '), sequence).wer()
+        return worderrorrate.WER(new_caption_text.split(' '), sequence).wer(), sequence
 
 if len(sys.argv) < 4:
     print("Please enter the path of the listed data, the data location, and the output path.")
