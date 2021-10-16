@@ -1,0 +1,29 @@
+
+
+###############################################################################
+Science Cluster
+Job 3734200 for user 'tkolb'
+Finished at: Sat Oct 16 16:48:31 CEST 2021
+
+Job details:
+============
+
+Name                : generator.sh
+User                : tkolb
+Partition           : csedu
+Nodes               : cn47
+Cores               : 2
+State               : COMPLETED
+Submit              : 2021-10-16T16:44:10
+Start               : 2021-10-16T16:44:10
+End                 : 2021-10-16T16:48:31
+Reserved walltime   : 16:00:00
+Used walltime       : 00:04:21
+Used CPU time       : 00:02:18 (efficiency: 26.44%)
+% User (Computation): 90.06%
+% System (I/O)      :  9.94%
+Mem reserved        : 10G/node
+Max Mem used        : 52.53M (cn47)
+Max Disk Write      : 0.00  (cn47)
+Max Disk Read       : 727.04K (cn47)
+
