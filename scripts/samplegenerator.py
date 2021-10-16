@@ -79,7 +79,7 @@ def generate_pairs(filepath, outputpath, folder, file_id, pairlist):
                     samplepath = generate_sample(sampleframes, wavfile.getnchannels(), wavfile.getsampwidth(), 
                         wavfile.getframerate(), outputpath, folder, file_id)
                     file_id = file_id + 1
-                    pairlist.write('{"text": "' + new_caption_text + '", "path": "' + samplepath + '", "asr": ' + asr_words + '}\n')
+                    pairlist.write('{"text": "' + new_caption_text + '", "path": "' + samplepath + '", "asr": ' + str(asr_words) + '}\n')
                     caption_count += 1
                     seconds_count += end_seconds - start_seconds
                 wer_total += wer
