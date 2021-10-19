@@ -42,11 +42,9 @@ def generate_pairlist(listpath, datapath, outputpath, type):
             open(f'{outputpath}/words.wrd', 'w') as wrd, \
             open(f'{outputpath}/letters.ltr', 'w') as ltr, \
             open(f'{outputpath}/{type}.tsv', 'w') as filelist:
-        print(f'{listpath}/{type}.txt')
         filelist.write(outputpath + '\n')
         datalist = data.read().split('\n')
-        filepaths = datalist[len(datalist)-1]
-        print(datalist[0])
+        filepaths = datalist[:len(datalist)-1]
         for filepath in filepaths:
             print(filepath)
             file_id = 0
