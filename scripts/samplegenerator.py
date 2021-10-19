@@ -38,7 +38,7 @@ def generate_pairlist(listpath, datapath, outputpath, type):
     total_caption_count = 0
     total_seconds = 0
     wer_sum = 0
-    with open(listpath, 'r') as data, \
+    with open(f'{listpath}/{type}.txt', 'r') as data, \
             open(f'{outputpath}/words.wrd', 'w') as wrd, \
             open(f'{outputpath}/letters.ltr', 'w') as ltr, \
             open(f'{outputpath}/{type}.tsv', 'w') as filelist:
