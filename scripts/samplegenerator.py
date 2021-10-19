@@ -46,7 +46,6 @@ def generate_pairlist(listpath, datapath, outputpath, type):
         datalist = data.read().split('\n')
         filepaths = datalist[:len(datalist)-1]
         for filepath in filepaths:
-            print(filepath)
             file_id = 0
             tcc, cc, wer, sc = generate_pairs(f'{datapath}/{filepath}', outputpath, filepath, file_id, filelist, wrd, ltr)
             total_caption_count += tcc
@@ -87,7 +86,7 @@ def generate_pairs(filepath, outputpath, folder, file_id, filelist, wrd, ltr):
                     file_id += 1
                     caption_count += 1
                     seconds_count += end_seconds - start_seconds
-                    write_output_files(filelist, samplepath, sampleframes, new_caption_text, asr_words)
+                    write_output_files(filelist, samplepath, sampleframes, new_caption_text, asr_words, wrd, ltr)
                 wer_total += wer
     return len(captions), caption_count, wer_total, seconds_count
 
