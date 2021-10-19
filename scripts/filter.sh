@@ -10,5 +10,5 @@
 #SBATCH --mail-type=BEGIN,END,FAIL
 
 ~/.poetry/bin/poetry shell
-heuristicfilter.py "/home/tkolb/bsc/thomas/data" "/home/tkolb/bsc/bsc-thesis/filtered"
+python3 heuristicfilter.py "/home/tkolb/bsc/thomas/data" "/home/tkolb/bsc/bsc-thesis/filtered"
 deactivate
