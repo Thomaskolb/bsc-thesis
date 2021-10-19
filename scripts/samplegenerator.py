@@ -42,6 +42,7 @@ def generate_pairlist(listpath, datapath, outputpath, type):
             open(f'{outputpath}/words.wrd', 'w') as wrd, \
             open(f'{outputpath}/letters.ltr', 'w') as ltr, \
             open(f'{outputpath}/{type}.tsv', 'w') as filelist:
+        print(f'{outputpath}/{type}.tsv')
         filelist.write(outputpath + '\n')
         datalist = data.read().split('\n')
         filepaths = datalist[len(datalist)-1]
@@ -52,8 +53,9 @@ def generate_pairlist(listpath, datapath, outputpath, type):
             caption_count += cc
             wer_sum += wer
             total_seconds += sc
-    percentage = "{:.1f}".format((caption_count/total_caption_count)*100)
-    print(f'{percentage}% of data salvaged\ttotal WER sum: {wer_sum}\tdata length = {str(datetime.timedelta(seconds=total_seconds))}')
+    # percentage = "{:.1f}".format((caption_count/total_caption_count)*100)
+    # print(f'{percentage}% of data salvaged\ttotal WER sum: {wer_sum}\tdata length = {str(datetime.timedelta(seconds=total_seconds))}')
+    print(f'{caption_count} of {total_caption_count} of data salvaged\ttotal WER sum: {wer_sum}\tdata length = {str(datetime.timedelta(seconds=total_seconds))}')
 
 # Function that generates pairs for a single file
 def generate_pairs(filepath, outputpath, folder, file_id, filelist, wrd, ltr):
