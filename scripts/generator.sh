@@ -9,6 +9,4 @@
 #SBATCH --mail-user=thomaskolb@live.nl
 #SBATCH --mail-type=BEGIN,END,FAIL
 
-~/.poetry/bin/poetry shell
-python3 samplegenerator.py "/home/tkolb/bsc/bsc-thesis/filtered" "/home/tkolb/bsc/thomas/data" "/home/tkolb/bsc/outputdata" 
-exit
+~/.poetry/bin/poetry run samplegenerator.py "/home/tkolb/bsc/bsc-thesis/filtered" "/home/tkolb/bsc/thomas/data" "/home/tkolb/bsc/outputdata" 
