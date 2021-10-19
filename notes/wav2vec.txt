@@ -1,10 +1,9 @@
 https://www.kdnuggets.com/2021/03/speech-text-wav2vec.html
 https://ai.facebook.com/blog/wav2vec-20-learning-the-structure-of-speech-from-raw-audio/
 
-Intro:
--learn representations from speech audio using self-supervision (no labeled data)
--wav2vec masks speech input into latent space and solves contrastive task defined over a quantization of latent representations which are jointly learned
--mask out frames in audio
--latent space: similare DP are closer together
--quantized = discrete latent space
--low amount of data
+WAV2VEC:
+https://github.com/pytorch/fairseq/blob/main/examples/wav2vec/README.md
+https://github.com/pytorch/fairseq/issues/2819
+
+TSV:
+https://en.wikipedia.org/wiki/Tab-separated_values#:~:text=A%20tab%2Dseparated%20values%20(TSV,of%20exchanging%20information%20between%20databases.&text=For%20example%2C%20a%20TSV%20file,database%20program%20to%20a%20spreadsheet.

@@ -33,17 +33,21 @@ def create_directories(datapath, outputpath):
             pass
 
 # Function that traverses list of datafiles and creates sample subtitle pairs
-def generate_pairlist(listpath, datapath, outputpath):
+def generate_pairlist(listpath, datapath, outputpath, type):
     caption_count = 0
     total_caption_count = 0
     total_seconds = 0
     wer_sum = 0
-    with open(listpath, 'r') as data, open(f'{outputpath}/pairlist.json', 'w') as pairlist:
+    with open(listpath, 'r') as data, \
+            open(f'{outputpath}/words.wrd', 'w') as wrd, \
+            open(f'{outputpath}/letters.ltr', 'w') as ltr, \
+            open(f'{outputpath}/{type}.tsv', 'w') as filelist:
+        filelist.write(outputpath + '\n')
         datalist = data.read().split('\n')
-        filepaths = datalist[1:len(datalist)-1]
+        filepaths = datalist[len(datalist)-1]
         for filepath in filepaths:
             file_id = 0
-            tcc, cc, wer, sc = generate_pairs(f'{datapath}/{filepath}', outputpath, filepath, file_id, pairlist)
+            tcc, cc, wer, sc = generate_pairs(f'{datapath}/{filepath}', outputpath, filepath, file_id, filelist, wrd, ltr)
             total_caption_count += tcc
             caption_count += cc
             wer_sum += wer
@@ -52,7 +56,7 @@ def generate_pairlist(listpath, datapath, outputpath):
     print(f'{percentage}% of data salvaged\ttotal WER sum: {wer_sum}\tdata length = {str(datetime.timedelta(seconds=total_seconds))}')
 
 # Function that generates pairs for a single file
-def generate_pairs(filepath, outputpath, folder, file_id, pairlist):
+def generate_pairs(filepath, outputpath, folder, file_id, filelist, wrd, ltr):
     captions = webvttparser.read(f'{filepath}.webm.vtt')
     wordsequence = asrparser.read(f'{filepath}.hyp')
     caption_count = 0
@@ -78,12 +82,18 @@ def generate_pairs(filepath, outputpath, folder, file_id, pairlist):
                     sampleframes = wavfile.readframes(end_frame-start_frame)
                     samplepath = generate_sample(sampleframes, wavfile.getnchannels(), wavfile.getsampwidth(), 
                         wavfile.getframerate(), outputpath, folder, file_id)
-                    file_id = file_id + 1
-                    pairlist.write('{"text": "' + new_caption_text + '", "path": "' + samplepath + '", "asr": ' + str(asr_words) + '}\n')
+                    file_id += 1
                     caption_count += 1
                     seconds_count += end_seconds - start_seconds
+                    write_output_files(filelist, samplepath, sampleframes, new_caption_text, asr_words)
                 wer_total += wer
     return len(captions), caption_count, wer_total, seconds_count
+
+# Function that writes the output files
+def write_output_files(filelist, samplepath, sampleframes, new_caption_text, asr_words, wrd, ltr):
+    filelist.write(f'{samplepath}\t{sampleframes}\n')
+    wrd.write(f'{new_caption_text}\n')
+    ltr.write(f'{" ".join(list(str(new_caption_text).replace(" ", "|")))}" |\n"')
 
 # Function that takes sampleframes and generates a new wav file
 def generate_sample(sampleframes, channels, samplewidth, framerate, outputpath, folder, file_id):
@@ -104,10 +114,11 @@ def similar_caption_text(new_caption_text, caption_start, caption_end, wordseque
         return worderrorrate.WER(new_caption_text.split(' '), sequence).wer(), sequence
 
 if len(sys.argv) < 4:
-    print("Please enter the path of the listed data, the data location, and the output path.")
+    print("Please enter the path of the listed data, the data location, and the output directory.")
 else:
-    # List of pairs of subtitles and .wav files
-    # create_directories(sys.argv[2], sys.argv[3])
-    generate_pairlist(sys.argv[1].replace('\\', '/'), sys.argv[2].replace('\\', '/'), sys.argv[3].replace('\\', '/'))
-    # print(re.match('([0-9]{2})\:([0-9]{2})\:([0-9]{2}\.[0-9]{3})$', '00:00:27.039').groups())
-    # samplepairs, percentage = generate_samples(sys.argv[1])
+    # Training data
+    generate_pairlist(sys.argv[1].replace('\\', '/'), sys.argv[2].replace('\\', '/'), sys.argv[3].replace('\\', '/'), 'train')
+    # Test data
+    generate_pairlist(sys.argv[1].replace('\\', '/'), sys.argv[2].replace('\\', '/'), sys.argv[3].replace('\\', '/'), 'test')
+    # Validation data
+    generate_pairlist(sys.argv[1].replace('\\', '/'), sys.argv[2].replace('\\', '/'), sys.argv[3].replace('\\', '/'), 'valid')

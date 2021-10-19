@@ -9,7 +9,7 @@ Test samplegenerator:
 python -u "c:\Users\Thoma\OneDrive\Bureaublad\Thesis\thesis\scripts\samplegenerator.py" "C:\Users\Thoma\OneDrive\Bureaublad\Thesis\thesis\filtered_data.txt" "C:\Users\Thoma\OneDrive\Bureaublad\Thesis\data" "C:\Users\Thoma\OneDrive\Bureaublad\Thesis\outputtest"
 
 Test heuristicfilter:
-python -u "c:\Users\Thoma\OneDrive\Bureaublad\Thesis\thesis\scripts\heuristicfilter.py" "C:\Users\Thoma\OneDrive\Bureaublad\Thesis\data" "C:\Users\Thoma\OneDrive\Bureaublad\Thesis\thesis\filtered_data.txt"
+python -u "c:\Users\Thoma\OneDrive\Bureaublad\Thesis\thesis\scripts\heuristicfilter.py" "C:\Users\Thoma\OneDrive\Bureaublad\Thesis\data" "C:\Users\Thoma\OneDrive\Bureaublad\Thesis\thesis\filter"
 
 Play sound:
 Windows:

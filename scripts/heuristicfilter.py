@@ -7,10 +7,23 @@ import sys
 import os
 import re
 
+# Extension of subtitle files
 subtitle_ext = '.vtt'
+
+# Weblinks that are allowed to be used for data
 weblink_exceptions = ['nos.nl', 'service.npo.nl']
+
+# Words that indicate uselessness of data
 unfit_data_indicators = ['LIVEPROGRAMMA,', 'LIVEPROGRAMMA', 'LIVE', 'ONDERTITELD', 'ACHTERLOPEN', 'MUZIEK']
+
+# Minimal number of captions required in subtitle file for data to be used
 min_caption_count = 10
+
+# Data files starting with this string will be used as test data
+test_data_date = '2021-06'
+
+# Number of validation data files
+validation_files = 2
 
 # Function that traverses all 'webm.vtt' files within a given directory
 # and filters them based on requirements
@@ -56,15 +69,30 @@ def is_weblink(word):
 def is_livebroadcast(word):
     return word in unfit_data_indicators
 
-# Write data to txt file
-def write_data(data, percentage, outfile):
-    with open(outfile, 'w') as txtfile:
-        txtfile.write(f"{percentage}% of data salvaged\n")
-        [txtfile.write(path + '\n') for path in data]
+# Write data to txt file, first two files in test data will be used for validation
+def write_data(paths, outdir):
+    try:
+        os.makedirs(outdir)
+    except FileExistsError:
+        pass
+    validation_paths = validation_files
+    with open(f'{outdir}/train.txt', 'w') as train_data, \
+            open(f'{outdir}/valid.txt', 'w') as validation_data, \
+            open(f'{outdir}/test.txt', 'w') as test_data:
+        for path in paths:
+            if path.startswith(test_data_date):
+                if validation_paths > 0:
+                    validation_data.write(path + '\n')
+                    validation_paths -= 1
+                else:
+                    test_data.write(path + '\n')
+            else:
+                train_data.write(path + '\n')
 
 if len(sys.argv) < 3:
-    print("Please enter the data path and the outputfile")
+    print("Please enter the data path and the output directory")
 else:
     # List of file paths that will be used for training
     filepaths, percentage = filter_vtt_data(sys.argv[1])
-    write_data(filepaths, percentage, sys.argv[2])
+    write_data(filepaths, sys.argv[2])
+    print(f"{percentage}% of data salvaged")
