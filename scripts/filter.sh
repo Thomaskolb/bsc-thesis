@@ -9,4 +9,6 @@
 #SBATCH --mail-user=thomaskolb@live.nl
 #SBATCH --mail-type=BEGIN,END,FAIL
 
-~/.poetry/bin/poetry run heuristicfilter.py "/home/tkolb/bsc/thomas/data" "/home/tkolb/bsc/bsc-thesis/filtered"
+~/.poetry/bin/poetry shell
+heuristicfilter.py "/home/tkolb/bsc/thomas/data" "/home/tkolb/bsc/bsc-thesis/filtered"
+deactivate
