@@ -46,7 +46,9 @@ def generate_pairlist(listpath, datapath, outputpath, type):
         filelist.write(outputpath + '\n')
         datalist = data.read().split('\n')
         filepaths = datalist[len(datalist)-1]
+        print(datalist[0])
         for filepath in filepaths:
+            print(filepath)
             file_id = 0
             tcc, cc, wer, sc = generate_pairs(f'{datapath}/{filepath}', outputpath, filepath, file_id, filelist, wrd, ltr)
             total_caption_count += tcc
