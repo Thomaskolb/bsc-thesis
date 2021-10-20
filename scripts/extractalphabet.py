@@ -20,7 +20,7 @@ def extract_alphabet(path):
 # Function that writes data to output file
 def write_dict_file(data, outpath):
     with open(outpath, 'w') as outfile:
-        [outfile.write(f'{char}\t{data[char]}\n') for char in data]
+        [outfile.write(f'{char} {data[char]}\n') for char in data]
     
 if len(sys.argv) < 3:
     print("Please enter the path of the ltr file and the output file")
