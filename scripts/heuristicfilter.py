@@ -11,7 +11,7 @@ import re
 subtitle_ext = '.vtt'
 
 # Weblinks that are allowed to be used for data
-weblink_exceptions = ['nos.nl', 'service.npo.nl']
+weblink_exceptions = ['nos.nl', 'service.npo.nl', 'npo.nl', 'eenvandaag.nl'. 'bbc.nl']
 
 # Words that indicate uselessness of data
 unfit_data_indicators = ['LIVEPROGRAMMA,', 'LIVEPROGRAMMA', 'LIVE', 'ONDERTITELD', 'ACHTERLOPEN', 'MUZIEK']
@@ -61,7 +61,7 @@ def synchronized(captions, wavpath):
 
 # Checks whether a string contains a weblink
 def is_weblink(word):
-    if re.match("([a-zA-Z]{1,})\.([a-zA-Z]{1,})", word) and word not in weblink_exceptions:
+    if re.match("([a-zA-Z]{1,})\.([a-zA-Z]{1,})", word) and not any([word.lower.startswith(exc) for exc in weblink_exceptions]):
         print(word)
         return True
     return False
