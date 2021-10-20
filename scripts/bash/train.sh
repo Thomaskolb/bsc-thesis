@@ -14,5 +14,5 @@ fairseq-hydra-train \
     task.data=/home/tkolb/bsc/outputdata \
     model.w2v_path=/home/tkolb/bsc/models/wav2vec_small.pt \
     --config-dir /home/tkolb/bsc/bsc-thesis/scripts/fairseq \
-    --config-name base_100h_custom
+    --config-name base_1h_custom
 deactivate
