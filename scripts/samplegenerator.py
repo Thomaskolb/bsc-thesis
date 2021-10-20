@@ -86,13 +86,13 @@ def generate_pairs(filepath, outputpath, folder, file_id, filelist, wrd, ltr):
                     file_id += 1
                     caption_count += 1
                     seconds_count += end_seconds - start_seconds
-                    write_output_files(filelist, samplepath, sampleframes, new_caption_text, asr_words, wrd, ltr)
+                    write_output_files(filelist, samplepath, end_frame-start_frame, new_caption_text, asr_words, wrd, ltr)
                 wer_total += wer
     return len(captions), caption_count, wer_total, seconds_count
 
 # Function that writes the output files
-def write_output_files(filelist, samplepath, sampleframes, new_caption_text, asr_words, wrd, ltr):
-    filelist.write(f'{samplepath}\t{sampleframes}\n')
+def write_output_files(filelist, samplepath, nrframes, new_caption_text, asr_words, wrd, ltr):
+    filelist.write(f'{samplepath}\t{nrframes}\n')
     wrd.write(f'{new_caption_text}\n')
     ltr.write(f'{" ".join(list(str(new_caption_text).replace(" ", "|")))} |\n')
 
