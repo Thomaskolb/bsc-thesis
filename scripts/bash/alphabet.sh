@@ -10,5 +10,5 @@
 #SBATCH --mail-type=BEGIN,END,FAIL
 
 source ~/.cache/pypoetry/virtualenvs/tkolbpoetry-0grRN4_Q-py3.6/bin/activate
-python3 ../extractalphabet.py "/home/tkolb/bsc/outputdata/letters.ltr" "/home/tkolb/bsc/outputdata/dict.ltr.txt"
+python3 ../extractalphabet.py "/home/tkolb/bsc/outputdata/letters_train.ltr" "/home/tkolb/bsc/outputdata/dict.ltr.txt"
 deactivate
