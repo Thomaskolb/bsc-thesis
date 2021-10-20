@@ -98,14 +98,14 @@ def write_output_files(filelist, samplepath, nrframes, new_caption_text, asr_wor
 
 # Function that takes sampleframes and generates a new wav file
 def generate_sample(sampleframes, channels, samplewidth, framerate, outputpath, folder, file_id):
-    samplepath = f'{outputpath}/{folder}/{file_id}.wav'
-    with wave.open(samplepath, 'w') as outfile:
+    samplepath = f'{folder}/{file_id}.wav'
+    with wave.open(f'{outputpath}/{samplepath}', 'w') as outfile:
         outfile.setnchannels(channels)
         outfile.setsampwidth(samplewidth)
         outfile.setframerate(framerate)
         outfile.setnframes(int(len(sampleframes) / samplewidth))
         outfile.writeframes(sampleframes)
-        return f'{folder}/{file_id}.wav'
+        return samplepath
 
 # Returns WER between the caption text and the text given by the output of the ASR within the same time frame
 def similar_caption_text(new_caption_text, caption_start, caption_end, wordsequence):
