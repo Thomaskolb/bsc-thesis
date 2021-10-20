@@ -105,7 +105,7 @@ def generate_sample(sampleframes, channels, samplewidth, framerate, outputpath, 
         outfile.setframerate(framerate)
         outfile.setnframes(int(len(sampleframes) / samplewidth))
         outfile.writeframes(sampleframes)
-        return samplepath
+        return f'{folder}/{file_id}.wav'
 
 # Returns WER between the caption text and the text given by the output of the ASR within the same time frame
 def similar_caption_text(new_caption_text, caption_start, caption_end, wordsequence):
