@@ -14,7 +14,7 @@ def extract_alphabet(path):
             if char in char_dict:
                 char_dict[char] += 1
             else:
-                char_dict[char] = 0
+                char_dict[char] = 1
     return dict(sorted(char_dict.items(), key=lambda x: x[1], reverse=True))
 
 # Function that writes data to output file
