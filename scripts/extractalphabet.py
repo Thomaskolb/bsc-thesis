@@ -7,12 +7,12 @@ import sys
 def extract_alphabet(path):
     char_dict = {}
     with open(path, 'r') as ltrfile:
-        for char in ltrfile.read().replace(' ', ''):
+        for char in [c for c in ltrfile.read() if c != ' ']:
             if char in char_dict:
                 char_dict[char] += 1
             else:
                 char_dict[char] = 0
-    return {key:char_dict[key] for key in sorted(char_dict.keys())}
+    return dict(sorted(char_dict.items(), key=lambda x: x[1]))
 
 # Function that writes data to output file
 def write_dict_file(data, outpath):
