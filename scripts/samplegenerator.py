@@ -72,7 +72,7 @@ def generate_pairs(filepath, outputpath, folder, file_id, filelist, wrd, ltr):
             new_caption_text = captionparser.acceptable_caption_text(caption.text)
             # If caption was accepted the length is > 0
             if len(new_caption_text) > 0:
-                # check for the WER with the caption and the asr data to be lower than our threshold
+                # Check for the WER with the caption and the asr data to be lower than our threshold
                 wer, asr_words = similar_caption_text(new_caption_text, caption.start, caption.end, wordsequence)
                 if wer <= min_wer:
                     start_seconds = webvttparser.get_time_in_seconds(caption.start) - subtract_start_time
@@ -94,7 +94,7 @@ def generate_pairs(filepath, outputpath, folder, file_id, filelist, wrd, ltr):
 def write_output_files(filelist, samplepath, sampleframes, new_caption_text, asr_words, wrd, ltr):
     filelist.write(f'{samplepath}\t{sampleframes}\n')
     wrd.write(f'{new_caption_text}\n')
-    ltr.write(f'{" ".join(list(str(new_caption_text).replace(" ", "|")))}" |\n"')
+    ltr.write(f'{" ".join(list(str(new_caption_text).replace(" ", "|")))} |\n')
 
 # Function that takes sampleframes and generates a new wav file
 def generate_sample(sampleframes, channels, samplewidth, framerate, outputpath, folder, file_id):
