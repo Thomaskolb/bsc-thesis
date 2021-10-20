@@ -15,3 +15,11 @@ Play sound:
 Windows:
 python -u "c:\Users\Thoma\OneDrive\Bureaublad\Thesis\thesis\scripts\sampleplayer.py" "C:\Users\Thoma\OneDrive\Bureaublad\Thesis\outputtest\pairlist.json"
 Linux: python3 sampleplayer.py "/home/tkolb/bsc/outputdata/pairlist.json"
+
+Softlink: Move actual location of a to data folder
+cd wherever_a_is_located
+mv a data/
+ln -s data/a .
+
+Activate/deactivate Poetry:
+source ~/.cache/pypoetry/virtualenvs/tkolbpoetry-0grRN4_Q-py3.6/bin/activate
