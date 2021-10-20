@@ -11,7 +11,7 @@ import re
 subtitle_ext = '.vtt'
 
 # Weblinks that are allowed to be used for data
-weblink_exceptions = ['nos.nl', 'service.npo.nl', 'npo.nl', 'eenvandaag.nl'. 'bbc.nl']
+weblink_exceptions = ['nos.nl', 'service.npo.nl', 'npo.nl', 'eenvandaag.nl', 'bbc.nl', 'coronavaccinatie.nl']
 
 # Words that indicate uselessness of data
 unfit_data_indicators = ['LIVEPROGRAMMA,', 'LIVEPROGRAMMA', 'LIVE', 'ONDERTITELD', 'ACHTERLOPEN', 'MUZIEK']
