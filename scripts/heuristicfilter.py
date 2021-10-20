@@ -62,7 +62,6 @@ def synchronized(captions, wavpath):
 # Checks whether a string contains a weblink
 def is_weblink(word):
     if re.match("([a-zA-Z]{1,})\.([a-zA-Z]{1,})", word) and not any([word.lower().startswith(exc) for exc in weblink_exceptions]):
-        print(word)
         return True
     return False
 
