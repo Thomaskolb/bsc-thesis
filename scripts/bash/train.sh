@@ -13,6 +13,7 @@ source ~/.cache/pypoetry/virtualenvs/tkolbpoetry-0grRN4_Q-py3.6/bin/activate
 fairseq-hydra-train \
     task.data=/home/tkolb/bsc/outputdata \
     model.w2v_path=/home/tkolb/bsc/models/wav2vec_small.pt \
+    model.freeze_finetune_updates=0 \
     --config-dir /home/tkolb/bsc/bsc-thesis/scripts/fairseq \
     --config-name base_1h_custom
 deactivate

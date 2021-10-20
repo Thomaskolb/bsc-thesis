@@ -22,8 +22,8 @@ min_caption_count = 10
 # Data files starting with this string will be used as test data
 test_data_date = '2021-06'
 
-# Number of validation data files
-validation_files = 2
+# Partition of validation data files (of test data)
+validation_files = 0.2
 
 # Function that traverses all 'webm.vtt' files within a given directory
 # and filters them based on requirements
@@ -75,7 +75,7 @@ def write_data(paths, outdir):
         os.makedirs(outdir)
     except FileExistsError:
         pass
-    validation_paths = validation_files
+    validation_paths = int(validation_files * 80)
     with open(f'{outdir}/train.txt', 'w') as train_data, \
             open(f'{outdir}/valid.txt', 'w') as validation_data, \
             open(f'{outdir}/test.txt', 'w') as test_data:
