@@ -12,7 +12,7 @@ def extract_alphabet(path):
                 char_dict[char] += 1
             else:
                 char_dict[char] = 0
-    return char_dict
+    return {key:char_dict[key] for key in sorted(char_dict.keys())}
 
 # Function that writes data to output file
 def write_dict_file(data, outpath):
