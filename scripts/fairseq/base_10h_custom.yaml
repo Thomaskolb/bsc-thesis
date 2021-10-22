@@ -4,6 +4,7 @@ common:
   fp16: true
   log_format: json
   log_interval: 200
+  tensorboard_logdir: ./tensorboard
 
 checkpoint:
   save_interval: 50
@@ -61,6 +62,3 @@ model:
   activation_dropout: 0.1
   feature_grad_mult: 0.0
   freeze_finetune_updates: ???
-
-common:
-  tensorboard_logdir: ./tensorboard
