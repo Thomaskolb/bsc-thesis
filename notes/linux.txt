@@ -23,3 +23,6 @@ ln -s data/a .
 
 Activate/deactivate Poetry:
 source ~/.cache/pypoetry/virtualenvs/tkolbpoetry-0grRN4_Q-py3.6/bin/activate
+
+Tensorboard:
+tensorboard log
