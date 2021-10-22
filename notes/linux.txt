@@ -1,3 +1,7 @@
+Open ssh and forwards everything from port a on machine to 127.0.0.1:b host:
+ssh -L b:127.0.0.1:a machine
+ssh -L 6543:127.0.0.1:6543 tkolb@cn47.science.ru.nl
+
 Activate/deactivate virtualenv:
 -source env/bin/activate
 -deactivate
@@ -25,4 +29,4 @@ Activate/deactivate Poetry:
 source ~/.cache/pypoetry/virtualenvs/tkolbpoetry-0grRN4_Q-py3.6/bin/activate
 
 Tensorboard:
-tensorboard log
+tensorboard --logdir tensorboard --port 6543
