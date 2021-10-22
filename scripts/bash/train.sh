@@ -15,6 +15,5 @@ fairseq-hydra-train \
     model.w2v_path=/home/tkolb/bsc/data/models/wav2vec_small.pt \
     model.freeze_finetune_updates=0 \
     --config-dir /home/tkolb/bsc/bsc-thesis/scripts/fairseq \
-    --config-name base_10h_custom \
-    hydra.sweep.dir=/home/tkolb/bsc/data/fairseq-output
+    --config-name base_10h_custom
 deactivate
