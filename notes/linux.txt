@@ -29,4 +29,4 @@ Activate/deactivate Poetry:
 source ~/.cache/pypoetry/virtualenvs/tkolbpoetry-0grRN4_Q-py3.6/bin/activate
 
 Tensorboard:
-tensorboard --logdir tensorboard --port 6543
+tensorboard --logdir tensorboard --port 6543 --reload_multifile true
