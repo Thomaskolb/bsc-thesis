@@ -61,6 +61,7 @@ def acceptable_caption_text(caption_text):
 # Changes a word for different configurations; returns '' when word is not allowed
 def config_filter(word):
     new_word = ''
+    return word
     for c in word:
         if c in config_ignore[active_config-1]:
             continue
