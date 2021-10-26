@@ -24,7 +24,7 @@ config_ignore = []
 config_convert = [] 
 
 # Configuration 1
-config_allowed.append(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', '\''])
+config_allowed.append(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '\''])
 config_ignore.append(['.', ',', '!', '?', '-', ':', '%', '&', '`'])
 config_convert.append({'é':'e', 'è':'e', 'ë':'e', 'ê':'e', 'ö':'o', 'ó':'o', 'ï':'i', 'ü':'u', })
 
@@ -45,6 +45,8 @@ def acceptable_caption_text(caption_text):
         if follow_with_capital:
             word = word.capitalize()
             follow_with_capital = False
+        if config_capitalization[active_config-1]:
+            word = word.lower()
         new_word = config_filter(word)
         if len(new_word) <= 0:
             return ''
