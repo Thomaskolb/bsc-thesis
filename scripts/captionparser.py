@@ -1,16 +1,15 @@
 # Thomas Kolb s1027332
 # This program contains functions to parse a caption text to match the appropriate rules for training
 
-# from num2words import num2words
-# from nltk.tokenize import word_tokenize
+from num2words import num2words
+from nltk.tokenize import word_tokenize
 import re
 
-# import nltk
-# nltk.download('punkt')
+import nltk
+nltk.download('punkt')
 
 interpunction = ['.', '...', '!', '?']
 forbidden_formats = ['.{1,}\-.{1,}', '[A-Z]{1,}\:', '[0-9]{1,}\.[0-9]{1,}', '[0-9]{1,}e']
-
 
 # Configurations
 # Currently active configuration
