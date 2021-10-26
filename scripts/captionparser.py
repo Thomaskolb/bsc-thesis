@@ -65,6 +65,7 @@ def config_filter(word):
         elif c in config_convert[active_config-1]:
             new_word += config_convert[active_config-1].get(c)
         elif c not in config_allowed[active_config-1]:
+            print(word)
             return ''
         else:
             new_word += c
