@@ -45,7 +45,7 @@ def acceptable_caption_text(caption_text):
         if follow_with_capital:
             word = word.capitalize()
             follow_with_capital = False
-        if config_capitalization[active_config-1]:
+        if not config_capitalization[active_config-1]:
             word = word.lower()
         new_word = config_filter(word)
         if len(new_word) <= 0:
