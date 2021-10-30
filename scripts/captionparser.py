@@ -47,9 +47,8 @@ def acceptable_caption_text(caption_text):
             follow_with_capital = False
         if not config_capitalization[active_config-1]:
             word = word.lower()
-        new_word = config_filter(word)
-        if len(new_word) <= 0:
-            print(word)
+        new_word, accepted = config_filter(word)
+        if not accepted:
             return ''
         new_word_list.append(new_word)
         if word in interpunction and config_capitalization[active_config-1]:
@@ -68,10 +67,10 @@ def config_filter(word):
         elif c in config_convert[active_config-1]:
             new_word += config_convert[active_config-1].get(c)
         elif c not in config_allowed[active_config-1]:
-            return ''
+            return '', False
         else:
             new_word += c
-    return new_word
+    return new_word, True
 
 # Function that tries to parse string to a number, if that goes turn it into a word
 def number_to_words(word):
