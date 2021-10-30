@@ -83,7 +83,6 @@ def write_data(paths, outdir):
             if path.startswith(test_data_date):
                 test_data.write(path + '\n')
             else:
-                train_data.write(path + '\n')
                 if validation_paths > 0:
                     validation_data.write(path + '\n')
                     validation_paths -= 1
