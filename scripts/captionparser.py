@@ -48,9 +48,10 @@ def acceptable_caption_text(caption_text):
         if not config_capitalization[active_config-1]:
             word = word.lower()
         new_word, accepted = config_filter(word)
-        if not accepted:
+        if len(new_word) > 0:
+            new_word_list.append(new_word)
+        elif not accepted:
             return ''
-        new_word_list.append(new_word)
         if word in interpunction and config_capitalization[active_config-1]:
             follow_with_capital = True
     # Capitalize first word
