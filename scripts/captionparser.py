@@ -49,6 +49,7 @@ def acceptable_caption_text(caption_text):
             word = word.lower()
         new_word = config_filter(word)
         if len(new_word) <= 0:
+            print(word)
             return ''
         new_word_list.append(new_word)
         if word in interpunction and config_capitalization[active_config-1]:
@@ -61,14 +62,12 @@ def acceptable_caption_text(caption_text):
 # Changes a word for different configurations; returns '' when word is not allowed
 def config_filter(word):
     new_word = ''
-    return word
     for c in word:
         if c in config_ignore[active_config-1]:
             continue
         elif c in config_convert[active_config-1]:
             new_word += config_convert[active_config-1].get(c)
         elif c not in config_allowed[active_config-1]:
-            print(word)
             return ''
         else:
             new_word += c
