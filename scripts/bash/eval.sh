@@ -19,7 +19,7 @@ python3 ~/bsc/fairseq/examples/speech_recognition/infer.py \
     --path ~/bsc/data/fairseq-outputs/$datetime/checkpoints/checkpoint_best.pt \
     --gen-subset test \
     --results-path ~/bsc/data/fairseq-evals/$datetime \
-    --w2l-decoder kenlm \
+    # --w2l-decoder kenlm \
     # --lm-model /path/to/kenlm.bin \
     --lm-weight 2 \
     --word-score -1 \
