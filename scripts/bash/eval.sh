@@ -20,7 +20,7 @@ python3 ~/bsc/fairseq/examples/speech_recognition/infer.py \
     --gen-subset test \
     --results-path ~/bsc/data/fairseq-evals/$datetime \
     --w2l-decoder kenlm \
-    --lm-model /path/to/kenlm.bin \
+    --lm-model /pindapad \
     --lm-weight 2 \
     --word-score -1 \
     --sil-weight 0 \
