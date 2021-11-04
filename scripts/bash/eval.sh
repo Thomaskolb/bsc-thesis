@@ -9,7 +9,7 @@
 #SBATCH --mail-user=thomaskolb@live.nl
 #SBATCH --mail-type=BEGIN,END,FAIL
 
-$datetime=2021-10-30/15-44-20
+$datetime="2021-10-30/15-44-20"
 
 source ~/.cache/pypoetry/virtualenvs/tkolbpoetry-0grRN4_Q-py3.6/bin/activate
 python3 ~/bsc/fairseq/examples/speech_recognition/infer.py \
