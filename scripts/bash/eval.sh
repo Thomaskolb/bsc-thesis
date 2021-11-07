@@ -17,15 +17,14 @@ python3 ~/bsc/fairseq/examples/speech_recognition/infer.py \
     --task audio_finetuning \
     --nbest 1 \
     --path ~/bsc/data/fairseq-outputs/$datetime/checkpoints/checkpoint_best.pt \
-    --gen-subset test \
+    --gen-subset valid \
     --results-path ~/bsc/data/fairseq-evals/$datetime \
-    --w2l-decoder kenlm \
-    --lm-model /pindapad \
+    --w2l-decoder viterbi \
     --lm-weight 2 \
     --word-score -1 \
     --sil-weight 0 \
     --criterion ctc \
     --labels ltr \
-    --max-tokens 4000000 \
+    --max-tokens 1000000 \
     --post-process letter
 deactivate
