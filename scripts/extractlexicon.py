@@ -12,6 +12,8 @@ def extract_words(path):
                 if word not in word_list:
                     print(word)
                     word_list.append(word)
+                else:
+                    print('nee')
     return dict(sorted(word_list))
 
 # Function that writes data to output file
