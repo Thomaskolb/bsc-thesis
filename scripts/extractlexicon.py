@@ -12,7 +12,7 @@ def extract_words(path):
                 if word not in word_list:
                     word_list.append(word)
     print(len(word_list))
-    return dict(sorted(word_list))
+    return sorted(word_list)
 
 # Function that writes data to output file
 def write_lexicon_file(word_list, outpath):

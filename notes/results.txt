@@ -3,5 +3,6 @@ Run 1:
     -Characters config 1
     -Minimum WER: 0.5
     -Subtract start time: 0.1
--Data length: 
+-Train data length: 16:37:36.797000
+-Test data length: 2:59:58.303000
 -Time: 2021-10-30/15-44-20
