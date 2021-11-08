@@ -24,6 +24,9 @@ min_wer = 0.5
 # Amount of seconds that are subtracted from start time to compensate for subtitles being displayed too late
 subtract_start_time = 0.1
 
+# Max number of hours data needed
+max_hours = 32
+
 # Function that creates the same folders as found in the datapath directory
 def create_directories(datapath, outputpath):
     for folder in os.listdir(datapath):
@@ -38,6 +41,7 @@ def generate_pairlist(listpath, datapath, outputpath, type):
     total_caption_count = 0
     total_seconds = 0
     wer_sum = 0
+    max_seconds = max_hours * 3600
     with open(f'{listpath}/{type}.txt', 'r') as data, \
             open(f'{outputpath}/{type}.wrd', 'w') as wrd, \
             open(f'{outputpath}/{type}.ltr', 'w') as ltr, \
@@ -46,12 +50,13 @@ def generate_pairlist(listpath, datapath, outputpath, type):
         datalist = data.read().split('\n')
         filepaths = datalist[:len(datalist)-1]
         for filepath in filepaths:
-            file_id = 0
-            tcc, cc, wer, sc = generate_pairs(f'{datapath}/{filepath}', outputpath, filepath, file_id, filelist, wrd, ltr)
-            total_caption_count += tcc
-            caption_count += cc
-            wer_sum += wer
-            total_seconds += sc
+            if total_seconds < max_seconds:
+                file_id = 0
+                tcc, cc, wer, sc = generate_pairs(f'{datapath}/{filepath}', outputpath, filepath, file_id, filelist, wrd, ltr)
+                total_caption_count += tcc
+                caption_count += cc
+                wer_sum += wer
+                total_seconds += sc
     # percentage = "{:.1f}".format((caption_count/total_caption_count)*100)
     # print(f'{percentage}% of data salvaged\ttotal WER sum: {wer_sum}\tdata length = {str(datetime.timedelta(seconds=total_seconds))}')
     print(f'{caption_count} of {total_caption_count} of data salvaged\ttotal WER sum: {wer_sum}\tdata length = {str(datetime.timedelta(seconds=total_seconds))}')
