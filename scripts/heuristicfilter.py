@@ -52,7 +52,6 @@ def meets_data_requirements(captions):
 
 # Function that checks whether caption times are within wavfile length
 def synchronized(captions, wavpath):
-    return True
     if os.path.isfile(wavpath):
         with wave.open(wavpath, 'r') as wavfile:
             # I also tried this for end_frame, but hardly any data was salvaged (< 3%)
