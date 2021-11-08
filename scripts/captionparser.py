@@ -30,7 +30,7 @@ config_convert.append({'é':'e', 'è':'e', 'ë':'e', 'ê':'e', 'ö':'o', 'ó':'o
 
 # Function that filters out captions that don't match requirements
 # If it is acceptable it will return an edited caption text
-def acceptable_caption_text(caption_text):
+def acceptable_caption_text(caption_text, join_symbol):
     word_list = word_tokenize(caption_text)
     new_word_list = []
     follow_with_capital = False
@@ -57,7 +57,7 @@ def acceptable_caption_text(caption_text):
     # Capitalize first word
     if config_capitalization[active_config-1]:
         new_word_list[0] = new_word_list[0].capitalize()
-    return ' '.join(new_word_list)
+    return join_symbol.join(new_word_list)
 
 # Changes a word for different configurations; returns '' when word is not allowed
 def config_filter(word):

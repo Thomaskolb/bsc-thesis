@@ -69,7 +69,7 @@ def generate_pairs(filepath, outputpath, folder, file_id, filelist, wrd, ltr):
         pass
     with wave.open(f'{filepath}.wav', 'r') as wavfile:
         for caption in captions:
-            new_caption_text = captionparser.acceptable_caption_text(caption.text)
+            new_caption_text = captionparser.acceptable_caption_text(caption.text, ' ')
             # If caption was accepted the length is > 0
             if len(new_caption_text) > 0:
                 # Check for the WER with the caption and the asr data to be lower than our threshold
