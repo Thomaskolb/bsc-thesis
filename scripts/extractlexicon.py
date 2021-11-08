@@ -6,6 +6,7 @@ import sys
 # Function that extracts the unique words in a list
 def extract_words(path):
     word_list = []
+    print("START")
     with open(path, 'r') as ltrfile:
         for lines in ltrfile.read().split('\n'):
             print("LINE")
