@@ -25,6 +25,10 @@ test_data_date = '2021-06'
 # Number of files for validation (of train data)
 validation_files = 40
 
+# Configurations to enable/disable weblinks and broadcasts
+weblinks_allowed = True
+broadcasts_allowed = True
+
 # Function that traverses all 'webm.vtt' files within a given directory
 # and filters them based on requirements
 def filter_vtt_data(path):
@@ -36,8 +40,9 @@ def filter_vtt_data(path):
         for vttfile in vttfiles:
             captions = webvttparser.read(f"{path}/{folder}/{vttfile}")
             wavfile = vttfile.split('.')[0] + '.wav'
-            if (len(captions) >= min_caption_count and synchronized(captions, f'{path}/{folder}/{wavfile}') and
-                    meets_data_requirements(captions)):
+            if (len(captions) >= min_caption_count 
+                    and synchronized(captions, f'{path}/{folder}/{wavfile}') 
+                    and meets_data_requirements(captions)):
                 filtered_paths.append(f"{folder}/{vttfile.split('.')[0]}")
     percentage = "{:.1f}".format((len(filtered_paths)/path_count)*100)
     return filtered_paths, percentage
@@ -46,7 +51,7 @@ def filter_vtt_data(path):
 def meets_data_requirements(captions):
     for caption in [c.text.split() for c in captions]:
         for word in caption:
-            if is_weblink(word) or is_livebroadcast(word):
+            if (weblinks_allowed and is_weblink(word)) or (broadcasts_allowed and is_livebroadcast(word)):
                 return False
     return True
 
@@ -61,7 +66,6 @@ def synchronized(captions, wavpath):
 
 # Checks whether a string contains a weblink
 def is_weblink(word):
-    return False
     if re.match("([a-zA-Z]{1,})\.([a-zA-Z]{1,})", word) and not any([word.lower().startswith(exc) for exc in weblink_exceptions]):
         return True
     return False
