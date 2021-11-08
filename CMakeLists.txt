@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.10)
 
 include(${CMAKE_MODULE_PATH}/Buildpybind11.cmake)
 include(${CMAKE_MODULE_PATH}/pybind11Tools.cmake)
+set(CMAKE_CUDA_COMPILER "/usr/local/cuda/bin/nvcc")
 
 set_target_properties(
   fl_lib_text
@@ -44,4 +45,3 @@ add_pybind11_extension(flashlight_lib_audio_feature)
 add_pybind11_extension(flashlight_lib_sequence_criterion)
 add_pybind11_extension(flashlight_lib_text_decoder)
 add_pybind11_extension(flashlight_lib_text_dictionary)
-set(CMAKE_CUDA_COMPILER "/usr/local/cuda/bin/nvcc")
