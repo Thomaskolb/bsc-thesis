@@ -1,3 +1,7 @@
 Run 1:
--Configuration: 1
+-Configuration:
+    -Characters config 1
+    -Minimum WER: 0.5
+    -Subtract start time: 0.1
+-Data length: 
 -Time: 2021-10-30/15-44-20

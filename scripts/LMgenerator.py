@@ -9,12 +9,16 @@ import os
 # Extension of subtitle files
 subtitle_ext = '.vtt'
 
+# Data files starting with this string will be used as test data and therefore will not be in the LM
+test_data_date = '2021-06'
+
 # Function that traverses all 'webm.vtt' files within a given directory
 # and outputs an ltr file containing all lines separated by |
 def generateLMfile(path, outfile):
     with open(f'{outfile}', 'w') as linesfile:
         for folder in os.listdir(path):
-            vttfiles = [f for f in os.listdir(f"{path}/{folder}") if os.path.splitext(f)[1] == subtitle_ext]
+            vttfiles = [f for f in os.listdir(f"{path}/{folder}") if os.path.splitext(f)[1] == subtitle_ext 
+                and not folder.startswith(test_data_date)]
             for vttfile in vttfiles:
                 captions = webvttparser.read(f"{path}/{folder}/{vttfile}")
                 for caption in captions:

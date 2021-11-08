@@ -8,7 +8,11 @@ def extract_words(path):
     word_list = []
     with open(path, 'r') as ltrfile:
         for lines in ltrfile.read().split('\n'):
+            print("LINE")
+            print(lines)
             for word in lines.split('|'):
+                print('WORD')
+                print(word)
                 if word not in word_list:
                     word_list.append(word)
     return dict(sorted(word_list))
