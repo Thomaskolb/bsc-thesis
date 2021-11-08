@@ -51,7 +51,7 @@ def filter_vtt_data(path):
 def meets_data_requirements(captions):
     for caption in [c.text.split() for c in captions]:
         for word in caption:
-            if (weblinks_allowed and is_weblink(word)) or (broadcasts_allowed and is_livebroadcast(word)):
+            if (not weblinks_allowed and is_weblink(word)) or (not broadcasts_allowed and is_livebroadcast(word)):
                 return False
     return True
 
