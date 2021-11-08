@@ -93,7 +93,7 @@ if (FL_USE_CUDA)
   # (e.g. CUDA < 11).
   set(CMAKE_CUDA_STANDARD 14)
   set(CMAKE_CUDA_STANDARD_REQUIRED ON)
-  include(${CMAKE_MODULE_PATH}/CUDAUtils.cmake)
+  find_package(CUDA 11.0 QUIET)
   set_cuda_arch_nvcc_flags()
 
   # remove me? add -fPIC to nvcc flags if needed
