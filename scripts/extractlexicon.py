@@ -10,10 +10,8 @@ def extract_words(path):
         for lines in ltrfile.read().split('\n'):
             for word in lines.split('|'):
                 if word not in word_list:
-                    print(word)
                     word_list.append(word)
-                else:
-                    print('nee')
+    print(len(word_list))
     return dict(sorted(word_list))
 
 # Function that writes data to output file
