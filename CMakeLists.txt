@@ -93,6 +93,7 @@ if (FL_USE_CUDA)
   # (e.g. CUDA < 11).
   set(CMAKE_CUDA_STANDARD 14)
   set(CMAKE_CUDA_STANDARD_REQUIRED ON)
+  set(CMAKE_CUDA_COMPILER "/usr/local/cuda/bin/nvcc")
   find_package(CUDA 9.1 QUIET)
   set_cuda_arch_nvcc_flags()
 
