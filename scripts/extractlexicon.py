@@ -7,9 +7,10 @@ import sys
 def extract_words(path):
     word_list = []
     with open(path, 'r') as ltrfile:
-        for word in [item for sublist in [w.split('|') for w in ltrfile.read().split('\n')] for item in sublist]:
-            if word not in word_list:
-                word_list.append(word)
+        for lines in ltrfile.read().split('\n'):
+            for word in lines.split('|'):
+                if word not in word_list:
+                    word_list.append(word)
     return dict(sorted(word_list))
 
 # Function that writes data to output file

@@ -4,8 +4,8 @@
 #SBATCH --mem=1G
 #SBATCH --cpus-per-task=1
 #SBATCH --time=0:15:00
-#SBATCH --output=alphabet-%J.out
-#SBATCH --error=alphabet-%J.err
+#SBATCH --output=lexicon-%J.out
+#SBATCH --error=lexicon-%J.err
 #SBATCH --mail-user=thomaskolb@live.nl
 #SBATCH --mail-type=BEGIN,END,FAIL
 
