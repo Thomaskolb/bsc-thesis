@@ -3,7 +3,8 @@ Run 1:
     -Characters config 1
     -Minimum WER: 0.5
     -Subtract start time: 0.1
-    -Data requirement filter: ON
+    -Web link filter: ON
+    -Live broadcast filter: ON
     -Synchronized filter: ON
 -Train data length: 16:37:36.797000
 -Test data length: 2:59:58.303000
