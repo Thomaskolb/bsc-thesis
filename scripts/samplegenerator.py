@@ -36,12 +36,12 @@ def create_directories(datapath, outputpath):
             pass
 
 # Function that traverses list of datafiles and creates sample subtitle pairs
-def generate_pairlist(listpath, datapath, outputpath, type):
+def generate_pairlist(listpath, datapath, outputpath, type, part):
     caption_count = 0
     total_caption_count = 0
     total_seconds = 0
     wer_sum = 0
-    max_seconds = max_hours * 3600
+    max_seconds = max_hours * 3600 * part
     with open(f'{listpath}/{type}.txt', 'r') as data, \
             open(f'{outputpath}/{type}.wrd', 'w') as wrd, \
             open(f'{outputpath}/{type}.ltr', 'w') as ltr, \
@@ -123,8 +123,8 @@ if len(sys.argv) < 4:
     print("Please enter the path of the listed data, the data location, and the output directory.")
 else:
     # Training data
-    generate_pairlist(sys.argv[1].replace('\\', '/'), sys.argv[2].replace('\\', '/'), sys.argv[3].replace('\\', '/'), 'train')
+    generate_pairlist(sys.argv[1].replace('\\', '/'), sys.argv[2].replace('\\', '/'), sys.argv[3].replace('\\', '/'), 'train', 1)
     # Test data
-    generate_pairlist(sys.argv[1].replace('\\', '/'), sys.argv[2].replace('\\', '/'), sys.argv[3].replace('\\', '/'), 'test')
+    generate_pairlist(sys.argv[1].replace('\\', '/'), sys.argv[2].replace('\\', '/'), sys.argv[3].replace('\\', '/'), 'test', 0.1)
     # Validation data
-    generate_pairlist(sys.argv[1].replace('\\', '/'), sys.argv[2].replace('\\', '/'), sys.argv[3].replace('\\', '/'), 'valid')
+    generate_pairlist(sys.argv[1].replace('\\', '/'), sys.argv[2].replace('\\', '/'), sys.argv[3].replace('\\', '/'), 'valid', 0.1)
