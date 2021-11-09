@@ -6,9 +6,9 @@ Run 1:
     -Web link filter: ON
     -Live broadcast filter: ON
     -Synchronized filter: ON
--Train data length: 16:37:36.797000
--Test data length: 2:59:58.303000
--Time: 2021-10-30/15-44-20
+-Train data length: -
+-Test data length: -
+-Time: 2021-11-09/02-12-02
 
 Run 2:
 -Configuration:
@@ -20,7 +20,7 @@ Run 2:
     -Synchronized filter: ON
 -Train data length: 1 day, 8:04:53.761000
 -Test data length: 3:20:12.455000
--Time: 2021-11-08/21-30-37
+-Time: 2021-11-09/01-03-57
 
 Run 2:
 -Configuration:
@@ -32,4 +32,4 @@ Run 2:
     -Synchronized filter: ON
 -Train data length: 2 days, 16:03:34.096000
 -Test data length: 6:25:38.359000
--Time: 2021-11-08/21-30-37
+-Time: 2021-11-09/01-45-27
