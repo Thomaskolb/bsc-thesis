@@ -3,7 +3,7 @@
 #SBATCH --gres=gpu:1
 #SBATCH --mem=50G
 #SBATCH --cpus-per-task=1
-#SBATCH --time=24:00:00
+#SBATCH --time=48:00:00
 #SBATCH --output=train-%J.out
 #SBATCH --error=train-%J.err
 #SBATCH --mail-user=thomaskolb@live.nl
@@ -11,7 +11,7 @@
 
 source ~/.cache/pypoetry/virtualenvs/tkolbpoetry-0grRN4_Q-py3.6/bin/activate
 fairseq-hydra-train \
-    task.data=/home/tkolb/bsc/data/tempdata3 \
+    task.data=/home/tkolb/bsc/data/tempdata4 \
     model.w2v_path=/home/tkolb/bsc/data/models/wav2vec_small.pt \
     model.freeze_finetune_updates=10000 \
     --config-dir /home/tkolb/bsc/bsc-thesis/scripts/fairseq \
