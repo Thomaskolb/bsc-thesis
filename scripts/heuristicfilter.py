@@ -26,8 +26,8 @@ test_data_date = '2021-06'
 validation_files = 40
 
 # Configurations to enable/disable weblinks and broadcasts
-weblinks_allowed = True
-broadcasts_allowed = True
+weblinks_allowed = False
+broadcasts_allowed = False
 
 # Function that traverses all 'webm.vtt' files within a given directory
 # and filters them based on requirements
