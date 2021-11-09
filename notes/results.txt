@@ -13,11 +13,11 @@ Run 1:
 Run 2:
 -Configuration:
     -Characters config 1
-    -Minimum WER: 0.75
+    -Minimum WER: 0.5
     -Subtract start time: 0.1
     -Web link filter: OFF
-    -Live broadcast filter: ON
+    -Live broadcast filter: OFF
     -Synchronized filter: ON
--Train data length: 1 day, 10:30:34.988000
--Test data length: 6:16:30.366000
+-Train data length: 1 day, 8:04:53.761000
+-Test data length: 3:20:12.455000
 -Time: 2021-11-08/21-30-37
