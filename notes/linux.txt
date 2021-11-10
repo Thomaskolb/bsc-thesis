@@ -30,3 +30,10 @@ source ~/.cache/pypoetry/virtualenvs/tkolbpoetry-0grRN4_Q-py3.6/bin/activate
 
 Tensorboard:
 tensorboard --logdir tensorboard --port 6543 --reload_multifile true
+
+Redirecting:
+> = stdout
+< = stdin
+2> = stderr
+>> = append
+a | b = b uses output of a as input
