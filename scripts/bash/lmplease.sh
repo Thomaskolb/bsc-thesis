@@ -3,7 +3,7 @@
 #SBATCH --gres=gpu:1
 #SBATCH --mem=1G
 #SBATCH --cpus-per-task=1
-#SBATCH --time=1:00:00
+#SBATCH --time=12:00:00
 #SBATCH --output=lmplease-%J.out
 #SBATCH --error=lmplease-%J.err
 #SBATCH --mail-user=thomaskolb@live.nl
