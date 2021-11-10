@@ -22,7 +22,7 @@ def generateLMfile(path, outfile):
             for vttfile in vttfiles:
                 captions = webvttparser.read(f"{path}/{folder}/{vttfile}")
                 for caption in captions:
-                    new_caption_text = captionparser.acceptable_caption_text(caption.text, '|')
+                    new_caption_text = captionparser.acceptable_caption_text(caption.text, ' ')
                     if len(new_caption_text) > 0:
                         linesfile.write(f'{new_caption_text}\n')
 
