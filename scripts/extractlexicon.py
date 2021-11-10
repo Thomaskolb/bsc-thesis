@@ -17,7 +17,7 @@ def extract_words(path):
 # Function that writes data to output file
 def write_lexicon_file(word_list, outpath):
     with open(outpath, 'w') as outfile:
-        [outfile.write(f'{word} {" ".join(list(word))} |\n') for word in word_list]
+        [outfile.write(f'{word} {" ".join(list(word))}\n') for word in word_list]
     
 if len(sys.argv) < 3:
     print("Please enter the path of the ltr file and the output file")
