@@ -9,6 +9,7 @@ Run 1:
 -Train data length: 16:01:49.244000
 -Test data length: 1:36:22.852000
 -Time: 2021-11-09/02-12-02
+-Folder: tempdata3
 
 Run 2:
 -Configuration:
@@ -21,6 +22,7 @@ Run 2:
 -Train data length: 1 day, 8:04:53.761000
 -Test data length: 3:20:12.455000
 -Time: 2021-11-09/01-03-57
+-Folder tempdata
 
 Run 3:
 -Configuration:
@@ -33,6 +35,7 @@ Run 3:
 -Train data length: 2 days, 16:03:34.096000
 -Test data length: 6:25:38.359000
 -Time: 2021-11-09/01-45-27
+-Folder: tempdata2
 
 4:
 4 days, 5:36:21.972000

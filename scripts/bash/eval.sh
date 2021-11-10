@@ -13,7 +13,7 @@ datetime="2021-11-09/02-12-02"
 
 source ~/.cache/pypoetry/virtualenvs/tkolbpoetry-0grRN4_Q-py3.6/bin/activate
 python3 ~/bsc/fairseq/examples/speech_recognition/infer.py \
-    ~/bsc/outputdata \
+    ~/bsc/data/tempdata3 \
     --task audio_finetuning \
     --nbest 1 \
     --path ~/bsc/data/fairseq-outputs/$datetime/checkpoints/checkpoint_best.pt \
