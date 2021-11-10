@@ -23,7 +23,6 @@ python3 ~/bsc/fairseq/examples/speech_recognition/infer.py \
     --lm-model ~/bsc/data/models/lmfile.bin \
     --lm-weight 2 \
     --lexicon ~/bsc/data/models/lexicon.txt \
-    --wordseparator=| \
     --word-score -1 \
     --sil-weight 0 \
     --criterion ctc \
