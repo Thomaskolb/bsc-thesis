@@ -20,8 +20,9 @@ python3 ~/bsc/fairseq/examples/speech_recognition/infer.py \
     --gen-subset valid \
     --results-path ~/bsc/data/fairseq-evals/$datetime \
     --w2l-decoder kenlm \
-    --lm-model ~/bsc/data/models/lmfile.bin
+    --lm-model ~/bsc/data/models/lmfile.bin \
     --lm-weight 2 \
+    --lexicon ~/bsc/data/models/lexicon.txt \
     --word-score -1 \
     --sil-weight 0 \
     --criterion ctc \
