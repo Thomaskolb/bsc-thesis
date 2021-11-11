@@ -51,7 +51,20 @@ Run 5:
     -Web link filter: ON
     -Live broadcast filter: ON
     -Synchronized filter: ON
+-Train data length: 8:00:21.328000
+-Test data length: 0:50:32.936000
+-Time: 2021-11-11/18:12
+-Folder: tempdata
+
+Run 5:
+-Configuration:
+    -Characters config 1
+    -Minimum WER: 0.5
+    -Subtract start time: 0.1
+    -Web link filter: OFF
+    -Live broadcast filter: OFF
+    -Synchronized filter: ON
 -Train data length: 
--Test data length: 
--Time: 2021-11-11/02-12-02
--Folder: tempdata3
+-Test data length:
+-Time: 2021-11-11/
+-Folder: tempdata2
