@@ -45,7 +45,7 @@ def filter_vtt_data(path):
         for vttfile in vttfiles:
             captions = webvttparser.read(f"{path}/{folder}/{vttfile}")
             wavfile = vttfile.split('.')[0] + '.wav'
-            is_unique_data, unique_data =  check_unique_data(captions)
+            is_unique_data, unique_data =  check_unique_data(captions, unique_data)
             if (len(captions) >= min_caption_count 
                     and (doubledata_allowed or is_unique_data)
                     and synchronized(captions, f'{path}/{folder}/{wavfile}') 
