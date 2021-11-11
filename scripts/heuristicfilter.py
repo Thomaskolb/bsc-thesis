@@ -75,8 +75,9 @@ def check_unique_data(captions, unique_data):
             elif i >= check_length:
                 print('GELIJK')
                 return False, unique_data
-    unique_data.append(captions[:check_length])
-    print(f'ADD {captions[:check_length]}')
+    if check_length > 0:
+        unique_data.append(captions[:check_length])
+        print(f'ADD {captions[:check_length]}')
     return True, unique_data
 
 # Function that checks whether caption times are within wavfile length
