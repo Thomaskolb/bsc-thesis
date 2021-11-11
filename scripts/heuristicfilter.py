@@ -64,7 +64,7 @@ def meets_data_requirements(captions):
 
 # Function that checks if the data is unique by looking at the first n captions
 def check_unique_data(captions, unique_data):
-    for data in unique_data:
+    for data in reversed(unique_data):
         check_length = min(len(captions), len(data))
         for i in range(check_length):
             if data[i].text != captions[i].text:
