@@ -70,6 +70,7 @@ def check_unique_data(captions, unique_data):
             if data[i].text != captions[i].text:
                 break
             elif i >= check_length:
+                print('DOUBLE DATA')
                 return False, unique_data
     if len(captions) > 0:
         unique_data.append(captions[:min(len(captions), unique_data_check)])
