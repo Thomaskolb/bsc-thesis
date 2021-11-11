@@ -25,3 +25,6 @@ class Caption:
 
     def __str__(self):
         return f"{self.text}, {self.start} -> {self.end}"
+
+    def __repr__(self):
+        return self.text
