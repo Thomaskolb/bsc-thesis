@@ -40,3 +40,18 @@ Run 3:
 4:
 4 days, 5:36:21.972000
 12:49:38.659000
+
+--No more double data--
+
+Run 5:
+-Configuration:
+    -Characters config 1
+    -Minimum WER: 0.5
+    -Subtract start time: 0.1
+    -Web link filter: ON
+    -Live broadcast filter: ON
+    -Synchronized filter: ON
+-Train data length: 
+-Test data length: 
+-Time: 2021-11-11/02-12-02
+-Folder: tempdata3
