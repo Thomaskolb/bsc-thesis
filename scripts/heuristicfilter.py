@@ -19,20 +19,25 @@ unfit_data_indicators = ['LIVEPROGRAMMA,', 'LIVEPROGRAMMA', 'LIVE', 'ONDERTITELD
 # Minimal number of captions required in subtitle file for data to be used
 min_caption_count = 10
 
+# Numbers of captions to check to see if data is unique
+unique_data_check = 5
+
 # Data files starting with this string will be used as test data
 test_data_date = '2021-06'
 
 # Number of files for validation (of train data)
 validation_files = 40
 
-# Configurations to enable/disable weblinks and broadcasts
+# Configurations to enable/disable weblinks and broadcasts, look for double data
 weblinks_allowed = True
 broadcasts_allowed = True
+doubledata_allowed = False
 
 # Function that traverses all 'webm.vtt' files within a given directory
 # and filters them based on requirements
 def filter_vtt_data(path):
     filtered_paths = []
+    unique_data = []
     path_count = 0
     for folder in os.listdir(path):
         vttfiles = [f for f in os.listdir(f"{path}/{folder}") if os.path.splitext(f)[1] == subtitle_ext]
@@ -40,7 +45,9 @@ def filter_vtt_data(path):
         for vttfile in vttfiles:
             captions = webvttparser.read(f"{path}/{folder}/{vttfile}")
             wavfile = vttfile.split('.')[0] + '.wav'
+            is_unique_data, unique_data =  check_unique_data(captions)
             if (len(captions) >= min_caption_count 
+                    and (doubledata_allowed or is_unique_data)
                     and synchronized(captions, f'{path}/{folder}/{wavfile}') 
                     and meets_data_requirements(captions)):
                 filtered_paths.append(f"{folder}/{vttfile.split('.')[0]}")
@@ -54,6 +61,21 @@ def meets_data_requirements(captions):
             if (not weblinks_allowed and is_weblink(word)) or (not broadcasts_allowed and is_livebroadcast(word)):
                 return False
     return True
+
+# Function that checks if the data is unique by looking at the first n captions
+def check_unique_data(captions, unique_data):
+    check_length = min(len(captions), unique_data_check)
+    for data in unique_data:
+        for i in range(min(len(captions), unique_data_check)):
+            print(f'{data[i]} - {captions[i]}')
+            if data[i] != captions[i]:
+                print('STOP')
+                break
+            elif i >= check_length:
+                print('GELIJK')
+                return False, unique_data
+    unique_data.append(captions[:check_length])
+    return True, unique_data
 
 # Function that checks whether caption times are within wavfile length
 def synchronized(captions, wavpath):
