@@ -69,7 +69,7 @@ def check_unique_data(captions, unique_data):
         for i in range(check_length):
             if data[i].text != captions[i].text:
                 break
-            elif i >= check_length:
+            elif i >= check_length-1:
                 print('DOUBLE DATA')
                 return False, unique_data
     if len(captions) > 0:
