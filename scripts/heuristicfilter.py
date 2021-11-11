@@ -66,9 +66,9 @@ def meets_data_requirements(captions):
 def check_unique_data(captions, unique_data):
     check_length = min(len(captions), unique_data_check)
     for data in unique_data:
-        print(f'data = {data}')
         for i in range(min(len(captions), unique_data_check)):
-            print(f'{data[i]} - {captions[i]}')
+            print(f'data {i} = {data[i].text}') 
+            print(f'{data[i].text} - {captions[i].text}')
             if data[i].text != captions[i].text:
                 print('STOP')
                 break
