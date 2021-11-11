@@ -42,7 +42,7 @@ def filter_vtt_data(path):
     for folder in os.listdir(path):
         vttfiles = [f for f in os.listdir(f"{path}/{folder}") if os.path.splitext(f)[1] == subtitle_ext]
         path_count += len(vttfiles)
-        for vttfile in vttfiles[:100]:
+        for vttfile in vttfiles:
             captions = webvttparser.read(f"{path}/{folder}/{vttfile}")
             wavfile = vttfile.split('.')[0] + '.wav'
             is_unique_data, unique_data =  check_unique_data(captions, unique_data)
@@ -70,7 +70,6 @@ def check_unique_data(captions, unique_data):
             if data[i].text != captions[i].text:
                 break
             elif i >= check_length-1:
-                print('DOUBLE DATA')
                 return False, unique_data
     if len(captions) > 0:
         unique_data.append(captions[:min(len(captions), unique_data_check)])
