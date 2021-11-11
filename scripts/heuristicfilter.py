@@ -64,15 +64,15 @@ def meets_data_requirements(captions):
 
 # Function that checks if the data is unique by looking at the first n captions
 def check_unique_data(captions, unique_data):
-    check_length = min(len(captions), unique_data_check)
     for data in unique_data:
-        for i in range(min(len(captions), unique_data_check)):
+        check_length = min(len(captions), len(data))
+        for i in range(check_length):
             if data[i].text != captions[i].text:
                 break
             elif i >= check_length:
                 return False, unique_data
-    if check_length > 0:
-        unique_data.append(captions[:check_length])
+    if len(captions) > 0:
+        unique_data.append(captions[:min(len(captions), unique_data_check)])
     return True, unique_data
 
 # Function that checks whether caption times are within wavfile length
