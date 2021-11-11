@@ -25,7 +25,7 @@ min_wer = 0.5
 subtract_start_time = 0.1
 
 # Max number of hours data needed
-max_hours = 8
+max_hours = 16
 
 # Function that creates the same folders as found in the datapath directory
 def create_directories(datapath, outputpath):
