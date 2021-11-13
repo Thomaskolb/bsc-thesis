@@ -22,7 +22,7 @@ def write_WER_data(evalpath, asrpath):
             avg_wer = 0
             avg_wer_asr = 0
             hypodata, refdata = hypofile.read().split('\n'), reffile.read().split('\n')
-            asrlines, asrreflines = asrfile.read().split('\n'). asrreffile.read().split('\n')
+            asrlines, asrreflines = asrfile.read().split('\n'), asrreffile.read().split('\n')
             hypolines = [' '.join(dataline.split(' ')[:-1]) for dataline in hypodata]
             reflines = [' '.join(dataline.split(' ')[:-1]) for dataline in refdata]
             for i in range(len(hypodata)):
