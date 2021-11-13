@@ -3,6 +3,7 @@
 # the trained wav2vec model and the actual labels of validation data
 
 import worderrorrate
+import functools
 import sys
 
 # Name of output txt files
@@ -13,12 +14,14 @@ def write_WER_data(path):
         with open(f'{path}/hypo.{outname}', 'r') as hypofile, open(f'{path}/ref.{outname}') as reffile:
             avg_wer = 0
             hypodata, refdata = hypofile.read().split('\n'), reffile.read().split('\n')
+            hypolines = [' '.join(dataline.split(' ')[:-1]) for dataline in hypodata]
+            reflines = [' '.join(dataline.split(' ')[:-1]) for dataline in refdata]
             for i in range(len(hypodata)):
                 if len(refdata[i][:-1]) > 0:
-                    werdata = worderrorrate.WER(hypodata[i][:-1], refdata[i][:-1])
-                    werfile.write(f'hypo = {hypodata[i][:-1]}\nref = {refdata[i][:-1]}\n{werdata}\n=======\n')
+                    werdata = worderrorrate.WER(hypolines[i], reflines[i])
+                    werfile.write(f'hypo = {hypolines[i]}\nref = {reflines[i]}\n{werdata}\n=======\n')
                     avg_wer += werdata.wer()
-            werfile.write(f'average wer = {avg_wer/len(hypodata)}')
+            werfile.write(f'average wer = {avg_wer/len(hypolines)}')
 
 if len(sys.argv) < 2:
     print("Please enter the data path")
