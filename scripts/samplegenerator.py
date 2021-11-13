@@ -45,6 +45,7 @@ def generate_pairlist(listpath, datapath, outputpath, type, part):
     with open(f'{listpath}/{type}.txt', 'r') as data, \
             open(f'{outputpath}/{type}.wrd', 'w') as wrd, \
             open(f'{outputpath}/{type}.ltr', 'w') as ltr, \
+            open(f'{outputpath}/asr-{type}.txt') as asr, \
             open(f'{outputpath}/{type}.tsv', 'w') as filelist:
         filelist.write(outputpath + '\n')
         datalist = data.read().split('\n')
@@ -52,7 +53,7 @@ def generate_pairlist(listpath, datapath, outputpath, type, part):
         for filepath in filepaths:
             if total_seconds < max_seconds:
                 file_id = 0
-                tcc, cc, wer, sc = generate_pairs(f'{datapath}/{filepath}', outputpath, filepath, file_id, filelist, wrd, ltr)
+                tcc, cc, wer, sc = generate_pairs(f'{datapath}/{filepath}', outputpath, filepath, file_id, filelist, wrd, ltr, asr)
                 total_caption_count += tcc
                 caption_count += cc
                 wer_sum += wer
@@ -62,7 +63,7 @@ def generate_pairlist(listpath, datapath, outputpath, type, part):
     print(f'{caption_count} of {total_caption_count} of data salvaged\ttotal WER sum: {wer_sum}\tdata length = {str(datetime.timedelta(seconds=total_seconds))}')
 
 # Function that generates pairs for a single file
-def generate_pairs(filepath, outputpath, folder, file_id, filelist, wrd, ltr):
+def generate_pairs(filepath, outputpath, folder, file_id, filelist, wrd, ltr, asr):
     captions = webvttparser.read(f'{filepath}.webm.vtt')
     wordsequence = asrparser.read(f'{filepath}.hyp')
     caption_count = 0
@@ -91,15 +92,16 @@ def generate_pairs(filepath, outputpath, folder, file_id, filelist, wrd, ltr):
                     file_id += 1
                     caption_count += 1
                     seconds_count += end_seconds - start_seconds
-                    write_output_files(filelist, samplepath, end_frame-start_frame, new_caption_text, asr_words, wrd, ltr)
+                    write_output_files(filelist, samplepath, end_frame-start_frame, new_caption_text, ' '.join(asr_words), wrd, ltr, asr)
                 wer_total += wer
     return len(captions), caption_count, wer_total, seconds_count
 
 # Function that writes the output files
-def write_output_files(filelist, samplepath, nrframes, new_caption_text, asr_words, wrd, ltr):
+def write_output_files(filelist, samplepath, nrframes, new_caption_text, asr_line, wrd, ltr, asr):
     filelist.write(f'{samplepath}\t{nrframes}\n')
     wrd.write(f'{new_caption_text}\n')
     ltr.write(f'{" ".join(list(str(new_caption_text).replace(" ", "|")))} |\n')
+    asr.write(f'{asr_line}\n')
 
 # Function that takes sampleframes and generates a new wav file
 def generate_sample(sampleframes, channels, samplewidth, framerate, outputpath, folder, file_id):

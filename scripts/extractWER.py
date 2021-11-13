@@ -30,3 +30,5 @@ if len(sys.argv) < 2:
 else:
     write_WER_data(sys.argv[1])
 
+# TODO verschil wer met asr data
+
