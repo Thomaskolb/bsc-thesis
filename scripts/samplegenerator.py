@@ -45,7 +45,7 @@ def generate_pairlist(listpath, datapath, outputpath, type, part):
     with open(f'{listpath}/{type}.txt', 'r') as data, \
             open(f'{outputpath}/{type}.wrd', 'w') as wrd, \
             open(f'{outputpath}/{type}.ltr', 'w') as ltr, \
-            open(f'{outputpath}/asr-{type}.txt') as asr, \
+            open(f'{outputpath}/asr-{type}.txt', 'w') as asr, \
             open(f'{outputpath}/{type}.tsv', 'w') as filelist:
         filelist.write(outputpath + '\n')
         datalist = data.read().split('\n')
