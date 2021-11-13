@@ -25,10 +25,10 @@ def write_WER_data(path):
                     avg_wer += werdata.wer()
             werfile.write(f'average wer = {avg_wer/len(hypolines)}')
 
-if len(sys.argv) < 2:
-    print("Please enter the data path")
+if len(sys.argv) < 3:
+    print("Please enter the path with refs & hypos and the path for the asr lines")
 else:
-    write_WER_data(sys.argv[1])
+    write_WER_data(sys.argv[1], sys.)
 
 # TODO verschil wer met asr data
 

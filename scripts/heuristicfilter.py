@@ -26,7 +26,7 @@ unique_data_check = 5
 test_data_date = '2021-06'
 
 # Number of files for validation (of train data)
-validation_files = 50
+validation_files = 40
 
 # Configurations to enable/disable weblinks and broadcasts, look for double data
 weblinks_allowed = False
