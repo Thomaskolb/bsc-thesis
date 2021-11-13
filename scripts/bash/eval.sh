@@ -29,5 +29,5 @@ python3 ~/bsc/fairseq/examples/speech_recognition/infer.py \
     --labels ltr \
     --max-tokens 1000000 \
     --post-process letter
-python3 ../extractWER "/home/tkolb/bsc/data/fairseq-evals/$datetime"
+python3 ../extractWER.py "/home/tkolb/bsc/data/fairseq-evals/$datetime"
 deactivate
