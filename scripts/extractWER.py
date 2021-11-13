@@ -1,6 +1,7 @@
 # Thomas Kolb s1027332
 # This program generates a file containing the WER information of the output of 
 # the trained wav2vec model and the actual labels of validation data
+# It also does the same thing with asr data as hypothesis
 
 import worderrorrate
 import sys
@@ -11,24 +12,33 @@ outname = 'word-checkpoint_best.pt-valid.txt'
 # Line of equal chars
 bar = '=' * 30
 
-def write_WER_data(path):
-    with open(f'{path}/WERdata.txt', 'w') as werfile:
-        with open(f'{path}/hypo.{outname}', 'r') as hypofile, open(f'{path}/ref.{outname}') as reffile:
+# Calculates WER for model data and captions and asr data and captions
+def write_WER_data(evalpath, asrpath):
+    with open(f'{evalpath}/WERdata.txt', 'w') as werfile:
+        with open(f'{evalpath}/hypo.{outname}', 'r') as hypofile, \
+                open(f'{evalpath}/ref.{outname}') as reffile, \
+                open(asrpath, 'r') as asrfile:
             avg_wer = 0
-            hypodata, refdata = hypofile.read().split('\n'), reffile.read().split('\n')
+            avg_wer_asr = 0
+            hypodata, refdata, asrlines = hypofile.read().split('\n'), reffile.read().split('\n'), asrfile.read().split('\n')
             hypolines = [' '.join(dataline.split(' ')[:-1]) for dataline in hypodata]
             reflines = [' '.join(dataline.split(' ')[:-1]) for dataline in refdata]
             for i in range(len(hypodata)):
                 if len(reflines[i]) > 0:
                     werdata = worderrorrate.WER(reflines[i].split(' '), hypolines[i].split(' '))
-                    werfile.write(f'{werdata}WER = {werdata.wer()}\n{bar}\n\n')
+                    asrwerdata = worderrorrate.WER(reflines[i].split(' '), asrlines[i].split(' '))
+                    werfile.write(f'{werdata}WER = {werdata.wer()}\n')
+                    werfile.write(f'{asrwerdata}ASR_WER = {asrwerdata.wer()}\n{bar}\n\n')
                     avg_wer += werdata.wer()
+                    avg_wer_asr += asrwerdata.wer()
             werfile.write(f'average wer = {avg_wer/len(hypolines)}')
+            werfile.write(f'average wer asr = {avg_wer_asr/len(asrlines)}')
 
 if len(sys.argv) < 3:
     print("Please enter the path with refs & hypos and the path for the asr lines")
 else:
-    write_WER_data(sys.argv[1], sys.)
+    write_WER_data(sys.argv[1], sys.argv[2])
+
 
 # TODO verschil wer met asr data
 
