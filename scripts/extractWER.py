@@ -3,7 +3,6 @@
 # the trained wav2vec model and the actual labels of validation data
 
 import worderrorrate
-import functools
 import sys
 
 # Name of output txt files
