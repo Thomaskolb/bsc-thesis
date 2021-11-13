@@ -14,9 +14,10 @@ def write_WER_data(path):
             avg_wer = 0
             hypodata, refdata = hypofile.read().split('\n'), reffile.read().split('\n')
             for i in range(len(hypodata)):
-                werdata = worderrorrate.WER(hypodata[i], refdata[i])
-                werfile.write(f'hypo = {hypodata[i]}\nref = {refdata[i]}\n{werdata}\n=======\n')
-                avg_wer += werdata.wer()
+                if len(refdata[i][:-1]) > 0:
+                    werdata = worderrorrate.WER(hypodata[i][:-1], refdata[i][:-1])
+                    werfile.write(f'hypo = {hypodata[i][:-1]}\nref = {refdata[i][:-1]}\n{werdata}\n=======\n')
+                    avg_wer += werdata.wer()
             werfile.write(f'average wer = {avg_wer/len(hypodata)}')
 
 if len(sys.argv) < 2:
