@@ -25,6 +25,11 @@ def write_WER_data(evalpath, asrpath):
             asrlines, asrreflines = asrfile.read().split('\n'), asrreffile.read().split('\n')
             hypolines = [' '.join(dataline.split(' ')[:-1]) for dataline in hypodata]
             reflines = [' '.join(dataline.split(' ')[:-1]) for dataline in refdata]
+            # Sort based on values of refdata
+            hypodata = [x for _,x in sorted(zip(refdata, hypodata))]
+            asrlines = [x for _,x in sorted(zip(asrreflines, asrlines))]
+            refdata = sorted(refdata)
+            asrreflines = sorted(asrreflines)
             for i in range(len(hypodata)):
                 if len(reflines[i]) > 0:
                     werdata = worderrorrate.WER(reflines[i].split(' '), hypolines[i].split(' '))
