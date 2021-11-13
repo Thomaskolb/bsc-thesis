@@ -71,7 +71,6 @@ Run 5:
 -Time: 2021-11-12/10-12-27
 -Folder: tempdata2
 
-
 Run 6:
 -Configuration:
     -Characters config 1
