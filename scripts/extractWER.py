@@ -19,7 +19,7 @@ def write_WER_data(path):
                 avg_wer += werdata.wer()
             werfile.write(f'average wer = {avg_wer/len(hypodata)}')
 
-if len(sys.argv) < 3:
+if len(sys.argv) < 2:
     print("Please enter the data path")
 else:
     write_WER_data(sys.argv[1])
