@@ -9,7 +9,7 @@ import sys
 outname = 'word-checkpoint_best.pt-valid.txt'
 
 # Line of equal chars
-bar = ['='] * 30
+bar = '=' * 30
 
 def write_WER_data(path):
     with open(f'{path}/WERdata.txt', 'w') as werfile:
@@ -21,7 +21,7 @@ def write_WER_data(path):
             for i in range(len(hypodata)):
                 if len(reflines[i]) > 0:
                     werdata = worderrorrate.WER(reflines[i].split(' '), hypolines[i].split(' '))
-                    werfile.write(f'{werdata}WER = {werdata.wer()}\n{str(bar)}\n\n')
+                    werfile.write(f'{werdata}WER = {werdata.wer()}\n{bar}\n\n')
                     avg_wer += werdata.wer()
             werfile.write(f'average wer = {avg_wer/len(hypolines)}')
 
