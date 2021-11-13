@@ -53,7 +53,7 @@ Run 5:
     -Synchronized filter: ON
 -Train data length: 8:00:21.328000
 -Test data length: 0:50:32.936000
--Time: 2021-11-11/18:12
+-Time: 2021-11-11/18-12-54
 -Folder: tempdata
 
 Run 5:
@@ -66,7 +66,7 @@ Run 5:
     -Synchronized filter: ON
 -Train data length: 16:02:31.523000
 -Test data length: 1:40;21.325000
--Time: 2021-11-11/10:10
+-Time: 2021-11-12/10-12-27
 -Folder: tempdata2
 
 Run 6:
@@ -77,7 +77,7 @@ Run 6:
     -Web link filter: OFF
     -Live broadcast filter: OFF
     -Synchronized filter: ON
--Train data length: 16:02:31.523000
--Test data length: 1:40;21.325000
--Time: 2021-11-11/10:10
+-Train data length: 1 day, 8:01:45.899000
+-Test data length: 3:15:58.228000
+-Time: 2021-11-12/10-34-58
 -Folder: tempdata3
