@@ -17,7 +17,7 @@ def write_WER_data(path):
             reflines = [' '.join(dataline.split(' ')[:-1]) for dataline in refdata]
             for i in range(len(hypodata)):
                 if len(reflines[i]) > 0:
-                    werdata = worderrorrate.WER(reflines[i], hypolines[i])
+                    werdata = worderrorrate.WER(reflines[i].split(' '), hypolines[i.split(' ')])
                     werfile.write(f'hypo = {hypolines[i]}\nref = {reflines[i]}\n{werdata}\n=======\n')
                     avg_wer += werdata.wer()
             werfile.write(f'average wer = {avg_wer/len(hypolines)}')
