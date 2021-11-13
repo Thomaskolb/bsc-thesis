@@ -55,6 +55,8 @@ Run 5:
 -Test data length: 0:50:32.936000
 -Time: 2021-11-11/18-12-54
 -Folder: tempdata
+-Average wer = 0.3442389188139764
+-Average wer asr = 0.26714572393907826
 
 Run 5:
 -Configuration:
