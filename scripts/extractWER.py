@@ -28,7 +28,7 @@ def write_WER_data(evalpath, asrpath):
             # Sort based on values of refdata
             hypolines = [x for _,x in sorted(zip(reflines, hypolines))]
             asrlines = [x for _,x in sorted(zip(asrreflines, asrlines))]
-            refdata = sorted(refdata)
+            reflines = sorted(reflines)
             asrreflines = sorted(asrreflines)
             for i in range(len(hypolines)):
                 if len(reflines[i]) > 0:
