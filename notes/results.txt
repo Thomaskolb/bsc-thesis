@@ -142,3 +142,46 @@ Run 9:
 -Time: 15:30
 -Folder: c2tempdata3
 -Test set:
+
+--config 3--
+Run 10:
+-Configuration:
+    -Characters config 1
+    -Minimum WER: 0.5
+    -Subtract start time: 0.1
+    -Web link filter: ON
+    -Live broadcast filter: ON
+    -Synchronized filter: ON
+-Train data length: 
+-Test data length: 
+-Time:
+-Folder: c3tempdata
+-Test set:
+
+Run 11:
+-Configuration:
+    -Characters config 1
+    -Minimum WER: 0.5
+    -Subtract start time: 0.1
+    -Web link filter: ON
+    -Live broadcast filter: OFF
+    -Synchronized filter: OFF
+-Train data length: 
+-Test data length: 
+-Time:
+-Folder: c3tempdata2
+-Test set:
+
+Run 12:
+-Configuration:
+    -Characters config 1
+    -Minimum WER: 0.5
+    -Subtract start time: 0.1
+    -Web link filter: ON
+    -Live broadcast filter: OFF
+    -Synchronized filter: OFF
+-Train data length: 
+-Test data length: 
+-Time:
+-Folder: c3tempdata3
+-Test set:
