@@ -101,6 +101,7 @@ Run 6:
 -Average wer asr = 0.31011388388465866
 
 -- config 2 --
+Run 7:
 -Configuration:
     -Characters config 1
     -Minimum WER: 0.5
@@ -108,6 +109,34 @@ Run 6:
     -Web link filter: ON
     -Live broadcast filter: ON
     -Synchronized filter: ON
+-Train data length: 8:03:16.697000
+-Test data length: 1:06:01.672000
+-Time: 
+-Folder: c2tempdata
+-Test set:
+
+Run 8:
+-Configuration:
+    -Characters config 1
+    -Minimum WER: 0.5
+    -Subtract start time: 0.1
+    -Web link filter: ON
+    -Live broadcast filter: OFF
+    -Synchronized filter: OFF
+-Train data length: 
+-Test data length: 
+-Time: 
+-Folder: c2tempdata2
+-Test set:
+
+Run 9:
+-Configuration:
+    -Characters config 1
+    -Minimum WER: 0.5
+    -Subtract start time: 0.1
+    -Web link filter: ON
+    -Live broadcast filter: OFF
+    -Synchronized filter: OFF
 -Train data length: 
 -Test data length: 
 -Time: 
