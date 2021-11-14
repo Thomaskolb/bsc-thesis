@@ -123,8 +123,8 @@ Run 8:
     -Web link filter: ON
     -Live broadcast filter: OFF
     -Synchronized filter: OFF
--Train data length: 
--Test data length: 
+-Train data length: 16:10:01.303000
+-Test data length: 1:37:53.426000
 -Time: 
 -Folder: c2tempdata2
 -Test set:
