@@ -9,7 +9,7 @@
 #SBATCH --mail-user=thomaskolb@live.nl
 #SBATCH --mail-type=BEGIN,END,FAIL
 
-datetime="2021-11-12/10-12-27"
+datetime="2021-11-12/10-34-58"
 valid_data_path="/home/tkolb/bsc/data/tempdata2"
 
 source ~/.cache/pypoetry/virtualenvs/tkolbpoetry-0grRN4_Q-py3.6/bin/activate
