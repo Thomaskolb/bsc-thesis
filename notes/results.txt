@@ -137,8 +137,8 @@ Run 9:
     -Web link filter: ON
     -Live broadcast filter: OFF
     -Synchronized filter: OFF
--Train data length: 
--Test data length: 
--Time: 
--Folder: tempdata
+-Train data length: 1 day, 8:02:25.013000
+-Test data length: 3:17:30.360000
+-Time: 15:30
+-Folder: c2tempdata3
 -Test set:
