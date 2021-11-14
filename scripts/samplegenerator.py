@@ -93,6 +93,8 @@ def generate_pairs(filepath, outputpath, folder, file_id, filelist, wrd, ltr, as
                     caption_count += 1
                     seconds_count += end_seconds - start_seconds
                     write_output_files(filelist, samplepath, end_frame-start_frame, new_caption_text, ' '.join(asr_words), wrd, ltr, asr)
+                else:
+                    print('wercancel')
                 wer_total += wer
     return len(captions), caption_count, wer_total, seconds_count
 
