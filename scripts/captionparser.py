@@ -13,9 +13,9 @@ forbidden_formats = ['.{1,}\-.{1,}', '[A-Z]{1,}\:', '[0-9]{1,}\.[0-9]{1,}', '[0-
 
 # Configurations
 # Currently active configuration
-active_config = 1
+active_config = 2
 # Allow for capitalization of first word of sentence in configuration
-config_capitalization = [False, True, True]
+config_capitalization = [False, False, True]
 # Allowed characters
 config_allowed = []
 # Ignore these characters completely by removing them
@@ -24,8 +24,15 @@ config_ignore = []
 config_convert = [] 
 
 # Configuration 1
-config_allowed.append(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '\''])
+config_allowed.append(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p'
+    , 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '\''])
 config_ignore.append(['.', ',', '!', '?', '-', ':', '%', '&', '`'])
+config_convert.append({'é':'e', 'è':'e', 'ë':'e', 'ê':'e', 'ö':'o', 'ó':'o', 'ï':'i', 'ü':'u', })
+
+# Configuration 2
+config_allowed.append(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p'
+    , 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '\'', '.', ',', '!', '?', '-', ':'])
+config_ignore.append(['%', '&', '`'])
 config_convert.append({'é':'e', 'è':'e', 'ë':'e', 'ê':'e', 'ö':'o', 'ó':'o', 'ï':'i', 'ü':'u', })
 
 # Function that filters out captions that don't match requirements

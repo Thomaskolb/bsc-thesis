@@ -41,7 +41,7 @@ Run 3:
 4 days, 5:36:21.972000
 12:49:38.659000
 
---No more double data--
+--No more double data - config 1 --
 
 Run 5:
 -Configuration:
@@ -74,8 +74,12 @@ Run 5:
 -Test data length: 1:40;21.325000
 -Time: 2021-11-12/10-12-27
 -Folder: tempdata2
+-Valid set:
 -Average wer = 0.20310264336715847
 -Average wer asr = 0.2671457239390776
+-Test set:
+-Average wer = 0.403682337550168
+-Average wer asr = 0.31011388388465866
 
 Run 6:
 -Configuration:
@@ -89,5 +93,23 @@ Run 6:
 -Test data length: 3:15:58.228000
 -Time: 2021-11-12/10-34-58
 -Folder: tempdata3
+-Valid set:
 -Average wer = 0.2549912228082587
 -Average wer asr = 0.2671457239390776
+-Test set:
+-Average wer = 0.4059541132781754
+-Average wer asr = 0.31011388388465866
+
+-- config 2 --
+-Configuration:
+    -Characters config 1
+    -Minimum WER: 0.5
+    -Subtract start time: 0.1
+    -Web link filter: ON
+    -Live broadcast filter: ON
+    -Synchronized filter: ON
+-Train data length: 
+-Test data length: 
+-Time: 
+-Folder: tempdata
+-Test set:
