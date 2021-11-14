@@ -38,6 +38,7 @@ config_convert.append({'é':'e', 'è':'e', 'ë':'e', 'ê':'e', 'ö':'o', 'ó':'o
 # Configuration 3
 config_allowed.append(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p'
     , 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '\'', '.', ',', '!', '?', '-', ':', '%', '&', '`'])
+config_allowed[2] += map(config_allowed[2][:26], lambda a: a.upper())
 config_ignore.append([])
 config_convert.append({'é':'e', 'è':'e', 'ë':'e', 'ê':'e', 'ö':'o', 'ó':'o', 'ï':'i', 'ü':'u', })
 
