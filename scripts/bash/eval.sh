@@ -18,7 +18,7 @@ python3 ~/bsc/fairseq/examples/speech_recognition/infer.py \
     --task audio_finetuning \
     --nbest 1 \
     --path ~/bsc/data/fairseq-outputs/$datetime/checkpoints/checkpoint_best.pt \
-    --gen-subset valid \
+    --gen-subset test \
     --results-path ~/bsc/data/fairseq-evals/$datetime \
     --w2l-decoder kenlm \
     --lm-model ~/bsc/data/models/lmfile.bin \

@@ -14,11 +14,11 @@ bar = '=' * 30
 
 # Calculates WER for model data and captions and asr data and captions
 def write_WER_data(evalpath, asrpath):
-    with open(f'{evalpath}/WERdata.txt', 'w') as werfile:
+    with open(f'{evalpath}/WERdata_test.txt', 'w') as werfile:
         with open(f'{evalpath}/hypo.{outname}', 'r') as hypofile, \
                 open(f'{evalpath}/ref.{outname}') as reffile, \
-                open(f'{asrpath}/asr-valid.txt', 'r') as asrfile, \
-                open(f'{asrpath}/valid.wrd', 'r') as asrreffile:
+                open(f'{asrpath}/asr-test.txt', 'r') as asrfile, \
+                open(f'{asrpath}/test.wrd', 'r') as asrreffile:
             avg_wer = 0
             avg_wer_asr = 0
             hypodata, refdata = hypofile.read().split('\n'), reffile.read().split('\n')
