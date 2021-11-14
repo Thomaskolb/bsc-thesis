@@ -111,7 +111,7 @@ Run 7:
     -Synchronized filter: ON
 -Train data length: 8:03:16.697000
 -Test data length: 1:06:01.672000
--Time: 
+-Time: 15:14
 -Folder: c2tempdata
 -Test set:
 
