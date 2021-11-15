@@ -9,6 +9,12 @@
 #SBATCH --mail-user=thomaskolb@live.nl
 #SBATCH --mail-type=BEGIN,END,FAIL
 
+basepath = "/home/tkolb/bsc/data/fairseq-evals"
+filename = "WERdata_test.txt"
+
 source ~/.cache/pypoetry/virtualenvs/tkolbpoetry-0grRN4_Q-py3.6/bin/activate
-python3 ../interpretresults.py
+python3 ../interpretresults.py "/home/tkolb/bsc/data/results" \
+    "$basepath/2021-11-11/18-12-54/$filename" \
+    "$basepath/2021-11-12/10-12-27/$filename" \
+    "$basepath/2021-11-12/10-34-58/$filename"
 deactivate

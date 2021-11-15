@@ -2,11 +2,36 @@
 # This program interprets all the collected results from training and creates tensorboard log
 
 import tensorflow as tf
+import sys
 
-logdir = "test/"
-file_writer = tf.summary.create_file_writer(logdir + "/metrics")
-with file_writer.as_default():
-    tf.summary.scalar('test ding', 0.1, step=1)
-    tf.summary.scalar('test ding', 0.3, step=1)
-    tf.summary.scalar('test ding', 0.5, step=2)
-    tf.summary.scalar('test ding', 0.8, step=3)
+# Number of datapoints per configuration
+dps_per_config = 3
+
+# Write data dictionary to tensorflow log file
+def write_data(data, outpath):
+    file_writer = tf.summary.create_file_writer(outpath)
+    with file_writer.as_default():
+        for config in data:
+            for i in range(len(config)):
+                tf.summary.scalar(config, data[config][i], step=i)
+
+# Interpret data given from differen configuration outputs
+def interpret_data(config_path_list):
+    data_dict = {}
+    config_id = 1
+    dataset_id = 0
+    for config_path in config_path_list:
+        with open(config_path, 'w') as file:
+            value = float(file.read().split('\n')[-2].split(' ')[-1])
+            if not data_dict[f'configuration {config_id}']:
+                data_dict[f'configuration {config_id}'] = [value]
+            else:
+                data_dict[f'configuration {config_id}'].append(value)
+        dataset_id = (dataset_id + 1) % dps_per_config
+        if dataset_id == 0:
+            config_id += 1
+
+if len(sys.argv) < 3:
+    print("Please enter the output path and the configuration data paths")
+else:
+    write_data(interpret_data(sys.argv[1:]), sys.argv[1])
