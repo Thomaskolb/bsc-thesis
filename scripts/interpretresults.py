@@ -13,6 +13,8 @@ def write_data(data, outpath):
     with file_writer.as_default():
         for config in data:
             for i in range(len(config)):
+                print(i)
+                print(data[config])
                 tf.summary.scalar(config, data[config][i], step=i)
 
 # Interpret data given from differen configuration outputs
