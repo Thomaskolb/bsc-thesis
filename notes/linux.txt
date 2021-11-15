@@ -37,3 +37,6 @@ Redirecting:
 2> = stderr
 >> = append
 a | b = b uses output of a as input
+
+Occurence of pattern c in file
+grep -o 'c' file
