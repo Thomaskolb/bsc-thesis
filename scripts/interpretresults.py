@@ -9,13 +9,13 @@ dps_per_config = 3
 
 # Write data dictionary to tensorflow log file
 def write_data(data, outpath):
-    file_writer = tf.summary.create_file_writer(outpath)
-    with file_writer.as_default():
-        for config in data:
+    for config in data:
+        file_writer = tf.summary.create_file_writer(f'outpath/{data[config]}')
+        with file_writer.as_default():
             for i in range(len(data[config])):
                 print(i)
                 print(data[config])
-                tf.summary.scalar(config, data[config][i], step=i)
+                tf.summary.scalar('results', data[config][i], step=i)
 
 # Interpret data given from differen configuration outputs
 def interpret_data(config_path_list):
