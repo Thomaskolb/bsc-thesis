@@ -34,4 +34,4 @@ def interpret_data(config_path_list):
 if len(sys.argv) < 3:
     print("Please enter the output path and the configuration data paths")
 else:
-    write_data(interpret_data(sys.argv[1:]), sys.argv[1])
+    write_data(interpret_data(sys.argv[2:]), sys.argv[1])
