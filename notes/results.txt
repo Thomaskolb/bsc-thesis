@@ -111,7 +111,7 @@ Run 7:
     -Synchronized filter: ON
 -Train data length: 8:03:16.697000
 -Test data length: 1:06:01.672000
--Time: 15:14
+-Time: 2021-11-14/15-14-42
 -Folder: c2tempdata
 -Test set:
 
@@ -125,7 +125,7 @@ Run 8:
     -Synchronized filter: OFF
 -Train data length: 16:10:01.303000
 -Test data length: 1:37:53.426000
--Time: 15:23
+-Time: 2021-11-14/15-23-43
 -Folder: c2tempdata2
 -Test set:
 
@@ -139,7 +139,7 @@ Run 9:
     -Synchronized filter: OFF
 -Train data length: 1 day, 8:02:25.013000
 -Test data length: 3:17:30.360000
--Time: 15:30
+-Time: 2021-11-14/15-30-40
 -Folder: c2tempdata3
 -Test set:
 
