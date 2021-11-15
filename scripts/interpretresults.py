@@ -19,9 +19,9 @@ def write_data(data, outpath):
     # ASR data
     file_writer = tf.summary.create_file_writer(f'{outpath}/asr-results')
     with file_writer.as_default():
+        tf.summary.scalar('results', 0.31011388388465866, step=0)
         tf.summary.scalar('results', 0.31011388388465866, step=1)
         tf.summary.scalar('results', 0.31011388388465866, step=2)
-        tf.summary.scalar('results', 0.31011388388465866, step=3)
 
 # Interpret data given from differen configuration outputs
 def interpret_data(config_path_list):
