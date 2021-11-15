@@ -22,6 +22,7 @@ def interpret_data(config_path_list):
     dataset_id = 0
     for config_path in config_path_list:
         with open(config_path, 'r') as file:
+            print(config_path)
             print(file.read().split('\n')[-2])
             value = float(file.read().split('\n')[-2].split(' ')[-1])
             if not data_dict[f'configuration {config_id}']:
