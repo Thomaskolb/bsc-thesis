@@ -25,7 +25,7 @@ def interpret_data(config_path_list):
             print(config_path)
             number = (file.read().split('\n')[-3]).split(' ')[-1]
             value = float(number)
-            if not data_dict[f'configuration {config_id}']:
+            if f'configuration {config_id}' not in data_dict:
                 data_dict[f'configuration {config_id}'] = [value]
             else:
                 data_dict[f'configuration {config_id}'].append(value)
