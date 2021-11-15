@@ -154,7 +154,7 @@ Run 10:
     -Synchronized filter: ON
 -Train data length: 8:01:30.984000
 -Test data length: 1:00:00.798000
--Time: 11:42
+-Time: 2021-11-15/11-44-06
 -Folder: c3tempdata
 -Test set:
 
