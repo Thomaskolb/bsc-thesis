@@ -10,7 +10,7 @@ dps_per_config = 3
 # Write data dictionary to tensorflow log file
 def write_data(data, outpath):
     for config in data:
-        file_writer = tf.summary.create_file_writer(f'{outpath}/{data[config]}')
+        file_writer = tf.summary.create_file_writer(f'{outpath}/{config}')
         with file_writer.as_default():
             for i in range(len(data[config])):
                 print(i)
