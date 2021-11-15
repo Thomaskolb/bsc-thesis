@@ -166,8 +166,8 @@ Run 11:
     -Web link filter: ON
     -Live broadcast filter: OFF
     -Synchronized filter: OFF
--Train data length: 
--Test data length: 
+-Train data length: 16:14:41.627000
+-Test data length: 1:40:54.790000
 -Time:
 -Folder: c3tempdata2
 -Test set:
@@ -180,8 +180,8 @@ Run 12:
     -Web link filter: ON
     -Live broadcast filter: OFF
     -Synchronized filter: OFF
--Train data length: 
--Test data length: 
+-Train data length: 1 day, 8:07:41.079000
+-Test data length: 3:12:50.974000
 -Time:
 -Folder: c3tempdata3
 -Test set:
