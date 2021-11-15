@@ -10,5 +10,5 @@
 #SBATCH --mail-type=BEGIN,END,FAIL
 
 source ~/.cache/pypoetry/virtualenvs/tkolbpoetry-0grRN4_Q-py3.6/bin/activate
-python3 ../extractlexicon.py "/home/tkolb/bsc/data/models/c2lmfile.txt" "/home/tkolb/bsc/data/models/c2lexicon.txt"
+python3 ../extractlexicon.py "/home/tkolb/bsc/data/models/c3lmfile.txt" "/home/tkolb/bsc/data/models/c3lexicon.txt"
 deactivate
