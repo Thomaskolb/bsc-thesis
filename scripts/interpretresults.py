@@ -23,8 +23,8 @@ def interpret_data(config_path_list):
     for config_path in config_path_list:
         with open(config_path, 'r') as file:
             print(config_path)
-            print((file.read().split('\n')[-3]).split(' ')[-1])
-            value = float((file.read().split('\n')[-3]).split(' ')[-1])
+            number = (file.read().split('\n')[-3]).split(' ')[-1]
+            value = float(number)
             if not data_dict[f'configuration {config_id}']:
                 data_dict[f'configuration {config_id}'] = [value]
             else:
