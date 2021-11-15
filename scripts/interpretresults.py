@@ -32,6 +32,7 @@ def interpret_data(config_path_list):
         dataset_id = (dataset_id + 1) % dps_per_config
         if dataset_id == 0:
             config_id += 1
+    return data_dict
 
 if len(sys.argv) < 3:
     print("Please enter the output path and the configuration data paths")
