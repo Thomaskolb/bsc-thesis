@@ -13,7 +13,9 @@ basepath="/home/tkolb/bsc/data/fairseq-evals"
 filename="WERdata_test.txt"
 
 nfiles=$(ls ~/bsc/data/results | wc -l)
-if [[ $nfiles > 0 ]]; then rm -r ~/bsc/data/results/*
+if [[ $nfiles > 0 ]]; then
+    rm -r ~/bsc/data/results/*
+fi
 source ~/.cache/pypoetry/virtualenvs/tkolbpoetry-0grRN4_Q-py3.6/bin/activate
 python3 ../interpretresults.py "/home/tkolb/bsc/data/results" \
     "$basepath/2021-11-11/18-12-54/$filename" \
