@@ -11,7 +11,7 @@
 
 datetime="2021-11-14/15-14-42"
 valid_data_path="/home/tkolb/bsc/data/c2tempdata2"
-lmfile="c2lmfile.txt"
+lmfile="c2lmfile.bin"
 lexicon="c2lexicon.txt"
 
 source ~/.cache/pypoetry/virtualenvs/tkolbpoetry-0grRN4_Q-py3.6/bin/activate
