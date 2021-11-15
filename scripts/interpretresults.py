@@ -12,7 +12,7 @@ def write_data(data, outpath):
     file_writer = tf.summary.create_file_writer(outpath)
     with file_writer.as_default():
         for config in data:
-            for i in range(len(config)):
+            for i in range(len(data[config])):
                 print(i)
                 print(data[config])
                 tf.summary.scalar(config, data[config][i], step=i)
