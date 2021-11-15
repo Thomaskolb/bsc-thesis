@@ -4,7 +4,7 @@
 import tensorflow as tf
 
 logdir = "test/"
-file_writer = tf.summary.SummaryWriter(logdir + "/metrics")
+file_writer = tf.summary.create_file_writer(logdir + "/metrics")
 with file_writer.set_as_default():
     tf.summary.scalar('test ding', 0.1, step=1)
     tf.summary.scalar('test ding', 0.3, step=1)
