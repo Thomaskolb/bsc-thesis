@@ -27,6 +27,7 @@ def interpret_data(config_path_list):
             print(config_path)
             number = (file.read().split('\n')[-3]).split(' ')[-1]
             value = float(number)
+            print((file.read().split('\n')[-2]))
             asr_number = (file.read().split('\n')[-2]).split(' ')[-1]
             asr_value = float(asr_number)
             if f'configuration {config_id}' not in data_dict:
