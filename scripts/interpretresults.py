@@ -25,10 +25,13 @@ def interpret_data(config_path_list):
     for config_path in config_path_list:
         with open(config_path, 'r') as file:
             print(config_path)
-            number = (file.read().split('\n')[-3]).split(' ')[-1]
+            lines = file.read().split('\n')
+            number = (lines[-3]).split(' ')[-1]
             value = float(number)
-            print((file.read().split('\n')[-2]))
-            asr_number = (file.read().split('\n')[-2]).split(' ')[-1]
+            print(lines[0])
+            print(lines[-3])
+            print(lines[-2])
+            asr_number = (lines[-2]).split(' ')[-1]
             asr_value = float(asr_number)
             if f'configuration {config_id}' not in data_dict:
                 data_dict[f'configuration {config_id}'] = [value]
