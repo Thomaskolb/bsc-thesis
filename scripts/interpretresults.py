@@ -7,15 +7,16 @@ import sys
 # Number of datapoints per configuration
 dps_per_config = 3
 
+# Translate steps to hours
+to_hours = [8, 16, 32]
+
 # Write data dictionary to tensorflow log file
 def write_data(data, outpath):
     for config in data:
         file_writer = tf.summary.create_file_writer(f'{outpath}/{config}')
         with file_writer.as_default():
             for i in range(len(data[config])):
-                print(i)
-                print(data[config])
-                tf.summary.scalar('results', data[config][i], step=i)
+                tf.summary.scalar('results', data[config][i], step=to_hours(i))
 
 # Interpret data given from differen configuration outputs
 def interpret_data(config_path_list):
@@ -24,13 +25,9 @@ def interpret_data(config_path_list):
     dataset_id = 0
     for config_path in config_path_list:
         with open(config_path, 'r') as file:
-            print(config_path)
             lines = file.read().split('\n')
             number = (lines[-3]).split(' ')[-1]
             value = float(number)
-            print(lines[0])
-            print(lines[-3])
-            print(lines[-2])
             asr_number = (lines[-2]).split(' ')[-1]
             asr_value = float(asr_number)
             if f'configuration {config_id}' not in data_dict:
