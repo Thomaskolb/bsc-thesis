@@ -23,5 +23,8 @@ python3 ../interpretresults.py "/home/tkolb/bsc/data/results" \
     "$basepath/2021-11-12/10-34-58/$filename" \
     "$basepath/2021-11-14/15-14-42/$filename" \
     "$basepath/2021-11-14/15-23-43/$filename" \
-    "$basepath/2021-11-14/15-30-40/$filename" 
+    "$basepath/2021-11-14/15-30-40/$filename" \
+    "$basepath/2021-11-15/11-44-06/$filename" \
+    "$basepath/2021-11-15/11-45-07/$filename" \
+    "$basepath/2021-11-15/13-23-43/$filename"
 deactivate

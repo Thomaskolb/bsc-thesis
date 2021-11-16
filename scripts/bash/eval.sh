@@ -9,7 +9,7 @@
 #SBATCH --mail-user=thomaskolb@live.nl
 #SBATCH --mail-type=BEGIN,END,FAIL
 
-datetime="2021-11-15/11-44-06"
+datetime="2021-11-15/11-45-07"
 valid_data_path="/home/tkolb/bsc/data/c3tempdata3"
 lmfile="c3lmfile.bin"
 lexicon="c3lexicon.txt"
