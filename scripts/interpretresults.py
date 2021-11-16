@@ -16,7 +16,7 @@ def write_data(data, outpath):
         file_writer = tf.summary.create_file_writer(f'{outpath}/{config}')
         with file_writer.as_default():
             for i in range(len(data[config])):
-                tf.summary.scalar('results', data[config][i], step=to_hours(i))
+                tf.summary.scalar('results', data[config][i], step=to_hours[i])
 
 # Interpret data given from differen configuration outputs
 def interpret_data(config_path_list):
