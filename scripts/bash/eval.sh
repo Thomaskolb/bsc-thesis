@@ -9,10 +9,10 @@
 #SBATCH --mail-user=thomaskolb@live.nl
 #SBATCH --mail-type=BEGIN,END,FAIL
 
-datetime="2021-11-14/15-30-40"
-valid_data_path="/home/tkolb/bsc/data/c2tempdata2"
-lmfile="c2lmfile.bin"
-lexicon="c2lexicon.txt"
+datetime="2021-11-15/11-44-06"
+valid_data_path="/home/tkolb/bsc/data/c3tempdata3"
+lmfile="c3lmfile.bin"
+lexicon="c3lexicon.txt"
 
 source ~/.cache/pypoetry/virtualenvs/tkolbpoetry-0grRN4_Q-py3.6/bin/activate
 python3 ~/bsc/fairseq/examples/speech_recognition/infer.py \

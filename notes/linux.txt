@@ -40,3 +40,7 @@ a | b = b uses output of a as input
 
 Occurence of pattern c in file
 grep -o 'c' file
+
+Python:
+-time.perf_counter() (niet time.time())
+-loop: i, v enumerate(list)
