@@ -4,8 +4,8 @@
 #SBATCH --mem=1G
 #SBATCH --cpus-per-task=1
 #SBATCH --time=12:00:00
-#SBATCH --output=results-%J.out
-#SBATCH --error=results-%J.err
+#SBATCH --output=analyze-%J.out
+#SBATCH --error=analyze-%J.err
 #SBATCH --mail-user=thomaskolb@live.nl
 #SBATCH --mail-type=BEGIN,END,FAIL
 
@@ -13,7 +13,7 @@ basepath="/home/tkolb/bsc/data/fairseq-evals"
 date="2021-11-11/18-12-54"
 
 source ~/.cache/pypoetry/virtualenvs/tkolbpoetry-0grRN4_Q-py3.6/bin/activate
-python3 ../gathercaptions.py "/home/tkolb/bsc/data/results/gathered_captions.txt" \
+python3 ../gathercaptions.py "/home/tkolb/bsc/data/analysis/gathered_captions.txt" \
     "$basepath/2021-11-11/18-12-54" \
     "$basepath/2021-11-12/10-12-27" \
     "$basepath/2021-11-12/10-34-58" \
