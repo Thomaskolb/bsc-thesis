@@ -11,11 +11,12 @@
 
 DATETIMES=("2021-11-11/18-12-54" "2021-11-12/10-12-27" "2021-11-12/10-34-58")
 valid_data_path="/home/tkolb/bsc/data/c2tempdata2"
-lmfile="c1lmfile.bin"
-lexicon="c1lexicon.txt"
+lmfile="c2lmfile.bin"
+lexicon="c2lexicon.txt"
 
 source ~/.cache/pypoetry/virtualenvs/tkolbpoetry-0grRN4_Q-py3.6/bin/activate
 for datetime in $DATETIMES; do
+    echo $datetime
     python3 ~/bsc/fairseq/examples/speech_recognition/infer.py \
         $valid_data_path \
         --task audio_finetuning \
