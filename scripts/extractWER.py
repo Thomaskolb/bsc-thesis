@@ -14,7 +14,7 @@ outname = f'word-checkpoint_best.pt-{dataset}.txt'
 bar = '=' * 30
 
 # Turn capital letters to lowercase of asr files
-lowercase = True
+lowercase = False
 
 # Calculates WER for model data and captions and asr data and captions
 def write_WER_data(evalpath, asrpath):
