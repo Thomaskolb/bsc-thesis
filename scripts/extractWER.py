@@ -13,6 +13,9 @@ outname = f'word-checkpoint_best.pt-{dataset}.txt'
 # Line of equal chars
 bar = '=' * 30
 
+# Turn capital letters to lowercase of asr files
+lowercase = True
+
 # Calculates WER for model data and captions and asr data and captions
 def write_WER_data(evalpath, asrpath):
     with open(f'{evalpath}/WERdata_{dataset}.txt', 'w') as werfile:
@@ -33,6 +36,8 @@ def write_WER_data(evalpath, asrpath):
             asrreflines = sorted(asrreflines)
             for i in range(len(hypolines)):
                 if len(reflines[i]) > 0:
+                    if lowercase:
+                        asrlines[i] = asrlines[i].lower()
                     werdata = worderrorrate.WER(reflines[i].split(' '), hypolines[i].split(' '))
                     asrwerdata = worderrorrate.WER(asrreflines[i].split(' '), asrlines[i].split(' '))
                     werfile.write(f'{werdata}WER = {werdata.wer()}\n')

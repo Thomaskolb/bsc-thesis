@@ -55,12 +55,6 @@ Run 5:
 -Test data length: 0:50:32.936000
 -Time: 2021-11-11/18-12-54
 -Folder: tempdata
--Valid set:
--Average wer = 0.3442389188139764
--Average wer asr = 0.26714572393907826
--Test set:
--Average wer = 0.47430724628117865
--Average wer asr = 0.31011388388465866
 
 Run 5:
 -Configuration:
@@ -74,12 +68,6 @@ Run 5:
 -Test data length: 1:40;21.325000
 -Time: 2021-11-12/10-12-27
 -Folder: tempdata2
--Valid set:
--Average wer = 0.20310264336715847
--Average wer asr = 0.2671457239390776
--Test set:
--Average wer = 0.403682337550168
--Average wer asr = 0.31011388388465866
 
 Run 6:
 -Configuration:
@@ -93,12 +81,6 @@ Run 6:
 -Test data length: 3:15:58.228000
 -Time: 2021-11-12/10-34-58
 -Folder: tempdata3
--Valid set:
--Average wer = 0.2549912228082587
--Average wer asr = 0.2671457239390776
--Test set:
--Average wer = 0.4059541132781754
--Average wer asr = 0.31011388388465866
 
 -- config 2 --
 Run 7:
@@ -113,7 +95,6 @@ Run 7:
 -Test data length: 1:06:01.672000
 -Time: 2021-11-14/15-14-42
 -Folder: c2tempdata
--Test set:
 
 Run 8:
 -Configuration:
@@ -127,7 +108,6 @@ Run 8:
 -Test data length: 1:37:53.426000
 -Time: 2021-11-14/15-23-43
 -Folder: c2tempdata2
--Test set:
 
 Run 9:
 -Configuration:
@@ -141,7 +121,6 @@ Run 9:
 -Test data length: 3:17:30.360000
 -Time: 2021-11-14/15-30-40
 -Folder: c2tempdata3
--Test set:
 
 --config 3--
 Run 10:
@@ -156,7 +135,6 @@ Run 10:
 -Test data length: 1:00:00.798000
 -Time: 2021-11-15/11-44-06
 -Folder: c3tempdata
--Test set:
 
 Run 11:
 -Configuration:
@@ -170,7 +148,6 @@ Run 11:
 -Test data length: 1:40:54.790000
 -Time: 2021-11-15/11-45-07
 -Folder: c3tempdata2
--Test set:
 
 Run 12:
 -Configuration:
@@ -184,4 +161,3 @@ Run 12:
 -Test data length: 3:12:50.974000
 -Time: 2021-11-15/13-23-43
 -Folder: c3tempdata3
--Test set:

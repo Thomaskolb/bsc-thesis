@@ -12,6 +12,13 @@ wer_data_file = 'WERdata_test.txt'
 # Line of equal chars
 bar = '=' * 30
 
+# type of test currently being analyzed
+value_test = False
+interpunction_test = True
+
+# List of interpunction symbols
+interpunction = ['.', ',', '!', '?', '-', ':']
+
 # Function that finds the well performed captions with list of paths and writes them to output file
 def write_data(outpath, paths):
     for path in paths:
@@ -25,7 +32,8 @@ def write_data(outpath, paths):
             for i in range(len(values)):
                 value = values[i].split(' ')[-1]
                 asr_value = asr_values[i].split(' ')[-1]
-                if value < asr_value:
+                if ((not value_test or value < asr_value) 
+                        and (not interpunction_test or any([word in interpunction for word in hyps[i][5:].split(' ')]))):
                     outfile.write(f'{value} < {asr_value}\nREF={refs[i][5:]}\nHYP={hyps[i][5:]}\nASR={asrs[i][5:]}\n{bar}\n\n')
 
 if len(sys.argv) < 2:
