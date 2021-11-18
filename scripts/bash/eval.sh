@@ -13,8 +13,8 @@ datetime1="2021-11-14/15-14-42"
 datetime2="2021-11-14/15-23-43"
 datetime3="2021-11-14/15-30-40"
 valid_data_path="/home/tkolb/bsc/data/c2tempdata"
-lmfile="c1lmfile.bin"
-lexicon="c1lexicon.txt"
+lmfile="c2lmfile.bin"
+lexicon="c2lexicon.txt"
 
 source ~/.cache/pypoetry/virtualenvs/tkolbpoetry-0grRN4_Q-py3.6/bin/activate
 python3 ~/bsc/fairseq/examples/speech_recognition/infer.py \
