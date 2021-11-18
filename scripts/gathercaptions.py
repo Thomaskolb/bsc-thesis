@@ -13,9 +13,9 @@ wer_data_file = 'WERdata_test.txt'
 bar = '=' * 30
 
 # Function that finds the well performed captions with list of paths and writes them to output file
-def write_data(outfile, paths):
+def write_data(outpath, paths):
     for path in paths:
-        with open(outfile, 'w') as outfile, open(f'{path}/{wer_data_file}', 'r') as infile:
+        with open(outpath, 'w') as outfile, open(f'{path}/{wer_data_file}', 'r') as infile:
             lines = infile.read().split('\n')
             refs = lines[0:-3:10]
             hyps = lines[1:-3:10]
