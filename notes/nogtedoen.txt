@@ -1,3 +1,9 @@
 -Onderzoek doen naar manier waarop ondertiteling gemaakt word
 -Iets met timing doen, blijkbaar staat de ondertiteling langer in beeld als er ruimte voor is om de kijker meer tijd te geven om te lezen
 -https://over.npo.nl/storage/configurations/overnpo/files/bijlage_richtlijnen_ondertiteling.pdf
+
+Klein probleempje:
+-Ik heb heel veel getraind met data waarin ik ook de reclames toelaat. 
+Ik heb ook geprobeerd de dubbele data eruit te halen, wat opzich goed gebeurt. Het ding is dat binnen de testdata nogsteeds heel veel reclame zit,
+reclame word natuurlijk altijd in andere volgorde afgespeeld, waardoor er nogsteeds dubbele data doorheen komt in de vorm van reclames.
+Dubbele uitzendingen hebben we niet echt
