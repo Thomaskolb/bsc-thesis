@@ -13,11 +13,11 @@ wer_data_file = 'WERdata_test.txt'
 bar = '=' * 30
 
 # type of test currently being analyzed
-value_test = False
+value_test = True
 interpunction_test = True
 
-# List of interpunction symbols
-interpunction = ['.', ',', '!', '?', '-', ':']
+# List of interpunction symbols - no '.' because it is not interesting
+interpunction = [',', '!', '?', '-', ':']
 
 # Function that finds the well performed captions with list of paths and writes them to output file
 def write_data(outpath, paths):
