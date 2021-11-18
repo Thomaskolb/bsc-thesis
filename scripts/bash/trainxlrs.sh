@@ -4,8 +4,8 @@
 #SBATCH --mem=50G
 #SBATCH --cpus-per-task=4
 #SBATCH --time=48:00:00
-#SBATCH --output=train-%J.out
-#SBATCH --error=train-%J.err
+#SBATCH --output=trainxlrs-%J.out
+#SBATCH --error=trainxlrs-%J.err
 #SBATCH --mail-user=thomaskolb@live.nl
 #SBATCH --mail-type=BEGIN,END,FAIL
 
