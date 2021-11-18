@@ -13,8 +13,8 @@ wer_data_file = 'WERdata_test.txt'
 bar = '=' * 30
 
 # type of test currently being analyzed
-value_test = False
-interpunction_test = True
+value_test = True
+interpunction_test = False
 
 # List of interpunction symbols
 interpunction = ['.', ',', '!', '?', '-', ':']
