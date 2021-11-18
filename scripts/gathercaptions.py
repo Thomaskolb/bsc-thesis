@@ -14,7 +14,7 @@ bar = '=' * 30
 
 # type of test currently being analyzed
 value_test = True
-interpunction_test = True
+interpunction_test = False
 
 # List of interpunction symbols - no '.' because it is not interesting
 interpunction = [',', '!', '?', '-', ':']
