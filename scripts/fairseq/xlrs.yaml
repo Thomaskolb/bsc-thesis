@@ -61,3 +61,8 @@ model:
   activation_dropout: 0.1
   feature_grad_mult: 0.0
   freeze_finetune_updates: ???
+  # to fix errors:
+  encoder_layers: 12
+  encoder_embed_dim: 768
+  encoder_ffn_embed_dim: 3072
+  encoder_attention_heads: 12
