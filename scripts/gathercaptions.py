@@ -13,8 +13,8 @@ wer_data_file = 'WERdata_test.txt'
 bar = '=' * 30
 
 # type of test currently being analyzed
-value_test = True
-interpunction_test = False
+value_test = False
+interpunction_test = True
 
 # List of interpunction symbols
 interpunction = ['.', ',', '!', '?', '-', ':']
@@ -34,7 +34,7 @@ def write_data(outpath, paths):
                 asr_value = asr_values[i].split(' ')[-1]
                 if ((not value_test or value < asr_value) 
                         and (not interpunction_test or any([word in interpunction for word in hyps[i][5:].split(' ')]))):
-                    outfile.write(f'{value} < {asr_value}\nREF={refs[i][5:]}\nHYP={hyps[i][5:]}\nASR={asrs[i][5:]}\n{bar}\n\n')
+                    outfile.write(f'val {value} - asr {asr_value}\nREF={refs[i][5:]}\nHYP={hyps[i][5:]}\nASR={asrs[i][5:]}\n{bar}\n\n')
 
 if len(sys.argv) < 2:
     print("Please enter the output file and the configuration data paths")
