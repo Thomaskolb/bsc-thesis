@@ -17,16 +17,16 @@ def write_data(outpath, paths):
     for path in paths:
         with open(outpath, 'w') as outfile, open(f'{path}/{wer_data_file}', 'r') as infile:
             lines = infile.read().split('\n')
-            refs = lines[0:-3:10][5:]
-            hyps = lines[1:-3:10][5:]
-            asrs = lines[5:-3:10][5:]
+            refs = lines[0:-3:10]
+            hyps = lines[1:-3:10]
+            asrs = lines[5:-3:10]
             asr_values = lines[7:-3:10]
             values = lines[3:-3:10]
             for i in range(len(values)):
                 value = values[i].split(' ')[-1]
                 asr_value = asr_values[i].split(' ')[-1]
                 if value > asr_value:
-                    outfile.write(f'{value} > {asr_value}\nREF={refs[i]}\nHYP={hyps[i]}\nASR={asrs[i]}\n{bar}\n\n')
+                    outfile.write(f'{value} > {asr_value}\nREF={refs[i][5:]}\nHYP={hyps[i][5:]}\nASR={asrs[i][5:]}\n{bar}\n\n')
 
 if len(sys.argv) < 2:
     print("Please enter the output file and the configuration data paths")
