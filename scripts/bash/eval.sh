@@ -11,8 +11,8 @@
 
 DATETIMES=("2021-11-11/18-12-54" "2021-11-12/10-12-27" "2021-11-12/10-34-58")
 valid_data_path="/home/tkolb/bsc/data/c2tempdata2"
-lmfile="lmfile.bin"
-lexicon="lexicon.txt"
+lmfile="c1lmfile.bin"
+lexicon="c1lexicon.txt"
 
 source ~/.cache/pypoetry/virtualenvs/tkolbpoetry-0grRN4_Q-py3.6/bin/activate
 for datetime in $DATETIMES; do
