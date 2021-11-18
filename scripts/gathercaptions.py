@@ -20,11 +20,13 @@ def write_data(outfile, paths):
             refs = lines[0:-3:10]
             hyps = lines[1:-3:10]
             asrs = lines[5:-3:10]
-            values = float(lines[3:-3:10].split(' ')[-1])
-            asr_values = float(lines[7:-3:10].split(' ')[-1])
+            asr_values = lines[7:-3:10]
+            values = lines[3:-3:10]
             for i in range(len(values)):
-                if values[i] > asr_values[i]:
-                    outfile.write(f'{values[i]} > {asr_values[i]}\n{refs[i]}\n{hyps[i]}\n{asrs[i]}\n{bar}\n\n')
+                value = values[i].split(' ')[-1]
+                asr_value = asr_values[i].split(' ')[-1]
+                if value > asr_value:
+                    outfile.write(f'{value} > {asr_value}\n{refs[i]}\n{hyps[i]}\n{asrs[i]}\n{bar}\n\n')
 
 if len(sys.argv) < 2:
     print("Please enter the output file and the configuration data paths")
