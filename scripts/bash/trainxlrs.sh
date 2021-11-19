@@ -10,7 +10,7 @@
 #SBATCH --mail-type=BEGIN,END,FAIL
 
 source ~/.cache/pypoetry/virtualenvs/tkolbpoetry-0grRN4_Q-py3.6/bin/activate
-fairseq-hydra-train \
+HYDRA_FULL_ERROR=1 fairseq-hydra-train \
     task.data=/home/tkolb/bsc/data/c2tempdata \
     model.w2v_path=/home/tkolb/bsc/data/models/xlsr_53_56k.pt \
     model.freeze_finetune_updates=0 \
