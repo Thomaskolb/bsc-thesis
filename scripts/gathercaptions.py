@@ -44,7 +44,7 @@ def write_data(outpath, paths):
                         and (not eh_test or any([any([word.startswith(eh) for eh in eh_words]) for word in asrs[i][5:].split(' ')]))):
                     outfile.write(f'val {value} - asr {asr_value}\nREF={refs[i][5:]}\nHYP={hyps[i][5:]}\nASR={asrs[i][5:]}\n{bar}\n\n')
                     cases += 1
-                    if ((interpunction_test and refs[i][5:].index(',') == hyps[i][5:].index(',')) 
+                    if ((interpunction_test and (',' in refs[i][5:] and ',' in hyps[i][5:] and refs[i][5:].index(',') == hyps[i][5:].index(','))) 
                         or (eh_test and not any([any([word.startswith(eh) for eh in eh_words]) for word in hyps[i][5:].split(' ')]))):
                         correct_cases += 1
                 print(f'Total cases: {cases}, conditioned cases: {correct_cases}\n')
