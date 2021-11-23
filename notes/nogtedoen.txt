@@ -11,3 +11,7 @@ Dubbele uitzendingen hebben we niet echt
 -Ik heb het kunnen fixen door de als testdata alleen 'kwaliteit' data te gebruiken, die schaars is, maar wel reclameloos.
 De resultaten zijn dat we minder goede captions verzamelen, maar nogsteeds heb ik het gevoel dat het data is die al eerder is gezien
 door de trainer...
+
+-Spelen met lm weight en word penalty
+-eh gevallen zoeken in analyse
+-correcte , gevallen delen door correcte , gevallen

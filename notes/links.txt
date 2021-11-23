@@ -9,3 +9,29 @@ https://towardsdatascience.com/transformers-141e32e69591#:~:text=Transformer%20i
 
 Cluster:
 https://gitlab.science.ru.nl/das-dl/gpu-cluster-wiki
+
+RNNs:
+https://d2l.ai/chapter_recurrent-neural-networks/index.html
+-designed to handle seq data
+-Language models: https://d2l.ai/chapter_recurrent-neural-networks/language-models-and-dataset.html
+-You can draw words from probability distr. to predict the next word
+-laplace smoothing, add small constant to probability (1/m+e) to compensate for words that dont occur at all in the model
+-use of hidden layers that contain information of all previous states (words in sentence)
+-Bert: applies bidirectional training of transformers to language modelling: 
+-Bidirectional recurrent neural networks (BRNN) connect two hidden layers of opposite directions to the same output
+-Transfer learning: pre-training a neural network model on a known task, for instance ImageNet, and then performing fine-tuning
+-Instead of trying to predict the next word in a sequence we can apply MLM
+-Masked LM: replace part of sequence (15%) with mask token, let the model predict masked words
+
+Transformers:
+https://ai.googleblog.com/2017/08/transformer-novel-neural-network.html
+https://arxiv.org/pdf/1706.03762.pdf
+
+Embeddings:
+https://medium.com/@_init_/how-self-attention-with-relative-position-representations-works-28173b8c245a
+
+List of thesi:
+https://www.ru.nl/icis/education/bachelor-thesis/
+
+W2v2:
+https://arxiv.org/pdf/2006.11477.pdf

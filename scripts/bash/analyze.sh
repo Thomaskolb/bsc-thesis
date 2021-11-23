@@ -12,7 +12,7 @@
 basepath="/home/tkolb/bsc/data/fairseq-evals"
 
 source ~/.cache/pypoetry/virtualenvs/tkolbpoetry-0grRN4_Q-py3.6/bin/activate
-python3 ../gathercaptions.py "/home/tkolb/bsc/data/analysis/int.txt" \
+python3 ../gathercaptions.py "/home/tkolb/bsc/data/analysis/comma.txt" \
     "$basepath/2021-11-14/15-14-42" \
     "$basepath/2021-11-14/15-23-43" \
     "$basepath/2021-11-14/15-30-40"
