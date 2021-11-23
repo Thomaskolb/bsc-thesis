@@ -47,7 +47,7 @@ def write_data(outpath, paths):
                     if ((interpunction_test and (',' in refs[i][5:] and ',' in hyps[i][5:] and refs[i][5:].index(',') == hyps[i][5:].index(','))) 
                         or (eh_test and not any([any([word.startswith(eh) for eh in eh_words]) for word in hyps[i][5:].split(' ')]))):
                         correct_cases += 1
-                print(f'Total cases: {cases}, conditioned cases: {correct_cases}\n')
+            outfile.write(f'Total cases: {cases}, conditioned cases: {correct_cases}\n')
 
 if len(sys.argv) < 2:
     print("Please enter the output file and the configuration data paths")
