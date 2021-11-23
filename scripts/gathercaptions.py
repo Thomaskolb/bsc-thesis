@@ -39,15 +39,20 @@ def write_data(outpath, paths):
             for i in range(len(values)):
                 value = values[i].split(' ')[-1]
                 asr_value = asr_values[i].split(' ')[-1]
-                if ((not value_test or value < asr_value) 
-                        and (not interpunction_test or any([word in interpunction for word in hyps[i][5:].split(' ')]))
-                        and (not eh_test or any([any([word.startswith(eh) for eh in eh_words]) for word in asrs[i][5:].split(' ')]))):
+                int_hyp_count = sum([word in interpunction for word in hyps[i][5:].split(' ')])
+                eh_asr_count = sum([any([word.startswith(eh) for eh in eh_words]) for word in asrs[i][5:].split(' ')])
+                if ((not value_test or value < asr_value)
+                        and (not interpunction_test or int_hyp_count > 0)
+                        and (not eh_test or eh_asr_count > 0)):
                     outfile.write(f'val {value} - asr {asr_value}\nREF={refs[i][5:]}\nHYP={hyps[i][5:]}\nASR={asrs[i][5:]}\n{bar}\n\n')
-                    cases += 1
-                    if ((interpunction_test and (',' in refs[i][5:] and ',' in hyps[i][5:] and refs[i][5:].index(',') == hyps[i][5:].index(','))) 
-                        or (eh_test and not any([any([word.startswith(eh) for eh in eh_words]) for word in hyps[i][5:].split(' ')]))):
-                        correct_cases += 1
-            outfile.write(f'Total cases: {cases}, conditioned cases: {correct_cases}\n')
+                    int_ref_count = sum([word in interpunction for word in refs[i][5:].split(' ')])
+                    eh_hyp_count = sum([any([word.startswith(eh) for eh in eh_words]) for word in hyps[i][5:].split(' ')])
+                    # Add 1 for each occurence
+                    cases += interpunction_test*int_ref_count + eh_test*eh_asr_count
+                    correct_cases += interpunction_test*sum([sum([refs[i][5:][ind] == c == w for ind,w in enumerate(hyps[i][5:])]) for c in interpunction])
+                    correct_cases += eh_test*(eh_hyp_count == 0)
+            if interpunction_test or eh_test:
+                outfile.write(f'Total cases: {cases}, conditioned cases: {correct_cases}\n')
 
 if len(sys.argv) < 2:
     print("Please enter the output file and the configuration data paths")
