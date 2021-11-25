@@ -10,10 +10,11 @@
 #SBATCH --mail-type=BEGIN,END,FAIL
 
 basepath="/home/tkolb/bsc/data/fairseq-evals"
+gen_subset="collect"
 
 source ~/.cache/pypoetry/virtualenvs/tkolbpoetry-0grRN4_Q-py3.6/bin/activate
-python3 ../gathercaptions.py "/home/tkolb/bsc/data/analysis/eh.txt" \
-    "$basepath/2021-11-14/15-14-42" \
-    "$basepath/2021-11-14/15-23-43" \
-    "$basepath/2021-11-14/15-30-40"
+python3 ../gathercaptions.py "/home/tkolb/bsc/data/analysis/$gen_subset/eh.txt" \
+    "$basepath/2021-11-14/15-14-42/$gen_subset" \
+    "$basepath/2021-11-14/15-23-43/$gen_subset" \
+    "$basepath/2021-11-14/15-30-40/$gen_subset"
 deactivate

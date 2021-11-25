@@ -9,7 +9,7 @@
 #SBATCH --mail-user=thomaskolb@live.nl
 #SBATCH --mail-type=BEGIN,END,FAIL
 
-basepath="/home/tkolb/bsc/data/c2tempdata2"
+basepath="/home/tkolb/bsc/data/c2tempdata"
 pattern=" eh "
 
 grep -n $pattern "$basepath/train.wrd" > "$basepath/collected.txt"
