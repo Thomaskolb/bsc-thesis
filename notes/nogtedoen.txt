@@ -15,3 +15,6 @@ door de trainer...
 -Spelen met lm weight en word penalty
 -eh gevallen zoeken in analyse
 -correcte , gevallen delen door correcte , gevallen
+
+-Ik heb een scriptje geschreven die een bepaald pattern vind in train.wrd met gebruik van grep, waardoor ik alle lines kan verzamelen
+die dit patroon bevatten. Vervolgens is dit handig voor een evaluatie zodat we kunnen zien hoe het model werkt als hij dit specifieke patroon ziet
