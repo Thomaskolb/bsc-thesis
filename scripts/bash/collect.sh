@@ -10,9 +10,10 @@
 #SBATCH --mail-type=BEGIN,END,FAIL
 
 basepath="/home/tkolb/bsc/data/c2tempdata"
-pattern=" eh "
+pattern=" uh "
+lookintofile="asr-train.wrd"
 
-grep -n "$pattern" "$basepath/train.wrd" > "$basepath/collected.txt"
+grep -n "$pattern" "$basepath/$lookintofile" > "$basepath/collected.txt"
 source ~/.cache/pypoetry/virtualenvs/tkolbpoetry-0grRN4_Q-py3.6/bin/activate
 python3 ../patterncollector.py $basepath
 deactivate
