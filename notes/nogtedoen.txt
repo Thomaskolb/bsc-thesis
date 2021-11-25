@@ -16,5 +16,9 @@ door de trainer...
 -eh gevallen zoeken in analyse
 -correcte , gevallen delen door correcte , gevallen
 
--Ik heb een scriptje geschreven die een bepaald pattern vind in train.wrd met gebruik van grep, waardoor ik alle lines kan verzamelen
+-Ik heb een scriptje geschreven die een bepaald pattern vind in 'bestand' met gebruik van grep, waardoor ik alle lines kan verzamelen
 die dit patroon bevatten. Vervolgens is dit handig voor een evaluatie zodat we kunnen zien hoe het model werkt als hij dit specifieke patroon ziet
+-Ik heb dit gedaan voor 'uh' voor 'bestand'=asr-train.txt, omdat ik erachter kwam dat uh vaak werd gebruikt in de asr. Voor het model dat 8 uur
+trainingsdata (met alle filters) had gaf dit een WER van 0.15, de resultaten van de modellen van 16 en 32 uur gaven een veel hogere WER van rond 
+de 0.4. Voor het model van 8 uur met alle filters is het opzich logisch dat de resultaten beter zijn, omdat dit ondertiteling is van hoge kwaliteit
+niet van reclames en live uitzendingen etc, waarin het woord uh waarschijnlijk vaker word goedgekeurd
