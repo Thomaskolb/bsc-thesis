@@ -7,7 +7,7 @@ import sys
 active_config = 2
 
 # File name to analyse
-wer_data_file = 'WERdata_collect.txt'
+wer_data_file = 'WERdata_test.txt'
 
 # Line of equal chars
 bar = '=' * 30
