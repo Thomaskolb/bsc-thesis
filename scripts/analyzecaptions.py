@@ -37,8 +37,9 @@ def write_data(outpath, paths):
             cases = 0
             correct_cases = 0
             line_count = 0
+            total_line_count = 0
             for i in range(len(values)):
-                line_count += 1
+                total_line_count += 1
                 value = values[i].split(' ')[-1]
                 asr_value = asr_values[i].split(' ')[-1]
                 int_hyp_count = sum([word in interpunction for word in hyps[i][5:].split(' ')])
@@ -46,6 +47,7 @@ def write_data(outpath, paths):
                 if ((not value_test or value < asr_value)
                         and (not interpunction_test or int_hyp_count > 0)
                         and (not eh_test or eh_asr_count > 0)):
+                    line_count += 1
                     outfile.write(f'val {value} - asr {asr_value}\nREF={refs[i][5:]}\nHYP={hyps[i][5:]}\nASR={asrs[i][5:]}\n{bar}\n\n')
                     int_ref_count = sum([word in interpunction for word in refs[i][5:].split(' ')])
                     eh_hyp_count = sum([any([word.startswith(eh) for eh in eh_words]) for word in hyps[i][5:].split(' ')])
@@ -55,7 +57,7 @@ def write_data(outpath, paths):
                     correct_cases += eh_test*(eh_hyp_count == 0)
             if interpunction_test or eh_test:
                 outfile.write(f'Total cases: {cases}, conditioned cases: {correct_cases}\n')
-            outfile.write(f'Line count: {line_count}')
+            outfile.write(f'Line count: {line_count}, total line count: {total_line_count}')
 
 if len(sys.argv) < 2:
     print("Please enter the output file and the configuration data paths")
