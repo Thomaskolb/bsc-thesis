@@ -26,9 +26,11 @@ def write_file(path, infile_name, outfile_name, line_numbers):
     with open(f'{path}/{infile_name}', 'r') as infile, open(f'{path}/{outfile_name}', 'w') as outfile:
         lines = infile.read().split('\n')
         # If tsv extension then write first line also
+        offset = 1
         if outfile_name[-3:] == "tsv":
             outfile.write(f'{lines[0]}\n')
-        [outfile.write(f'{lines[number-1]}\n') for number in line_numbers]
+            offset = 0
+        [outfile.write(f'{lines[number-offset]}\n') for number in line_numbers]
 
 if len(sys.argv) < 2:
     print("Please enter the data folder")
