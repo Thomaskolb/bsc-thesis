@@ -57,7 +57,7 @@ def write_data(outpath, paths):
                     correct_cases += eh_test*(eh_hyp_count == 0)
             if interpunction_test or eh_test:
                 outfile.write(f'Total cases: {cases}, conditioned cases: {correct_cases}\n')
-            outfile.write(f'Line count: {line_count}, total line count: {total_line_count}')
+            outfile.write(f'Line count: {line_count}, total line count: {total_line_count}\n')
 
 if len(sys.argv) < 2:
     print("Please enter the output file and the configuration data paths")
