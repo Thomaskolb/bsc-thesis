@@ -13,6 +13,6 @@ basepath="/home/tkolb/bsc/data/fairseq-evals"
 gen_subset="test"
 
 source ~/.cache/pypoetry/virtualenvs/tkolbpoetry-0grRN4_Q-py3.6/bin/activate
-python3 ../analyzecaptions.py "/home/tkolb/bsc/data/analysis/var-analysis/base8.txt" \
-    "$basepath/2021-11-14/15-14-42/$gen_subset"
+python3 ../analyzecaptions.py "/home/tkolb/bsc/data/analysis/var-analysis/base16.txt" \
+    "$basepath/2021-11-14/15-23-43/$gen_subset"
 deactivate
