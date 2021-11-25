@@ -22,7 +22,7 @@ eh_test = True
 interpunction = [',']
 
 # list of 'eh' words
-eh_words = ['eh', 'euh']
+eh_words = ['eh', 'euh', 'uh']
 
 # Function that finds the well performed captions with list of paths and writes them to output file
 def write_data(outpath, paths):
