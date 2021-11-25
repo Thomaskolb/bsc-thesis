@@ -11,7 +11,7 @@
 
 basepath="/home/tkolb/bsc/data/c2tempdata"
 pattern=" uh "
-lookintofile="asr-train.wrd"
+lookintofile="asr-train.txt"
 
 grep -n "$pattern" "$basepath/$lookintofile" > "$basepath/collected.txt"
 source ~/.cache/pypoetry/virtualenvs/tkolbpoetry-0grRN4_Q-py3.6/bin/activate
