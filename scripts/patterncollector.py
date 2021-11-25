@@ -11,7 +11,7 @@ infile_name = 'train'
 # Function that collects line numbers with pattern
 def collect_line_numbers(path):
     with open(f'{path}/collected.txt', 'r') as collect_file:
-        return [int(line.split(':')[0])-1 for line in collect_file.read().split('\n') if line]
+        return [int(line.split(':')[0]) for line in collect_file.read().split('\n') if line]
 
 # Read 'infile_name' files and output ltr, wrd, tsv and asr data
 def write_partition(path, line_numbers):
@@ -25,7 +25,7 @@ def write_partition(path, line_numbers):
 def write_file(path, infile_name, outfile_name, line_numbers):
     with open(f'{path}/{infile_name}', 'r') as infile, open(f'{path}/{outfile_name}', 'w') as outfile:
         lines = infile.read().split('\n')
-        [outfile.write(f'{lines[number]}\n') for number in line_numbers]
+        [outfile.write(f'{lines[number]-1}\n') for number in line_numbers]
 
 if len(sys.argv) < 2:
     print("Please enter the data folder")
