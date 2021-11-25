@@ -15,7 +15,7 @@ bar = '=' * 30
 # type of test currently being analyzed
 value_test = True
 interpunction_test = False
-eh_test = True
+eh_test = False
 
 # List of interpunction symbols - no '.' because it is not interesting
 # interpunction = [',', '!', '?', '-', ':']
@@ -36,7 +36,9 @@ def write_data(outpath, paths):
             values = lines[3:-3:10]
             cases = 0
             correct_cases = 0
+            line_count = 0
             for i in range(len(values)):
+                line_count += 1
                 value = values[i].split(' ')[-1]
                 asr_value = asr_values[i].split(' ')[-1]
                 int_hyp_count = sum([word in interpunction for word in hyps[i][5:].split(' ')])
@@ -53,6 +55,7 @@ def write_data(outpath, paths):
                     correct_cases += eh_test*(eh_hyp_count == 0)
             if interpunction_test or eh_test:
                 outfile.write(f'Total cases: {cases}, conditioned cases: {correct_cases}\n')
+            outfile.write(f'Line count: {line_count}')
 
 if len(sys.argv) < 2:
     print("Please enter the output file and the configuration data paths")
