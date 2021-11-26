@@ -27,9 +27,9 @@ python3 ~/bsc/fairseq/examples/speech_recognition/infer.py \
     --results-path ~/bsc/data/fairseq-evals/$datetime1/$gen_subset \
     --w2l-decoder kenlm \
     --lm-model ~/bsc/data/models/$lmfile \
-    --lm-weight 5 \
+    --lm-weight 2 \
     --lexicon ~/bsc/data/models/$lexicon \
-    --word-score -1 \
+    --word-score -2 \
     --sil-weight 0 \
     --criterion ctc \
     --labels ltr \
@@ -45,9 +45,9 @@ python3 ~/bsc/fairseq/examples/speech_recognition/infer.py \
     --results-path ~/bsc/data/fairseq-evals/$datetime2/$gen_subset \
     --w2l-decoder kenlm \
     --lm-model ~/bsc/data/models/$lmfile \
-    --lm-weight 5 \
+    --lm-weight 2 \
     --lexicon ~/bsc/data/models/$lexicon \
-    --word-score -1 \
+    --word-score -2 \
     --sil-weight 0 \
     --criterion ctc \
     --labels ltr \
@@ -63,9 +63,9 @@ python3 ~/bsc/fairseq/examples/speech_recognition/infer.py \
     --results-path ~/bsc/data/fairseq-evals/$datetime3/$gen_subset \
     --w2l-decoder kenlm \
     --lm-model ~/bsc/data/models/$lmfile \
-    --lm-weight 5 \
+    --lm-weight 2 \
     --lexicon ~/bsc/data/models/$lexicon \
-    --word-score -1 \
+    --word-score -2 \
     --sil-weight 0 \
     --criterion ctc \
     --labels ltr \
