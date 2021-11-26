@@ -9,7 +9,7 @@
 #SBATCH --mail-user=thomaskolb@live.nl
 #SBATCH --mail-type=BEGIN,END,FAIL
 
-addtoname="_ws-2_"
+addtoname="_ws0_"
 
 mv /home/tkolb/bsc/data/fairseq-evals/2021-11-14/15-14-42/test/WERdata_test.txt /home/tkolb/bsc/data/fairseq-evals/2021-11-14/15-14-42/test/WERdata_test${addtoname}8.txt
 mv /home/tkolb/bsc/data/fairseq-evals/2021-11-14/15-23-43/test/WERdata_test.txt /home/tkolb/bsc/data/fairseq-evals/2021-11-14/15-23-43/test/WERdata_test${addtoname}16.txt
