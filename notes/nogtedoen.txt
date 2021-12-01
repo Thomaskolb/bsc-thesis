@@ -31,3 +31,7 @@ Spelen met lm weight en word penalty:
 -base = lmweight = 2 and wordpenalty = -1
 -lmweight [0,5], word [-2,2]
 -c2tempdata3 - test - var-analysis
+
+Extra experimenten
+-xlsr
+-tijden van text afhalen, laten lopen met beste WER in vergelijking met de asr, gewoon met c2tempdata, 2 en 3
