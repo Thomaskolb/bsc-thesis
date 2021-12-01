@@ -1,7 +1,7 @@
 #!/bin/bash -e
-#SBATCH --partition=csedu
-#SBATCH --gres=gpu:2
-#SBATCH --mem=10G
+#SBATCH --partition=das
+#SBATCH --gres=gpu:rtx_3090:4
+#SBATCH --mem=50G
 #SBATCH --cpus-per-task=1
 #SBATCH --time=48:00:00
 #SBATCH --output=trainxlsr-%J.out
