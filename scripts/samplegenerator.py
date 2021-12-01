@@ -136,11 +136,12 @@ def similar_caption_text_subtract(new_caption_text, caption_start, caption_end, 
         subtract_time = 0
         best_tuple = 1, [], 0
         for i in range(subtract_domain):
+            caption_window = (webvttparser.get_time_in_seconds(caption_start) - subtract_time)
             sequence = asrparser.search_sequence(wordsequence, 
-                (webvttparser.get_time_in_seconds(caption_start) - subtract_time), webvttparser.get_time_in_seconds(caption_end))
+                caption_window, webvttparser.get_time_in_seconds(caption_end))
             current_tuple = worderrorrate.WER(new_caption_text.split(' '), sequence).wer(), sequence, subtract_time
             subtract_time += 0.1
-            if current_tuple[2] > best_tuple[2]:
+            if caption_window > 0 and current_tuple[2] > best_tuple[2]:
                 best_tuple = current_tuple
         return current_tuple
 
