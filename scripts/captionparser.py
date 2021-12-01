@@ -13,7 +13,7 @@ forbidden_formats = ['.{1,}\-.{1,}', '[A-Z]{1,}\:', '[0-9]{1,}\.[0-9]{1,}', '[0-
 
 # Configurations
 # Currently active configuration
-active_config = 3
+active_config = 2
 # Allow for capitalization of first word of sentence in configuration
 config_capitalization = [False, False, True, True]
 # Allowed characters
@@ -65,7 +65,6 @@ def acceptable_caption_text(caption_text, join_symbol):
         if len(new_word) > 0:
             new_word_list.append(new_word)
         elif not accepted:
-            print(word)
             return ''
         if word in interpunction and config_capitalization[active_config-1]:
             follow_with_capital = True

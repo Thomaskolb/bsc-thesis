@@ -31,7 +31,7 @@ max_hours = 100
 subtract_domain = 20
 
 # Allow strict caption time subtraction
-subtract_caption_time = False
+subtract_caption_time = True
 
 # Function that creates the same folders as found in the datapath directory
 def create_directories(datapath, outputpath):

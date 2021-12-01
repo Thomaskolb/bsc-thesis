@@ -34,4 +34,7 @@ Spelen met lm weight en word penalty:
 
 Extra experimenten
 -xlsr
--tijden van text afhalen, laten lopen met beste WER in vergelijking met de asr, gewoon met c2tempdata, 2 en 3
+
+Tijden van text afhalen, laten lopen met beste WER in vergelijking met de asr, gewoon met c2tempdata, 2 en 3
+-c2tempdata: 7310 of 52578 of data salvaged  total WER sum: 54229.51270228797        data length = 7:41:19.484000
+-ctc2temdata: 
