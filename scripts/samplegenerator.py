@@ -25,7 +25,13 @@ min_wer = 0.5
 subtract_start_time = 0.1
 
 # Max number of hours data needed
-max_hours = 32
+max_hours = 100
+
+# Domain in which we search for best subtract time for each caption separately, stepsize = 0.1
+subtract_domain = 20
+
+# Allow strict caption time subtraction
+subtract_caption_time = False
 
 # Function that creates the same folders as found in the datapath directory
 def create_directories(datapath, outputpath):
@@ -79,9 +85,12 @@ def generate_pairs(filepath, outputpath, folder, file_id, filelist, wrd, ltr, as
             # If caption was accepted the length is > 0
             if len(new_caption_text) > 0:
                 # Check for the WER with the caption and the asr data to be lower than our threshold
-                wer, asr_words = similar_caption_text(new_caption_text, caption.start, caption.end, wordsequence)
+                func = similar_caption_text
+                if subtract_caption_time:
+                    func = similar_caption_text_subtract
+                wer, asr_words, subtract_time = func(new_caption_text, caption.start, caption.end, wordsequence)
                 if wer <= min_wer:
-                    start_seconds = webvttparser.get_time_in_seconds(caption.start) - subtract_start_time
+                    start_seconds = webvttparser.get_time_in_seconds(caption.start) - subtract_time
                     end_seconds = webvttparser.get_time_in_seconds(caption.end)
                     start_frame = int(start_seconds * wavfile.getframerate())
                     end_frame = int(end_seconds * wavfile.getframerate())
@@ -119,7 +128,21 @@ def similar_caption_text(new_caption_text, caption_start, caption_end, wordseque
     if len(new_caption_text) > 0:
         sequence = asrparser.search_sequence(wordsequence, 
             (webvttparser.get_time_in_seconds(caption_start) - subtract_start_time), webvttparser.get_time_in_seconds(caption_end))
-        return worderrorrate.WER(new_caption_text.split(' '), sequence).wer(), sequence
+        return worderrorrate.WER(new_caption_text.split(' '), sequence).wer(), sequence, subtract_start_time
+
+# Slightly different method from 'similar_caption_text', here we try to find the best subtract time for each subtitle
+def similar_caption_text_subtract(new_caption_text, caption_start, caption_end, wordsequence):
+    if len(new_caption_text) > 0:
+        subtract_time = 0
+        best_tuple = 1, [], 0
+        for i in range(subtract_domain):
+            sequence = asrparser.search_sequence(wordsequence, 
+                (webvttparser.get_time_in_seconds(caption_start) - subtract_time), webvttparser.get_time_in_seconds(caption_end))
+            current_tuple = worderrorrate.WER(new_caption_text.split(' '), sequence).wer(), sequence, subtract_time
+            subtract_time += 0.1
+            if current_tuple[2] > best_tuple[2]:
+                best_tuple = current_tuple
+        return current_tuple
 
 if len(sys.argv) < 4:
     print("Please enter the path of the listed data, the data location, and the output directory.")

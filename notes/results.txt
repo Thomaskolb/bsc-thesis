@@ -161,3 +161,47 @@ Run 12:
 -Test data length: 3:12:50.974000
 -Time: 2021-11-15/13-23-43
 -Folder: c3tempdata3
+
+=================== MORE RUNS ==============================
+
+--config 2 - caption time subtraction--
+Run 13:
+-Configuration:
+    -Characters config 2
+    -Minimum WER: 0.5
+    -Subtract start time: ~
+    -Web link filter: ON
+    -Live broadcast filter: ON
+    -Synchronized filter: ON
+-Train data length: 
+-Test data length: 
+-Time: 
+-Folder: ctc2tempdata
+
+Run 14:
+-Configuration:
+    -Characters config 1
+    -Minimum WER: 0.5
+    -Subtract start time: 0.1
+    -Web link filter: ON
+    -Live broadcast filter: ON
+    -Synchronized filter: ON
+    -Caption time subtraction: ON
+-Train data length: 
+-Test data length: 
+-Time: 
+-Folder: ctc2tempdata2
+
+Run 15:
+-Configuration:
+    -Characters config 1
+    -Minimum WER: 0.5
+    -Subtract start time: 0.1
+    -Web link filter: ON
+    -Live broadcast filter: ON
+    -Synchronized filter: ON
+    -Caption time subtraction: ON
+-Train data length: 
+-Test data length: 
+-Time: 
+-Folder: ctc2tempdata3
