@@ -11,7 +11,7 @@
 
 lmfile="c3lmfile"
 
-source ~/.cache/pypoetry/virtualenvs/tkolbpoetry-0grRN4_Q-py3.6/bin/activate
+source ~/.cache/pypoetry/virtualenvsthomas-poetry-yCU5QAa0-py3.8/bin/activate
 python3 ../LMgenerator.py "/home/tkolb/bsc/thomas/data" "/home/tkolb/bsc/data/models/$lmfile.txt"
 ~/bsc/data/kenlm/build/bin/lmplz --discount_fallback -o 5 < ~/bsc/data/models/$lmfile.txt > ~/bsc/data/models/$lmfile.arpa
 ~/bsc/data/kenlm/build/bin/build_binary ~/bsc/data/models/$lmfile.arpa ~/bsc/data/models/$lmfile.bin

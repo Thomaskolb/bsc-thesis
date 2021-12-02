@@ -16,7 +16,7 @@ nfiles=$(ls ~/bsc/data/results | wc -l)
 if [[ $nfiles > 0 ]]; then
     rm -r ~/bsc/data/results/*
 fi
-source ~/.cache/pypoetry/virtualenvs/tkolbpoetry-0grRN4_Q-py3.6/bin/activate
+source ~/.cache/pypoetry/virtualenvs/thomas-poetry-yCU5QAa0-py3.8/bin/activate
 python3 ../interpretresults.py "/home/tkolb/bsc/data/results" \
     "$basepath/2021-11-11/18-12-54/$filename" \
     "$basepath/2021-11-12/10-12-27/$filename" \

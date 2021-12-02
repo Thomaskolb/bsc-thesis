@@ -17,7 +17,7 @@ lmfile="c2lmfile.bin"
 lexicon="c2lexicon.txt"
 gen_subset="test"
 
-source ~/.cache/pypoetry/virtualenvs/tkolbpoetry-0grRN4_Q-py3.6/bin/activate
+source ~/.cache/pypoetry/virtualenvs/thomas-poetry-yCU5QAa0-py3.8/bin/activate
 python3 ~/bsc/fairseq/examples/speech_recognition/infer.py \
     $valid_data_path \
     --task audio_finetuning \
