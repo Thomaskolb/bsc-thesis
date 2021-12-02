@@ -14,6 +14,6 @@ pattern=" uh "
 lookintofile="asr-train.txt"
 
 grep -n "$pattern" "$basepath/$lookintofile" > "$basepath/collected.txt"
-source ~/.cache/pypoetry/virtualenvs/thomas-poetry-yCU5QAa0-py3.8/bin/activate
+source ~/.cache/pypoetry/virtualenvs/tkolbpoetry-0grRN4_Q-py3.6/bin/activate
 python3 ../patterncollector.py $basepath
 deactivate
