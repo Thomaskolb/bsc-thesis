@@ -9,7 +9,7 @@
 #SBATCH --mail-user=thomaskolb@live.nl
 #SBATCH --mail-type=BEGIN,END,FAIL
 
-source ~/.cache/pypoetry/virtualenvs/tkolbpoetry-0grRN4_Q-py3.6/bin/activate
+source ~/.cache/pypoetry/virtualenvs/thomas-poetry-yCU5QAa0-py3.8/bin/activate
 HYDRA_FULL_ERROR=1 fairseq-hydra-train \
     task.data=/home/tkolb/bsc/data/c2tempdata \
     model.w2v_path=/home/tkolb/bsc/data/models/xlsr_53_56k.pt \
