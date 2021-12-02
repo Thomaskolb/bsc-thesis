@@ -90,8 +90,8 @@ def generate_pairs(filepath, outputpath, folder, file_id, filelist, wrd, ltr, as
                     func = similar_caption_text_subtract
                 wer, asr_words, subtract_time = func(new_caption_text, caption.start, caption.end, wordsequence)
                 if wer <= min_wer:
-                    start_seconds = webvttparser.get_time_in_seconds(caption.start) - subtract_time
-                    end_seconds = webvttparser.get_time_in_seconds(caption.end)
+                    start_seconds = webvttparser.get_time_in_seconds(caption.start) - subtract_start_time
+                    end_seconds = webvttparser.get_time_in_seconds(caption.end) - subtract_time
                     start_frame = int(start_seconds * wavfile.getframerate())
                     end_frame = int(end_seconds * wavfile.getframerate())
                     wavfile.setpos(start_frame)
@@ -128,7 +128,7 @@ def similar_caption_text(new_caption_text, caption_start, caption_end, wordseque
     if len(new_caption_text) > 0:
         sequence = asrparser.search_sequence(wordsequence, 
             (webvttparser.get_time_in_seconds(caption_start) - subtract_start_time), webvttparser.get_time_in_seconds(caption_end))
-        return worderrorrate.WER(new_caption_text.split(' '), sequence).wer(), sequence, subtract_start_time
+        return worderrorrate.WER(new_caption_text.split(' '), sequence).wer(), sequence, 0
 
 # Slightly different method from 'similar_caption_text', here we try to find the best subtract time for each subtitle
 def similar_caption_text_subtract(new_caption_text, caption_start, caption_end, wordsequence):
@@ -136,12 +136,12 @@ def similar_caption_text_subtract(new_caption_text, caption_start, caption_end, 
         subtract_time = 0
         best_tuple = 1, [], 0
         for i in range(subtract_domain):
-            caption_window = (webvttparser.get_time_in_seconds(caption_start) - subtract_time)
-            sequence = asrparser.search_sequence(wordsequence, 
-                caption_window, webvttparser.get_time_in_seconds(caption_end))
+            caption_start = webvttparser.get_time_in_seconds(caption_start)
+            caption_end = webvttparser.get_time_in_seconds(caption_end) - subtract_time
+            sequence = asrparser.search_sequence(wordsequence, caption_start, caption_end)
             current_tuple = worderrorrate.WER(new_caption_text.split(' '), sequence).wer(), sequence, subtract_time
             subtract_time += 0.1
-            if caption_window > 0 and current_tuple[2] > best_tuple[2]:
+            if (caption_start - caption_end) > 0 and current_tuple[2] > best_tuple[2]:
                 best_tuple = current_tuple
         return current_tuple
 
