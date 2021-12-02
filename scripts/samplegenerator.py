@@ -141,7 +141,7 @@ def similar_caption_text_subtract(new_caption_text, caption_start, caption_end, 
             sequence = asrparser.search_sequence(wordsequence, start_time, end_time)
             current_tuple = worderrorrate.WER(new_caption_text.split(' '), sequence).wer(), sequence, subtract_time
             subtract_time += 0.1
-            if (start_time - end_time) > 0 and current_tuple[2] > best_tuple[2]:
+            if (start_time - end_time) > 0 and current_tuple[0] < best_tuple[0]:
                 best_tuple = current_tuple
         return current_tuple
 
