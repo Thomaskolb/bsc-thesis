@@ -64,6 +64,7 @@ def generate_pairlist(listpath, datapath, outputpath, type, part):
                 caption_count += cc
                 wer_sum += wer
                 total_seconds += sc
+                break
     # percentage = "{:.1f}".format((caption_count/total_caption_count)*100)
     # print(f'{percentage}% of data salvaged\ttotal WER sum: {wer_sum}\tdata length = {str(datetime.timedelta(seconds=total_seconds))}')
     print(f'{caption_count} of {total_caption_count} of data salvaged\ttotal WER sum: {wer_sum}\tdata length = {str(datetime.timedelta(seconds=total_seconds))}')
