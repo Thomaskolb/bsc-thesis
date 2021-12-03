@@ -27,8 +27,11 @@ subtract_start_time = 0.1
 # Max number of hours data needed
 max_hours = 100
 
-# Domain in which we search for best subtract time for each caption separately, stepsize = 0.1
-subtract_domain = 20
+# Domain in which we search for best subtract time for each caption separately, stepsize, start
+# So from subtract_start -> subtract_start + subtract_range * subtract_stepsize
+subtract_start = -1.0
+subtract_stepsize = 0.1
+subtract_range = 30
 
 # Allow strict caption time subtraction
 subtract_caption_time = True
@@ -134,14 +137,14 @@ def similar_caption_text(new_caption_text, caption_start, caption_end, wordseque
 # Slightly different method from 'similar_caption_text', here we try to find the best subtract time for each subtitle
 def similar_caption_text_subtract(new_caption_text, caption_start, caption_end, wordsequence):
     if len(new_caption_text) > 0:
-        subtract_time = 0
+        subtract_time = subtract_start
         best_tuple = 1, [], 0
-        for i in range(subtract_domain):
+        for i in range(subtract_range):
             start_time = webvttparser.get_time_in_seconds(caption_start)
             end_time = webvttparser.get_time_in_seconds(caption_end) - subtract_time
             sequence = asrparser.search_sequence(wordsequence, start_time, end_time)
             current_tuple = worderrorrate.WER(new_caption_text.split(' '), sequence).wer(), sequence, subtract_time
-            subtract_time += 0.1
+            subtract_time += subtract_stepsize
             if (end_time - start_time) > 0 and current_tuple[0] < best_tuple[0]:
                 best_tuple = current_tuple
         print(best_tuple[2])
