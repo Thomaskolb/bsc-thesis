@@ -173,8 +173,8 @@ Run 13:
     -Web link filter: ON
     -Live broadcast filter: ON
     -Synchronized filter: ON
--Train data length: 
--Test data length: 
+-Train data length: 8:02:38.202000
+-Test data length: 0:48:15.606000
 -Time: 
 -Folder: ctc2tempdata
 
@@ -183,8 +183,8 @@ Run 14:
     -Characters config 1
     -Minimum WER: 0.5
     -Subtract start time: 0.1
-    -Web link filter: ON
-    -Live broadcast filter: ON
+    -Web link filter: OFF
+    -Live broadcast filter: OFF
     -Synchronized filter: ON
     -Caption time subtraction: ON
 -Train data length: 
