@@ -37,6 +37,6 @@ Extra experimenten
 
 Tijden van text afhalen, laten lopen met beste WER in vergelijking met de asr, gewoon met c2tempdata, 2 en 3
 -c2tempdata: 7310 of 52578 of data salvaged  total WER sum: 54229.51270228797        data length = 7:41:19.484000
--ctc2temdata test: 17208 of 52578 of data salvaged total WER sum: 31101.3787046556 data length = 15:43:01.598000
--ctc2temdata: 8825 of 23568 of data salvaged  total WER sum: 14058.830075652655       data length = 8:02:38.202000
+-ctc2tempdata test: 17208 of 52578 of data salvaged total WER sum: 31101.3787046556 data length = 15:43:01.598000
+--ctc2tempdata: 8412 of 52578 of data salvaged  total WER sum: 31101.3787046556 data length = 7:49:57.982000
 -WER sum improvement 3.86
