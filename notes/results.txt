@@ -168,7 +168,7 @@ Run 12:
 Run 13:
 -Configuration:
     -Characters config 2
-    -Minimum WER: 0.5
+    -Minimum WER: 0.3
     -Subtract start time: ~
     -Web link filter: ON
     -Live broadcast filter: ON
