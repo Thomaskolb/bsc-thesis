@@ -72,7 +72,6 @@ def generate_pairlist(listpath, datapath, outputpath, type, part):
                 caption_count += cc
                 wer_sum += wer
                 total_seconds += sc
-                break
     # percentage = "{:.1f}".format((caption_count/total_caption_count)*100)
     # print(f'{percentage}% of data salvaged\ttotal WER sum: {wer_sum}\tdata length = {str(datetime.timedelta(seconds=total_seconds))}')
     print(f'{caption_count} of {total_caption_count} of data salvaged\ttotal WER sum: {wer_sum}\tdata length = {str(datetime.timedelta(seconds=total_seconds))}')
@@ -97,9 +96,9 @@ def generate_pairs(filepath, outputpath, folder, file_id, filelist, wrd, ltr, as
                 func = similar_caption_text
                 if subtract_caption_time:
                     func = similar_caption_text_subtract
-                wer, asr_words, subtract_time = func(new_caption_text, caption.start, caption.end, wordsequence)
+                wer, asr_words, subtract_time, add_time = func(new_caption_text, caption.start, caption.end, wordsequence)
                 if wer <= min_wer:
-                    start_seconds = webvttparser.get_time_in_seconds(caption.start) - subtract_start_time
+                    start_seconds = webvttparser.get_time_in_seconds(caption.start) + add_time
                     end_seconds = webvttparser.get_time_in_seconds(caption.end) - subtract_time
                     start_frame = int(start_seconds * wavfile.getframerate())
                     end_frame = int(end_seconds * wavfile.getframerate())
@@ -137,7 +136,7 @@ def similar_caption_text(new_caption_text, caption_start, caption_end, wordseque
     if len(new_caption_text) > 0:
         sequence = asrparser.search_sequence(wordsequence, 
             (webvttparser.get_time_in_seconds(caption_start) - subtract_start_time), webvttparser.get_time_in_seconds(caption_end))
-        return worderrorrate.WER(new_caption_text.split(' '), sequence).wer(), sequence, 0
+        return worderrorrate.WER(new_caption_text.split(' '), sequence).wer(), sequence, 0, -subtract_start_time
 
 # Slightly different method from 'similar_caption_text', here we try to find the best subtract time for each subtitle
 def similar_caption_text_subtract(new_caption_text, caption_start, caption_end, wordsequence):
@@ -154,8 +153,6 @@ def similar_caption_text_subtract(new_caption_text, caption_start, caption_end, 
             subtract_time += subtract_stepsize
             if (end_time - start_time) > 0 and current_tuple[0] < best_tuple[0]:
                 best_tuple = current_tuple
-        print(new_caption_text)
-        print(best_tuple)
         subtract_time = best_tuple[2]
         # And now we figure out what we should add
         for j in range(add_range):
@@ -166,9 +163,7 @@ def similar_caption_text_subtract(new_caption_text, caption_start, caption_end, 
             add_time -= add_stepsize
             if (end_time - start_time) > 0 and current_tuple[0] < best_tuple[0]:
                 best_tuple = current_tuple
-                print(f'WOOOOW')
-                print(best_tuple)
-        return best_tuple[:3]
+        return best_tuple
 
 if len(sys.argv) < 4:
     print("Please enter the path of the listed data, the data location, and the output directory.")
