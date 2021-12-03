@@ -19,13 +19,13 @@ import sys
 import os
 
 # Minimum error rate allowed
-min_wer = 0.5
+min_wer = 0.3
 
 # Amount of seconds that are subtracted from start time to compensate for subtitles being displayed too late
 subtract_start_time = 0.1
 
 # Max number of hours data needed
-max_hours = 16
+max_hours = 8
 
 # Domain in which we search for best subtract time for each caption separately, stepsize, start
 # So from subtract_start -> subtract_start + subtract_range * subtract_stepsize
