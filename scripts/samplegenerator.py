@@ -168,7 +168,7 @@ def similar_caption_text_subtract(new_caption_text, caption_start, caption_end, 
                 best_tuple = current_tuple
                 print(f'WOOOOW')
                 print(best_tuple)
-        return best_tuple[:2]
+        return best_tuple[:3]
 
 if len(sys.argv) < 4:
     print("Please enter the path of the listed data, the data location, and the output directory.")
