@@ -33,6 +33,11 @@ subtract_start = -1.0
 subtract_stepsize = 0.1
 subtract_range = 30
 
+# Now the same for adding at the beginning of a caption
+add_start = 1.0
+add_stepsize = 0.1
+add_range = 30
+
 # Allow strict caption time subtraction
 subtract_caption_time = True
 
@@ -138,18 +143,32 @@ def similar_caption_text(new_caption_text, caption_start, caption_end, wordseque
 def similar_caption_text_subtract(new_caption_text, caption_start, caption_end, wordsequence):
     if len(new_caption_text) > 0:
         subtract_time = subtract_start
-        best_tuple = 1, [], 0
+        add_time = add_start
+        best_tuple = 1, [], 0, 0
+        # First we figure out what we should subtract
         for i in range(subtract_range):
             start_time = webvttparser.get_time_in_seconds(caption_start)
             end_time = webvttparser.get_time_in_seconds(caption_end) - subtract_time
             sequence = asrparser.search_sequence(wordsequence, start_time, end_time)
-            current_tuple = worderrorrate.WER(new_caption_text.split(' '), sequence).wer(), sequence, subtract_time
+            current_tuple = worderrorrate.WER(new_caption_text.split(' '), sequence).wer(), sequence, subtract_time, add_time
             subtract_time += subtract_stepsize
             if (end_time - start_time) > 0 and current_tuple[0] < best_tuple[0]:
                 best_tuple = current_tuple
         print(new_caption_text)
         print(best_tuple)
-        return best_tuple
+        subtract_time = best_tuple[2]
+        # And now we figure out what we should add
+        for j in range(add_range):
+            start_time = webvttparser.get_time_in_seconds(caption_start) + add_time
+            end_time = webvttparser.get_time_in_seconds(caption_end) - subtract_time
+            sequence = asrparser.search_sequence(wordsequence, start_time, end_time)
+            current_tuple = worderrorrate.WER(new_caption_text.split(' '), sequence).wer(), sequence, subtract_time, add_time
+            add_time -= add_stepsize
+            if (end_time - start_time) > 0 and current_tuple[0] < best_tuple[0]:
+                best_tuple = current_tuple
+                print(f'WOOOOW')
+                print(best_tuple)
+        return best_tuple[:2]
 
 if len(sys.argv) < 4:
     print("Please enter the path of the listed data, the data location, and the output directory.")
