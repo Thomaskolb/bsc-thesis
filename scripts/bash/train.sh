@@ -11,7 +11,7 @@
 
 source ~/.cache/pypoetry/virtualenvs/thomas-poetry-yCU5QAa0-py3.8/bin/activate
 fairseq-hydra-train \
-    task.data=/home/tkolb/bsc/data/ctc2tempdata2 \
+    task.data=/home/tkolb/bsc/data/ctc2tempdata3 \
     model.w2v_path=/home/tkolb/bsc/data/models/wav2vec_small.pt \
     model.freeze_finetune_updates=10000 \
     --config-dir /home/tkolb/bsc/bsc-thesis/scripts/fairseq \
