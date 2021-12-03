@@ -147,7 +147,7 @@ def similar_caption_text_subtract(new_caption_text, caption_start, caption_end, 
             subtract_time += subtract_stepsize
             if (end_time - start_time) > 0 and current_tuple[0] < best_tuple[0]:
                 best_tuple = current_tuple
-        print(best_tuple[2])
+        print(best_tuple)
         return best_tuple
 
 if len(sys.argv) < 4:
