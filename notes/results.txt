@@ -201,7 +201,7 @@ Run 15:
     -Live broadcast filter: ON
     -Synchronized filter: ON
     -Caption time subtraction: ON
--Train data length: 
--Test data length: 
+-Train data length: 1 day, 8:00:50.200000
+-Test data length: 3:12:19.631000
 -Time: 
 -Folder: ctc2tempdata3
