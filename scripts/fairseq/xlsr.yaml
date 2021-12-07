@@ -26,7 +26,7 @@ task:
 
 dataset:
   num_workers: 6
-  max_tokens: 1280000
+  max_tokens: 640000
   skip_invalid_size_inputs_valid_test: true
   validate_after_updates: 10000
   validate_interval_updates: 1000
@@ -44,6 +44,7 @@ optimization:
   max_update: 60000
   lr: [0.0003]
   sentence_avg: true
+  # 40
   update_freq: [20]
 
 optimizer:
