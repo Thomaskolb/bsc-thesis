@@ -2,7 +2,8 @@
 
 hydra:
   run:
-    dir: /home/tkolb/bsc/data/fairseq-outputs-xlsr/${now:%Y-%m-%d}/${now:%H-%M-%S}
+    # dir: /home/tkolb/bsc/data/fairseq-outputs-xlsr/${now:%Y-%m-%d}/${now:%H-%M-%S}
+    dir: /home/tkolb/bsc/data/fairseq-outputs-xlsr/temp
 
 common:
   fp16: true
@@ -43,7 +44,7 @@ optimization:
   max_update: 60000
   lr: [0.0003]
   sentence_avg: true
-  update_freq: [10]
+  update_freq: [20]
 
 optimizer:
   _name: adam
