@@ -94,6 +94,7 @@ Run 7:
 -Train data length: 8:03:16.697000
 -Test data length: 1:06:01.672000
 -Time: 2021-11-14/15-14-42
+-XLSR: 2021-12-03/14-49-23
 -Folder: c2tempdata
 
 Run 8:
@@ -107,6 +108,7 @@ Run 8:
 -Train data length: 16:10:01.303000
 -Test data length: 1:37:53.426000
 -Time: 2021-11-14/15-23-43
+-XLSR:
 -Folder: c2tempdata2
 
 Run 9:
@@ -120,6 +122,7 @@ Run 9:
 -Train data length: 1 day, 8:02:25.013000
 -Test data length: 3:17:30.360000
 -Time: 2021-11-14/15-30-40
+-XLSR: 2021-12-06/15-48-32
 -Folder: c2tempdata3
 
 --config 3--
@@ -176,6 +179,7 @@ Run 13:
 -Train data length: 7:49:57.982000
 -Test data length: 0:48:19.769000
 -Time: 2021-12-04/16-32-37
+-XLSR:
 -Folder: ctc2tempdata
 
 Run 14:
@@ -189,7 +193,8 @@ Run 14:
     -Caption time subtraction: ON
 -Train data length: 16:00:06.849000
 -Test data length: 1:36:00.294000
--Time: 
+-Time: 2021-12-08/15-10-32
+-XLSR:
 -Folder: ctc2tempdata2
 
 Run 15:
@@ -203,5 +208,6 @@ Run 15:
     -Caption time subtraction: ON
 -Train data length: 1 day, 8:00:50.200000
 -Test data length: 3:12:19.631000
--Time: 16-34-35
+-Time: 2021-12-04/16-34-35
+-XLSR: 2021-12-06/18-30-34 (temp)
 -Folder: ctc2tempdata3

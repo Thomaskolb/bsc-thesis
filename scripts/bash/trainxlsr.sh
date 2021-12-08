@@ -11,10 +11,9 @@
 
 source ~/.cache/pypoetry/virtualenvs/thomas-poetry-yCU5QAa0-py3.8/bin/activate
 HYDRA_FULL_ERROR=1 fairseq-hydra-train \
-    task.data=/home/tkolb/bsc/data/ctc2tempdata3 \
+    task.data=/home/tkolb/bsc/data/ctc2tempdata \
     model.w2v_path=/home/tkolb/bsc/data/models/xlsr_53_56k.pt \
     model.freeze_finetune_updates=10000 \
     --config-dir /home/tkolb/bsc/bsc-thesis/scripts/fairseq \
     --config-name xlsr
-    --save-dir /home/tkolb/bsc/data/fairseq-outputs-xlsr/2021-12-06/15-48-32
 deactivate
