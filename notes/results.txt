@@ -175,7 +175,7 @@ Run 13:
     -Synchronized filter: ON
 -Train data length: 7:49:57.982000
 -Test data length: 0:48:19.769000
--Time: 16-32-37
+-Time: 2021-12-04/16-32-37
 -Folder: ctc2tempdata
 
 Run 14:
@@ -189,7 +189,7 @@ Run 14:
     -Caption time subtraction: ON
 -Train data length: 16:00:06.849000
 -Test data length: 1:36:00.294000
--Time: 16-33-23
+-Time: 
 -Folder: ctc2tempdata2
 
 Run 15:
