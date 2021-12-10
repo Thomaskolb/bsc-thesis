@@ -16,8 +16,8 @@ valid_data_path="/home/tkolb/bsc/data/ctc2tempdata3"
 lmfile="c2lmfile.bin"
 lexicon="c2lexicon.txt"
 gen_subset="test"
-outputsfolder="fairseq-xlsr-outputs"
-evalsfolder="fairseq-xlsr-evals"
+outputsfolder="fairseq-outputs-xlsr"
+evalsfolder="fairseq-evals-xlsr"
 
 source ~/.cache/pypoetry/virtualenvs/thomas-poetry-yCU5QAa0-py3.8/bin/activate
 python3 ~/bsc/fairseq/examples/speech_recognition/infer.py \
