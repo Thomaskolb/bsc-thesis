@@ -19,7 +19,7 @@ gen_subset="test"
 outputsfolder="fairseq-xlsr-outputs"
 evalsfolder="fairseq-xlsr-evals"
 
-source ~/.cache/pypoetry/virtualenvs/tkolbpoetry-0grRN4_Q-py3.6/bin/activate
+source ~/.cache/pypoetry/virtualenvs/kolb-poetry-SgAmqU3s-py3.6/bin/activate
 python3 ~/bsc/fairseq/examples/speech_recognition/infer.py \
     $valid_data_path \
     --task audio_finetuning \
