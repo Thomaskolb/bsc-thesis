@@ -34,7 +34,7 @@ dataset:
 
 distributed_training:
   ddp_backend: legacy_ddp
-  distributed_world_size: 2
+  distributed_world_size: 1
 
 criterion:
   _name: ctc
@@ -45,7 +45,7 @@ optimization:
   lr: [0.0003]
   sentence_avg: true
   # 40
-  update_freq: [20]
+  update_freq: [40]
 
 optimizer:
   _name: adam
