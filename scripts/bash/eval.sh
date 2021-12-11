@@ -31,7 +31,7 @@ python3.8 ~/bsc/fairseq/examples/speech_recognition/infer.py \
     --lm-model ~/bsc/data/models/$lmfile \
     --lm-weight 2 \
     --lexicon ~/bsc/data/models/$lexicon \
-    --word-score 2 \
+    --word-score -1 \
     --sil-weight 0 \
     --criterion ctc \
     --labels ltr \
@@ -49,7 +49,7 @@ python3.8 ~/bsc/fairseq/examples/speech_recognition/infer.py \
     --lm-model ~/bsc/data/models/$lmfile \
     --lm-weight 2 \
     --lexicon ~/bsc/data/models/$lexicon \
-    --word-score 2 \
+    --word-score -1 \
     --sil-weight 0 \
     --criterion ctc \
     --labels ltr \
@@ -67,7 +67,7 @@ python3.8 ~/bsc/fairseq/examples/speech_recognition/infer.py \
     --lm-model ~/bsc/data/models/$lmfile \
     --lm-weight 2 \
     --lexicon ~/bsc/data/models/$lexicon \
-    --word-score 2 \
+    --word-score -1 \
     --sil-weight 0 \
     --criterion ctc \
     --labels ltr \
