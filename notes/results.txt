@@ -108,7 +108,7 @@ Run 8:
 -Train data length: 16:10:01.303000
 -Test data length: 1:37:53.426000
 -Time: 2021-11-14/15-23-43
--XLSR: 
+-XLSR: 336000
 -Folder: c2tempdata2
 
 Run 9:
