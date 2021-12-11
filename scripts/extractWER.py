@@ -7,7 +7,7 @@ import worderrorrate
 import sys
 
 # Name of output txt files
-dataset = 'test'
+dataset = 'valid'
 outname = f'word-checkpoint_best.pt-{dataset}.txt'
 
 # Line of equal chars
