@@ -15,7 +15,7 @@ datetime3="2021-12-06/15-48-32"
 valid_data_path="/home/tkolb/bsc/data/ctc2tempdata"
 lmfile="c2lmfile.bin"
 lexicon="c2lexicon.txt"
-gen_subset="valid"
+gen_subset="test"
 outputsfolder="fairseq-outputs-xlsr"
 evalsfolder="fairseq-evals-xlsr"
 
