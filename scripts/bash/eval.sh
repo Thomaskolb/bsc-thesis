@@ -20,7 +20,7 @@ outputsfolder="fairseq-outputs-xlsr"
 evalsfolder="fairseq-evals-xlsr"
 
 source ~/.cache/pypoetry/virtualenvs/thomas-poetry-yCU5QAa0-py3.8/bin/activate
-python3 ~/bsc/fairseq/examples/speech_recognition/infer.py \
+python3.8 ~/bsc/fairseq/examples/speech_recognition/infer.py \
     $valid_data_path \
     --task audio_finetuning \
     --nbest 1 \
@@ -37,8 +37,8 @@ python3 ~/bsc/fairseq/examples/speech_recognition/infer.py \
     --labels ltr \
     --max-tokens 1000000 \
     --post-process letter
-python3 ../extractWER.py "/home/tkolb/bsc/data/$evalsfolder/$datetime1/$gen_subset" $valid_data_path
-python3 ~/bsc/fairseq/examples/speech_recognition/infer.py \
+python3.8 ../extractWER.py "/home/tkolb/bsc/data/$evalsfolder/$datetime1/$gen_subset" $valid_data_path
+python3.8 ~/bsc/fairseq/examples/speech_recognition/infer.py \
     $valid_data_path \
     --task audio_finetuning \
     --nbest 1 \
@@ -55,8 +55,8 @@ python3 ~/bsc/fairseq/examples/speech_recognition/infer.py \
     --labels ltr \
     --max-tokens 1000000 \
     --post-process letter
-python3 ../extractWER.py "/home/tkolb/bsc/data/$evalsfolder/$datetime2/$gen_subset" $valid_data_path
-python3 ~/bsc/fairseq/examples/speech_recognition/infer.py \
+python3.8 ../extractWER.py "/home/tkolb/bsc/data/$evalsfolder/$datetime2/$gen_subset" $valid_data_path
+python3.8 ~/bsc/fairseq/examples/speech_recognition/infer.py \
     $valid_data_path \
     --task audio_finetuning \
     --nbest 1 \
@@ -73,5 +73,5 @@ python3 ~/bsc/fairseq/examples/speech_recognition/infer.py \
     --labels ltr \
     --max-tokens 1000000 \
     --post-process letter
-python3 ../extractWER.py "/home/tkolb/bsc/data/$evalsfolder/$datetime3/$gen_subset" $valid_data_path
+python3.8 ../extractWER.py "/home/tkolb/bsc/data/$evalsfolder/$datetime3/$gen_subset" $valid_data_path
 deactivate
