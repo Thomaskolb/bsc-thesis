@@ -2,9 +2,9 @@
 
 hydra:
   run:
-    dir: /home/tkolb/bsc/data/fairseq-outputs-xlsr/${now:%Y-%m-%d}/${now:%H-%M-%S}
-    # dir: /home/tkolb/bsc/data/fairseq-outputs-xlsr/2021-12-06/15-48-32
-
+    # dir: /home/tkolb/bsc/data/fairseq-outputs-xlsr/${now:%Y-%m-%d}/${now:%H-%M-%S}
+    dir: /home/tkolb/bsc/data/fairseq-outputs-xlsr/2021-12-12/11-39-21
+    
 common:
   fp16: true
   log_format: json
