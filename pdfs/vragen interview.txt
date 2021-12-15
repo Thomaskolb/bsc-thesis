@@ -4,11 +4,23 @@ NPO subtitles:
 -Accent: MET LIMBURGS ACCENT
 -Breaking of sentence end with ..., next sentence will have a small letter
 
-
 Vragen:
--Letterlijk ondertitelen: hoe vaak doen jullie dit? bij wat voor soort programmas? alleen als ze langzaam praten? of is het bij bepaalde programmas ook van belang om het letterlijk te houden?
--Hoe zorgen jullie ervoor dat ondertiteling tegelijk ingekort en volledig is?
--Live uitzendingen: Hoe veel tijd hebben jullie bij live-uitzendingen om ondertiteling te schrijven? zit hier een groot verschil in vergeleken met het maken van ondertiteling voor een niet-live uitzending?
--Wat doen jullie precies met kreten zoals 'eh', in mijn data heb ik gemerkt dat jullie die vaak weglaten, maar niet altijd? en kreten als hahaha, maakt het dat niet moeilijk om te lezen voor doven/slechthorenden?
--Hoe maken jullie precies de begin- en eindtijden van een ondertiteling?
--?Taalfouten: herstellen jullie de taalfouten altijd?
+1. Letterlijk ondertitelen: hoe vaak doen jullie dit? bij wat voor soort programmas? alleen als ze langzaam praten? of is het bij bepaalde programmas ook van belang om het letterlijk te houden?
+2. Hoe zorgen jullie ervoor dat ondertiteling tegelijk ingekort en volledig is?
+3. Live uitzendingen: Hoe veel tijd hebben jullie bij live-uitzendingen om ondertiteling te schrijven? zit hier een groot verschil in vergeleken met het maken van ondertiteling voor een niet-live uitzending?
+4. Zitten er verschillen in het maken van ondertiteling voor verschillende programmas, zoals bij nieuws uitzendingen, beweegprogrammas en reclame
+5. Wat doen jullie precies met kreten zoals 'eh', in mijn data heb ik gemerkt dat jullie die vaak weglaten, maar niet altijd? en kreten als hahaha, maakt het dat niet moeilijk om te lezen voor doven/slechthorenden?
+6. Hoe maken jullie precies de begin- en eindtijden van een ondertiteling?
+7. ?Taalfouten: herstellen jullie de taalfouten altijd?
+
+Antwoorden:
+4. Benadering is hetzelfde
+5. 1 minuut vertraging, bestaat al, talken, merkbaar kwaliteitsverschil
+6. live = je loopt achter, verschillen. dingen worden niet meer overgeslagen. Geen eindtijd, hanteren regel dat beginnen stoppen praten. Hulpmiddel software die wpm bijhoud, staat 180. In het verleden 140
+eh: als het een functie heeft, als er geen plek voor is.
+Gehakkel: eh ehm, met een
+Live: van belang om zo snel mogelijk iets neer te zetten
+Herhalen is hinderlijk
+dragon
+Pas samenvatten zodra meer wpm te hoog is
+moeilijk keiharde regels aan te houden
