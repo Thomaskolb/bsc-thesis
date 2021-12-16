@@ -2,8 +2,8 @@
 
 hydra:
   run:
-    # dir: /home/tkolb/bsc/data/fairseq-outputs-xlsr/${now:%Y-%m-%d}/${now:%H-%M-%S}
-    dir: /home/tkolb/bsc/data/fairseq-outputs-xlsr/2021-12-12/11-39-21
+    dir: /home/tkolb/bsc/data/fairseq-outputs-xlsr/${now:%Y-%m-%d}/${now:%H-%M-%S}
+    # dir: /home/tkolb/bsc/data/fairseq-outputs-xlsr/2021-12-12/11-39-21
 
 common:
   fp16: true
@@ -17,7 +17,6 @@ checkpoint:
   keep_interval_updates: 1
   no_epoch_checkpoints: true
   best_checkpoint_metric: wer
-  reset_dataloader: true
 
 task:
   _name: audio_finetuning
