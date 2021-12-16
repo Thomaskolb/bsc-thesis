@@ -15,7 +15,5 @@ HYDRA_FULL_ERROR=1 fairseq-hydra-train \
     model.w2v_path=/home/tkolb/bsc/data/models/xlsr_53_56k.pt \
     model.freeze_finetune_updates=10000 \
     --config-dir /home/tkolb/bsc/bsc-thesis/scripts/fairseq \
-    --config-name xlsr \
-    --reset-dataloader \
-    --save-dir /home/tkolb/bsc/data/fairseq-outputs-xlsr/2021-12-12/11-40-24
+    --config-name xlsr
 deactivate
