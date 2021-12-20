@@ -3,7 +3,7 @@
 #SBATCH --gres=gpu:rtx_3090:1
 #SBATCH --mem=30G
 #SBATCH --cpus-per-task=1
-#SBATCH --time=48:00:00
+#SBATCH --time=100:00:00
 #SBATCH --output=trainxlsr-%J.out
 #SBATCH --error=trainxlsr-%J.err
 #SBATCH --mail-user=thomaskolb@live.nl
