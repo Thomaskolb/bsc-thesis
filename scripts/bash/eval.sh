@@ -12,7 +12,7 @@
 datetime1="2021-12-11/18-05-10"
 datetime2="2021-12-11/23-10-29"
 datetime3="2021-12-12/07-01-13"
-valid_data_path="/home/tkolb/bsc/data/ctc2tempdata"
+valid_data_path="/home/tkolb/bsc/data/c2tempdata"
 lmfile="c2lmfile.bin"
 lexicon="c2lexicon.txt"
 gen_subset="test"
