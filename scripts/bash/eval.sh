@@ -9,12 +9,12 @@
 #SBATCH --mail-user=thomaskolb@live.nl
 #SBATCH --mail-type=BEGIN,END,FAIL
 
-datetime1="2021-11-11/18-12-54"
-datetime2="2021-11-12/10-12-27"
-datetime3="2021-11-12/10-34-58"
+datetime1="2021-11-14/15-14-42"
+datetime2="2021-11-14/15-23-43"
+datetime3="2021-11-14/15-30-40"
 valid_data_path="/home/tkolb/bsc/data/tempdata"
-lmfile="c1lmfile.bin"
-lexicon="c1lexicon.txt"
+lmfile="c2lmfile.bin"
+lexicon="c2lexicon.txt"
 gen_subset="test"
 outputsfolder="fairseq-outputs"
 evalsfolder="fairseq-evals-base"
