@@ -85,7 +85,7 @@ Run 6:
 -- config 2 --
 Run 7:
 -Configuration:
-    -Characters config 1
+    -Characters config 2
     -Minimum WER: 0.5
     -Subtract start time: 0.1
     -Web link filter: ON
@@ -99,7 +99,7 @@ Run 7:
 
 Run 8:
 -Configuration:
-    -Characters config 1
+    -Characters config 2
     -Minimum WER: 0.5
     -Subtract start time: 0.1
     -Web link filter: ON
@@ -113,7 +113,7 @@ Run 8:
 
 Run 9:
 -Configuration:
-    -Characters config 1
+    -Characters config 2
     -Minimum WER: 0.5
     -Subtract start time: 0.1
     -Web link filter: ON
@@ -128,7 +128,7 @@ Run 9:
 --config 3--
 Run 10:
 -Configuration:
-    -Characters config 1
+    -Characters config 3
     -Minimum WER: 0.5
     -Subtract start time: 0.1
     -Web link filter: ON
@@ -141,7 +141,7 @@ Run 10:
 
 Run 11:
 -Configuration:
-    -Characters config 1
+    -Characters config 3
     -Minimum WER: 0.5
     -Subtract start time: 0.1
     -Web link filter: ON
@@ -154,7 +154,7 @@ Run 11:
 
 Run 12:
 -Configuration:
-    -Characters config 1
+    -Characters config 3
     -Minimum WER: 0.5
     -Subtract start time: 0.1
     -Web link filter: ON
@@ -184,7 +184,7 @@ Run 13:
 
 Run 14:
 -Configuration:
-    -Characters config 1
+    -Characters config 2
     -Minimum WER: 0.5
     -Subtract start time: 0.1
     -Web link filter: OFF
@@ -199,7 +199,7 @@ Run 14:
 
 Run 15:
 -Configuration:
-    -Characters config 1
+    -Characters config 2
     -Minimum WER: 0.5
     -Subtract start time: 0.1
     -Web link filter: ON
