@@ -9,15 +9,15 @@
 #SBATCH --mail-user=thomaskolb@live.nl
 #SBATCH --mail-type=BEGIN,END,FAIL
 
-datetime1="2021-12-11/18-05-10"
-datetime2="2021-12-11/23-10-29"
-datetime3="2021-12-12/07-01-13"
-valid_data_path="/home/tkolb/bsc/data/c2tempdata"
-lmfile="c2lmfile.bin"
-lexicon="c2lexicon.txt"
+datetime1="2021-11-11/18-12-54"
+datetime2="2021-11-12/10-12-27"
+datetime3="2021-11-12/10-34-58"
+valid_data_path="/home/tkolb/bsc/data/tempdata"
+lmfile="lmfile.bin"
+lexicon="lexicon.txt"
 gen_subset="test"
-outputsfolder="fairseq-outputs-xlsr"
-evalsfolder="fairseq-evals-xlsr"
+outputsfolder="fairseq-outputs"
+evalsfolder="fairseq-evals-base"
 
 source ~/.cache/pypoetry/virtualenvs/new-env-xry5bPeK-py3.8/bin/activate
 python3.8 ~/bsc/fairseq/examples/speech_recognition/infer.py \
