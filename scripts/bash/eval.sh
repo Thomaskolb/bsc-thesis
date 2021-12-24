@@ -9,12 +9,12 @@
 #SBATCH --mail-user=thomaskolb@live.nl
 #SBATCH --mail-type=BEGIN,END,FAIL
 
-# datetime1="2021-12-16/12-12-56"
-# datetime2="2021-12-16/12-15-36"
-# datetime3="2021-12-12/11-41-57"
-datetime1="2021-12-20/16-11-51"
-datetime2="2021-12-20/16-23-34"
-datetime3="2021-12-20/16-24-42"
+datetime1="2021-12-16/12-12-56"
+datetime2="2021-12-16/12-15-36"
+datetime3="2021-12-12/11-41-57"
+# datetime1="2021-12-20/16-11-51"
+# datetime2="2021-12-20/16-23-34"
+# datetime3="2021-12-20/16-24-42"
 valid_data_path="/home/tkolb/bsc/data/ctc2tempdata"
 lmfile="c2lmfile.bin"
 lexicon="c2lexicon.txt"
@@ -40,7 +40,7 @@ python3.8 ~/bsc/fairseq/examples/speech_recognition/infer.py \
     --labels ltr \
     --max-tokens 1000000 \
     --post-process letter
-python3.8 ../extractWER.py "/home/tkolb/bsc/data/$evalsfolder/$datetime1/$gen_subset" $valid_data_path
+python3.8 ../extractWER.py "/home/tkolb/bsc/data/$evalsfolder/$datetime1/$gen_subset" $valid_data_path "base"
 python3.8 ~/bsc/fairseq/examples/speech_recognition/infer.py \
     $valid_data_path \
     --task audio_finetuning \
@@ -58,7 +58,7 @@ python3.8 ~/bsc/fairseq/examples/speech_recognition/infer.py \
     --labels ltr \
     --max-tokens 1000000 \
     --post-process letter
-python3.8 ../extractWER.py "/home/tkolb/bsc/data/$evalsfolder/$datetime2/$gen_subset" $valid_data_path
+python3.8 ../extractWER.py "/home/tkolb/bsc/data/$evalsfolder/$datetime2/$gen_subset" $valid_data_path "base"
 python3.8 ~/bsc/fairseq/examples/speech_recognition/infer.py \
     $valid_data_path \
     --task audio_finetuning \
@@ -76,5 +76,5 @@ python3.8 ~/bsc/fairseq/examples/speech_recognition/infer.py \
     --labels ltr \
     --max-tokens 1000000 \
     --post-process letter
-python3.8 ../extractWER.py "/home/tkolb/bsc/data/$evalsfolder/$datetime3/$gen_subset" $valid_data_path
+python3.8 ../extractWER.py "/home/tkolb/bsc/data/$evalsfolder/$datetime3/$gen_subset" $valid_data_path "base"
 deactivate
