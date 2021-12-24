@@ -17,8 +17,8 @@ bar = '=' * 30
 lowercase = False
 
 # Calculates WER for model data and captions and asr data and captions
-def write_WER_data(evalpath, asrpath):
-    with open(f'{evalpath}/WERdata_{dataset}.txt', 'w') as werfile:
+def write_WER_data(evalpath, asrpath, conf):
+    with open(f'{evalpath}/WERdata_{dataset}_{conf}.txt', 'w') as werfile:
         with open(f'{evalpath}/hypo.{outname}', 'r') as hypofile, \
                 open(f'{evalpath}/ref.{outname}') as reffile, \
                 open(f'{asrpath}/asr-{dataset}.txt', 'r') as asrfile, \
@@ -65,12 +65,12 @@ def write_WER_data_LM(evalpath, testpath, name, outpath):
                     avg_wer += werdata.wer()
             werfile.write(f'average wer = {avg_wer/len(hypolines)}\n')
 
-if len(sys.argv) < 5:
-    # print("Please enter the path with refs & hypos and the path for the asr lines")
-    print("Please enter the path with hyps, the test path, filename, outpath")
+if len(sys.argv) < 4:
+    print("Please enter the path with refs & hypos and the path for the asr lines")
+    # print("Please enter the path with hyps, the test path, filename, outpath")
 else:
-    # write_WER_data(sys.argv[1], sys.argv[2])
-    write_WER_data_LM(sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4])
+    write_WER_data(sys.argv[1], sys.argv[2], sys.argv[3])
+    # write_WER_data_LM(sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4])
 
 
 # TODO verschil wer met asr data
