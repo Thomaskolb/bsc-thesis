@@ -219,7 +219,7 @@ Run 15:
 
 c2/test:
 B = 
-CTC = 
+CTC = 0.422685865049088
 LM = 
 
 ctc2/test:
