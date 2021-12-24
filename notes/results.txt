@@ -220,12 +220,12 @@ Run 15:
 ===== LM weight = 2, Word score = -1 =====
 
 c2/test:
-B = 
-CTC = 
+B = 0.290
+CTC = 0.348
 
 ctc2/test:
-B = 
-CTC = 
+B = 0.356
+CTC = 0.311
 
 ===== LM weight = opt, Word score = 0 =====
 
