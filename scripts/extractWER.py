@@ -47,8 +47,8 @@ def write_WER_data(evalpath, asrpath):
             werfile.write(f'average wer = {avg_wer/len(hypolines)}\n')
             werfile.write(f'average wer asr = {avg_wer_asr/len(asrlines)}\n')
 
-def write_WER_data_LM(evalpath, testpath, name):
-    with open(f'{evalpath}/WERdata_{name}.txt', 'w') as werfile:
+def write_WER_data_LM(evalpath, testpath, name, outpath):
+    with open(f'{outpath}/WERdata_{name}.txt', 'w') as werfile:
         with open(f'{evalpath}/{name}', 'r') as hypofile, \
                 open(f'{testpath}/{dataset}.wrd') as reffile:
             avg_wer = 0
@@ -62,12 +62,12 @@ def write_WER_data_LM(evalpath, testpath, name):
                     avg_wer += werdata.wer()
             werfile.write(f'average wer = {avg_wer/len(hypolines)}\n')
 
-if len(sys.argv) < 4:
+if len(sys.argv) < 5:
     # print("Please enter the path with refs & hypos and the path for the asr lines")
-    print("Please enter the path with hyps, the test path, and filename")
+    print("Please enter the path with hyps, the test path, filename, outpath")
 else:
     # write_WER_data(sys.argv[1], sys.argv[2])
-    write_WER_data_LM(sys.argv[1], sys.argv[2], sys.argv[3])
+    write_WER_data_LM(sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4])
 
 
 # TODO verschil wer met asr data
