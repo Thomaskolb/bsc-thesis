@@ -9,12 +9,12 @@
 #SBATCH --mail-user=thomaskolb@live.nl
 #SBATCH --mail-type=BEGIN,END,FAIL
 
-# datetime1="2021-12-16/12-12-56"
-# datetime2="2021-12-16/12-15-36"
-# datetime3="2021-12-12/11-41-57"
-datetime1="2021-12-20/16-11-51"
-datetime2="2021-12-20/16-23-34"
-datetime3="2021-12-20/16-24-42"
+datetime1="2021-12-16/12-12-56"
+datetime2="2021-12-16/12-15-36"
+datetime3="2021-12-12/11-41-57"
+# datetime1="2021-12-20/16-11-51"
+# datetime2="2021-12-20/16-23-34"
+# datetime3="2021-12-20/16-24-42"
 valid_data_path="/home/tkolb/bsc/data/c2tempdata"
 lmfile="c2lmfile.bin"
 lexicon="c2lexicon.txt"
@@ -34,7 +34,7 @@ python3.8 ~/bsc/fairseq/examples/speech_recognition/infer.py \
     --lm-model ~/bsc/data/models/$lmfile \
     --lm-weight 2 \
     --lexicon ~/bsc/data/models/$lexicon \
-    --word-score -1 \
+    --word-score 0 \
     --sil-weight 0 \
     --criterion ctc \
     --labels ltr \
@@ -50,9 +50,9 @@ python3.8 ~/bsc/fairseq/examples/speech_recognition/infer.py \
     --results-path ~/bsc/data/$evalsfolder/$datetime2/$gen_subset \
     --w2l-decoder kenlm \
     --lm-model ~/bsc/data/models/$lmfile \
-    --lm-weight 2 \
+    --lm-weight 1 \
     --lexicon ~/bsc/data/models/$lexicon \
-    --word-score -1 \
+    --word-score 0 \
     --sil-weight 0 \
     --criterion ctc \
     --labels ltr \
@@ -68,9 +68,9 @@ python3.8 ~/bsc/fairseq/examples/speech_recognition/infer.py \
     --results-path ~/bsc/data/$evalsfolder/$datetime3/$gen_subset \
     --w2l-decoder kenlm \
     --lm-model ~/bsc/data/models/$lmfile \
-    --lm-weight 2 \
+    --lm-weight 1 \
     --lexicon ~/bsc/data/models/$lexicon \
-    --word-score -1 \
+    --word-score 0 \
     --sil-weight 0 \
     --criterion ctc \
     --labels ltr \
