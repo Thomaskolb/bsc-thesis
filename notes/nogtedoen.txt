@@ -29,7 +29,7 @@ de drastische verandering tussen 8 en 16 + 32 uur. Wat opzich veel te goed voor 
 
 Spelen met lm weight en word penalty:
 -base = lmweight = 2 and wordpenalty = -1
--lmweight [0,5], word [-2,2]
+-lmweight [0,4], word [-2,2]
 -c2tempdata3 - test - var-analysis
 
 Extra experimenten
