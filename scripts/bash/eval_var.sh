@@ -10,7 +10,7 @@
 #SBATCH --mail-type=BEGIN,END,FAIL
 
 datetime1="2021-11-14/15-14-42"
-valid_data_path="/home/tkolb/bsc/data/c2tempdata3"
+valid_data_path="/home/tkolb/bsc/data/c2tempdata"
 lmfile="c2lmfile.bin"
 lexicon="c2lexicon.txt"
 gen_subset="test"
