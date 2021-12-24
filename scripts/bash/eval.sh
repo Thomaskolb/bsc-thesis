@@ -9,12 +9,12 @@
 #SBATCH --mail-user=thomaskolb@live.nl
 #SBATCH --mail-type=BEGIN,END,FAIL
 
-datetime1="2021-12-16/12-12-56"
-datetime2="2021-12-16/12-15-36"
-datetime3="2021-12-12/11-41-57"
-# datetime1="2021-12-20/16-11-51"
-# datetime2="2021-12-20/16-23-34"
-# datetime3="2021-12-20/16-24-42"
+# datetime1="2021-12-16/12-12-56"
+# datetime2="2021-12-16/12-15-36"
+# datetime3="2021-12-12/11-41-57"
+datetime1="2021-12-20/16-11-51"
+datetime2="2021-12-20/16-23-34"
+datetime3="2021-12-20/16-24-42"
 valid_data_path="/home/tkolb/bsc/data/c2tempdata"
 lmfile="c2lmfile.bin"
 lexicon="c2lexicon.txt"
