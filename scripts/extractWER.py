@@ -55,6 +55,9 @@ def write_WER_data_LM(evalpath, testpath, name, outpath):
             hypodata, refdata = hypofile.read().split('\n'), reffile.read().split('\n')
             hypolines = [' '.join(dataline.split(' ')[:-1]) for dataline in hypodata]
             reflines = [' '.join(dataline.split(' ')[:-1]) for dataline in refdata]
+            # Sort based on values of refdata
+            hypolines = [x for _,x in sorted(zip(reflines, hypolines))]
+            reflines = sorted(reflines)
             for i in range(len(hypolines)):
                 if len(reflines[i]) > 0:
                     werdata = worderrorrate.WER(reflines[i].split(' '), hypolines[i].split(' '))
