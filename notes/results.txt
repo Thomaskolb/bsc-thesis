@@ -217,26 +217,32 @@ Run 15:
 -config2: [2021-11-14/15-14-42, 2021-11-14/15-23-43, 2021-11-14/15-30-40]
 -config3: [2021-11-15/11-44-06, 2021-11-15/11-45-07, 2021-11-15/13-23-43]
 
-===== LM weight = opt =====
+===== LM weight = 2, Word score = -1 =====
+
+c2/test:
+B = 
+CTC = 
+
+ctc2/test:
+B = 
+CTC = 
+
+===== LM weight = opt, Word score = 0 =====
 
 c2/test:
 B = 0.355
 CTC = 0.423
-LM-P =
-LM-NP = 
 
 ctc2/test:
 B = 0.411
 CTC = 0.370
-LM-P =
-LM-NP = 
 
-===== LM weight = 0 =====
+===== LM weight = 0, Word score = 0 =====
 
 c2/test:
-B = 
-CTC = 
+B = 2.08
+CTC = 2.18
 
 ctc2/test:
-B = 
-CTC = 
+B = 2.08
+CTC = 2.07
