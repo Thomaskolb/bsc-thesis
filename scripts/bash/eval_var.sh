@@ -9,8 +9,8 @@
 #SBATCH --mail-user=thomaskolb@live.nl
 #SBATCH --mail-type=BEGIN,END,FAIL
 
-datetime1="2021-12-20/16-24-42"
-valid_data_path="/home/tkolb/bsc/data/ctc2tempdata"
+datetime1="2021-12-20/16-11-51"
+valid_data_path="/home/tkolb/bsc/data/c2tempdata"
 lmfile="c2lmfile.bin"
 lexicon="c2lexicon.txt"
 gen_subset="test"
