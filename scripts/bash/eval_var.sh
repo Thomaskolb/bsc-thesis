@@ -15,7 +15,7 @@ lmfile="c2lmfile.bin"
 lexicon="c2lexicon.txt"
 gen_subset="test"
 outputsfolder="fairseq-outputs-xlsr"
-evalsfolder="fairseq-evals-xlsr/var"
+evalsfolder="fairseq-evals-xlsr/varws-2"
 
 source ~/.cache/pypoetry/virtualenvs/new-env-xry5bPeK-py3.8/bin/activate
 python3.8 ~/bsc/fairseq/examples/speech_recognition/infer.py \
