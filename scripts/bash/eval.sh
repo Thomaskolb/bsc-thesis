@@ -41,7 +41,7 @@ python3.8 ~/bsc/fairseq/examples/speech_recognition/infer.py \
     --w2l-decoder viterbi \
     # --lm-model ~/bsc/data/models/$lmfile \
     # --lm-weight 2 \
-    --lexicon ~/bsc/data/models/$lexicon \
+    # --lexicon ~/bsc/data/models/$lexicon \
     # --word-score -1 \
     # --sil-weight 0 \
     # --criterion ctc \
@@ -59,7 +59,7 @@ python3.8 ~/bsc/fairseq/examples/speech_recognition/infer.py \
     --w2l-decoder viterbi \
     # --lm-model ~/bsc/data/models/$lmfile \
     # --lm-weight 2 \
-    --lexicon ~/bsc/data/models/$lexicon \
+    # --lexicon ~/bsc/data/models/$lexicon \
     # --word-score -1 \
     # --sil-weight 0 \
     # --criterion ctc \
@@ -77,7 +77,7 @@ python3.8 ~/bsc/fairseq/examples/speech_recognition/infer.py \
     --w2l-decoder viterbi \
     # --lm-model ~/bsc/data/models/$lmfile \
     # --lm-weight 2 \
-    --lexicon ~/bsc/data/models/$lexicon \
+    # --lexicon ~/bsc/data/models/$lexicon \
     # --word-score -1 \
     # --sil-weight 0 \
     # --criterion ctc \
