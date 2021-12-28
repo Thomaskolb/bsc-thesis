@@ -28,7 +28,7 @@ lmfile="c2lmfile.bin"
 lexicon="c2lexicon.txt"
 gen_subset="test"
 outputsfolder="fairseq-outputs-xlsr"
-evalsfolder="fairseq-evals-xlsr/viterbi"
+evalsfolder="fairseq-evals-xlsr/fairseqlm"
 
 source ~/.cache/pypoetry/virtualenvs/new-env-xry5bPeK-py3.8/bin/activate
 python3.8 ~/bsc/fairseq/examples/speech_recognition/infer.py \
@@ -38,7 +38,7 @@ python3.8 ~/bsc/fairseq/examples/speech_recognition/infer.py \
     --path ~/bsc/data/$outputsfolder/$datetime1/checkpoints/checkpoint_best.pt \
     --gen-subset $gen_subset \
     --results-path ~/bsc/data/$evalsfolder/$datetime1/$gen_subset \
-    --w2l-decoder viterbi \
+    --w2l-decoder fairseqlm \
     --lm-model ~/bsc/data/models/$lmfile \
     --lm-weight 2 \
     --word-score -1 \
@@ -55,7 +55,7 @@ python3.8 ~/bsc/fairseq/examples/speech_recognition/infer.py \
     --path ~/bsc/data/$outputsfolder/$datetime2/checkpoints/checkpoint_best.pt \
     --gen-subset $gen_subset \
     --results-path ~/bsc/data/$evalsfolder/$datetime2/$gen_subset \
-    --w2l-decoder viterbi \
+    --w2l-decoder fairseqlm \
     --lm-model ~/bsc/data/models/$lmfile \
     --lm-weight 2 \
     --word-score -1 \
@@ -72,7 +72,7 @@ python3.8 ~/bsc/fairseq/examples/speech_recognition/infer.py \
     --path ~/bsc/data/$outputsfolder/$datetime3/checkpoints/checkpoint_best.pt \
     --gen-subset $gen_subset \
     --results-path ~/bsc/data/$evalsfolder/$datetime3/$gen_subset \
-    --w2l-decoder viterbi \
+    --w2l-decoder fairseqlm \
     --lm-model ~/bsc/data/models/$lmfile \
     --lm-weight 2 \
     --word-score -1 \
