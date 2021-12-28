@@ -27,8 +27,8 @@ valid_data_path="/home/tkolb/bsc/data/ctc2tempdata"
 lmfile="c2lmfile.bin"
 lexicon="c2lexicon.txt"
 gen_subset="test"
-outputsfolder="fairseq-outputs"
-evalsfolder="fairseq-evals-base/viterbi"
+outputsfolder="fairseq-outputs-xlsr"
+evalsfolder="fairseq-evals-xlsr/viterbi"
 
 source ~/.cache/pypoetry/virtualenvs/new-env-xry5bPeK-py3.8/bin/activate
 python3.8 ~/bsc/fairseq/examples/speech_recognition/infer.py \
