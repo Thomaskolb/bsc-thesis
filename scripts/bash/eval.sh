@@ -45,8 +45,8 @@ python3.8 ~/bsc/fairseq/examples/speech_recognition/infer.py \
     # --word-score -1 \
     # --sil-weight 0 \
     # --criterion ctc \
-    --labels ltr \
-    --max-tokens 1000000 \
+    # --labels ltr \
+    # --max-tokens 1000000 \
     --post-process letter
 python3.8 ../extractWER.py "/home/tkolb/bsc/data/$evalsfolder/$datetime1/$gen_subset" $valid_data_path "base"
 python3.8 ~/bsc/fairseq/examples/speech_recognition/infer.py \
@@ -63,8 +63,8 @@ python3.8 ~/bsc/fairseq/examples/speech_recognition/infer.py \
     # --word-score -1 \
     # --sil-weight 0 \
     # --criterion ctc \
-    --labels ltr \
-    --max-tokens 1000000 \
+    # --labels ltr \
+    # --max-tokens 1000000 \
     --post-process letter
 python3.8 ../extractWER.py "/home/tkolb/bsc/data/$evalsfolder/$datetime2/$gen_subset" $valid_data_path "base"
 python3.8 ~/bsc/fairseq/examples/speech_recognition/infer.py \
@@ -81,8 +81,8 @@ python3.8 ~/bsc/fairseq/examples/speech_recognition/infer.py \
     # --word-score -1 \
     # --sil-weight 0 \
     # --criterion ctc \
-    --labels ltr \
-    --max-tokens 1000000 \
+    # --labels ltr \
+    # --max-tokens 1000000 \
     --post-process letter
 python3.8 ../extractWER.py "/home/tkolb/bsc/data/$evalsfolder/$datetime3/$gen_subset" $valid_data_path "base"
 deactivate
