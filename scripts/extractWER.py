@@ -23,8 +23,8 @@ def write_WER_data(evalpath, asrpath, conf):
                 open(f'{evalpath}/ref.{outname}') as reffile, \
                 open(f'{asrpath}/asr-{dataset}.txt', 'r') as asrfile, \
                 open(f'{asrpath}/{dataset}.wrd', 'r') as asrreffile:
-            avg_wer = 0
-            avg_wer_asr = 0
+            sum_wer = (0, 0)
+            sum_wer_asr = (0, 0)
             hypodata, refdata = hypofile.read().split('\n'), reffile.read().split('\n')
             asrlines, asrreflines = asrfile.read().split('\n'), asrreffile.read().split('\n')
             hypolines = [' '.join(dataline.split(' ')[:-1]) for dataline in hypodata]
@@ -42,16 +42,16 @@ def write_WER_data(evalpath, asrpath, conf):
                     asrwerdata = worderrorrate.WER(asrreflines[i].split(' '), asrlines[i].split(' '))
                     werfile.write(f'{werdata}WER = {werdata.wer()}\n')
                     werfile.write(f'{asrwerdata}ASR_WER = {asrwerdata.wer()}\n{bar}\n\n')
-                    avg_wer += werdata.wer()
-                    avg_wer_asr += asrwerdata.wer()
-            werfile.write(f'average wer = {avg_wer/len(hypolines)}\n')
-            werfile.write(f'average wer asr = {avg_wer_asr/len(asrlines)}\n')
+                    sum_wer = (sum_wer[0] + werdata.nerr, sum_wer[1] + len(werdata.ref))
+                    sum_wer_asr = (sum_wer_asr[0] + asrwerdata.nerr, sum_wer_asr[1] + len(asrwerdata.ref))
+            werfile.write(f'wer = {sum_wer[0]/sum_wer[1]}\n')
+            werfile.write(f'wer asr = {sum_wer_asr[0]/sum_wer_asr[1]}\n')
 
 def write_WER_data_LM(evalpath, testpath, name, outpath):
     with open(f'{outpath}/WERdata_{name}.txt', 'w') as werfile:
         with open(f'{evalpath}/{name}', 'r') as hypofile, \
                 open(f'{testpath}/{dataset}.wrd') as reffile:
-            avg_wer = 0
+            sum_wer = (0, 0)
             hypodata, refdata = hypofile.read().split('\n'), reffile.read().split('\n')
             hypolines = [' '.join(dataline.split(' ')[:-1]) for dataline in hypodata]
             reflines = [' '.join(dataline.split(' ')[:-1]) for dataline in refdata]
@@ -62,8 +62,8 @@ def write_WER_data_LM(evalpath, testpath, name, outpath):
                 if len(reflines[i]) > 0:
                     werdata = worderrorrate.WER(reflines[i].split(' '), hypolines[i].split(' '))
                     werfile.write(f'{werdata}WER = {werdata.wer()}\n')
-                    avg_wer += werdata.wer()
-            werfile.write(f'average wer = {avg_wer/len(hypolines)}\n')
+                    sum_wer = (sum_wer[0] + werdata.nerr, sum_wer[1] + len(werdata.ref))
+            werfile.write(f'wer = {sum_wer[0]/sum_wer[1]}\n')
 
 if len(sys.argv) < 4:
     print("Please enter the path with refs & hypos and the path for the asr lines")
