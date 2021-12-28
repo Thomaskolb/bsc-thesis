@@ -24,7 +24,7 @@ python3.8 ~/bsc/fairseq/examples/speech_recognition/infer.py \
     --nbest 1 \
     --path ~/bsc/data/$outputsfolder/$datetime/checkpoints/checkpoint_best.pt \
     --gen-subset $gen_subset \
-    --results-path ~/bsc/data/$evalsfolder/$datetime1/$gen_subset \
+    --results-path ~/bsc/data/$evalsfolder/$datetime/$gen_subset \
     --w2l-decoder kenlm \
     --lm-model ~/bsc/data/models/$lmfile \
     --lm-weight 3 \
