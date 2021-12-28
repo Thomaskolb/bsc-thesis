@@ -10,12 +10,12 @@
 #SBATCH --mail-type=BEGIN,END,FAIL
 
 # base10
-# datetime1="2021-12-04/16-32-37"
-# datetime2="2021-12-08/15-10-32"
-# datetime3="2021-12-04/16-34-35"
-datetime1="2021-11-14/15-14-42"
-datetime2="2021-11-14/15-23-43"
-datetime3="2021-11-14/15-30-40"
+datetime1="2021-12-04/16-32-37"
+datetime2="2021-12-08/15-10-32"
+datetime3="2021-12-04/16-34-35"
+# datetime1="2021-11-14/15-14-42"
+# datetime2="2021-11-14/15-23-43"
+# datetime3="2021-11-14/15-30-40"
 # xlsr
 # datetime1="2021-12-16/12-12-56"
 # datetime2="2021-12-16/12-15-36"
@@ -23,7 +23,7 @@ datetime3="2021-11-14/15-30-40"
 # datetime1="2021-12-20/16-11-51"
 # datetime2="2021-12-20/16-23-34"
 # datetime3="2021-12-20/16-24-42"
-valid_data_path="/home/tkolb/bsc/data/c2tempdata"
+valid_data_path="/home/tkolb/bsc/data/ctc2tempdata"
 lmfile="c2lmfile.bin"
 lexicon="c2lexicon.txt"
 gen_subset="test"
@@ -39,15 +39,15 @@ python3.8 ~/bsc/fairseq/examples/speech_recognition/infer.py \
     --gen-subset $gen_subset \
     --results-path ~/bsc/data/$evalsfolder/$datetime1/$gen_subset \
     --w2l-decoder viterbi \
-    # --lm-model ~/bsc/data/models/$lmfile \
-    # --lm-weight 2 \
+    --lm-model ~/bsc/data/models/$lmfile \
+    --lm-weight 2 \
     # --lexicon ~/bsc/data/models/$lexicon \
-    # --word-score -1 \
-    # --sil-weight 0 \
-    # --criterion ctc \
-    # --labels ltr \
-    # --max-tokens 1000000 \
-    # --post-process letter
+    --word-score -1 \
+    --sil-weight 0 \
+    --criterion ctc \
+    --labels ltr \
+    --max-tokens 1000000 \
+    --post-process letter
 python3.8 ../extractWER.py "/home/tkolb/bsc/data/$evalsfolder/$datetime1/$gen_subset" $valid_data_path "base"
 python3.8 ~/bsc/fairseq/examples/speech_recognition/infer.py \
     $valid_data_path \
@@ -57,15 +57,15 @@ python3.8 ~/bsc/fairseq/examples/speech_recognition/infer.py \
     --gen-subset $gen_subset \
     --results-path ~/bsc/data/$evalsfolder/$datetime2/$gen_subset \
     --w2l-decoder viterbi \
-    # --lm-model ~/bsc/data/models/$lmfile \
-    # --lm-weight 2 \
+    --lm-model ~/bsc/data/models/$lmfile \
+    --lm-weight 2 \
     # --lexicon ~/bsc/data/models/$lexicon \
-    # --word-score -1 \
-    # --sil-weight 0 \
-    # --criterion ctc \
-    # --labels ltr \
-    # --max-tokens 1000000 \
-    # --post-process letter
+    --word-score -1 \
+    --sil-weight 0 \
+    --criterion ctc \
+    --labels ltr \
+    --max-tokens 1000000 \
+    --post-process letter
 python3.8 ../extractWER.py "/home/tkolb/bsc/data/$evalsfolder/$datetime2/$gen_subset" $valid_data_path "base"
 python3.8 ~/bsc/fairseq/examples/speech_recognition/infer.py \
     $valid_data_path \
@@ -75,14 +75,14 @@ python3.8 ~/bsc/fairseq/examples/speech_recognition/infer.py \
     --gen-subset $gen_subset \
     --results-path ~/bsc/data/$evalsfolder/$datetime3/$gen_subset \
     --w2l-decoder viterbi \
-    # --lm-model ~/bsc/data/models/$lmfile \
-    # --lm-weight 2 \
+    --lm-model ~/bsc/data/models/$lmfile \
+    --lm-weight 2 \
     # --lexicon ~/bsc/data/models/$lexicon \
-    # --word-score -1 \
-    # --sil-weight 0 \
-    # --criterion ctc \
-    # --labels ltr \
-    # --max-tokens 1000000 \
-    # --post-process letter
+    --word-score -1 \
+    --sil-weight 0 \
+    --criterion ctc \
+    --labels ltr \
+    --max-tokens 1000000 \
+    --post-process letter
 python3.8 ../extractWER.py "/home/tkolb/bsc/data/$evalsfolder/$datetime3/$gen_subset" $valid_data_path "base"
 deactivate
