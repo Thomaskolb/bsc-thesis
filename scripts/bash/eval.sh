@@ -31,9 +31,9 @@
 # datetime3="2021-11-14/15-30-40"
 # xlsr
 # ctc
-# datetime1="2021-12-16/12-12-56"
-# datetime2="2021-12-16/12-15-36"
-# datetime3="2021-12-12/11-41-57"
+datetime1="2021-12-16/12-12-56"
+datetime2="2021-12-16/12-15-36"
+datetime3="2021-12-12/11-41-57"
 # c
 # datetime1="2021-12-20/16-11-51"
 # datetime2="2021-12-20/16-23-34"
@@ -43,7 +43,7 @@ lmfile="c2lmfile.bin"
 lexicon="c2lexicon.txt"
 gen_subset="test"
 outputsfolder="fairseq-outputs-xlsr"
-evalsfolder="fairseq-evals-xlsr/ctc"
+evalsfolder="fairseq-evals-xlsr/opt"
 
 source ~/.cache/pypoetry/virtualenvs/new-env-xry5bPeK-py3.8/bin/activate
 python3.8 ~/bsc/fairseq/examples/speech_recognition/infer.py \
