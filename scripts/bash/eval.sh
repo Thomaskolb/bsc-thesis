@@ -28,7 +28,7 @@ lmfile="c2lmfile.bin"
 lexicon="c2lexicon.txt"
 gen_subset="test"
 outputsfolder="fairseq-outputs-xlsr"
-evalsfolder="fairseq-evals-xlsr/fairseqlm"
+evalsfolder="fairseq-evals-xlsr/nolm"
 
 source ~/.cache/pypoetry/virtualenvs/new-env-xry5bPeK-py3.8/bin/activate
 python3.8 ~/bsc/fairseq/examples/speech_recognition/infer.py \
@@ -38,16 +38,16 @@ python3.8 ~/bsc/fairseq/examples/speech_recognition/infer.py \
     --path ~/bsc/data/$outputsfolder/$datetime1/checkpoints/checkpoint_best.pt \
     --gen-subset $gen_subset \
     --results-path ~/bsc/data/$evalsfolder/$datetime1/$gen_subset \
-    --w2l-decoder fairseqlm \
-    --lm-model ~/bsc/data/models/$lmfile \
-    --lm-weight 2 \
-    --lexicon ~/bsc/data/models/$lexicon \
-    --word-score -1 \
-    --sil-weight 0 \
-    --criterion ctc \
-    --labels ltr \
-    --max-tokens 1000000 \
-    --post-process letter
+    --w2l-decoder viterbi \
+    # --lm-model ~/bsc/data/models/$lmfile \
+    # --lm-weight 2 \
+    # --lexicon ~/bsc/data/models/$lexicon \
+    # --word-score -1 \
+    # --sil-weight 0 \
+    # --criterion ctc \
+    # --labels ltr \
+    # --max-tokens 1000000 \
+    # --post-process letter
 python3.8 ../extractWER.py "/home/tkolb/bsc/data/$evalsfolder/$datetime1/$gen_subset" $valid_data_path "base"
 python3.8 ~/bsc/fairseq/examples/speech_recognition/infer.py \
     $valid_data_path \
@@ -56,16 +56,16 @@ python3.8 ~/bsc/fairseq/examples/speech_recognition/infer.py \
     --path ~/bsc/data/$outputsfolder/$datetime2/checkpoints/checkpoint_best.pt \
     --gen-subset $gen_subset \
     --results-path ~/bsc/data/$evalsfolder/$datetime2/$gen_subset \
-    --w2l-decoder fairseqlm \
-    --lm-model ~/bsc/data/models/$lmfile \
-    --lm-weight 2 \
-    --lexicon ~/bsc/data/models/$lexicon \
-    --word-score -1 \
-    --sil-weight 0 \
-    --criterion ctc \
-    --labels ltr \
-    --max-tokens 1000000 \
-    --post-process letter
+    --w2l-decoder viterbi \
+    # --lm-model ~/bsc/data/models/$lmfile \
+    # --lm-weight 2 \
+    # --lexicon ~/bsc/data/models/$lexicon \
+    # --word-score -1 \
+    # --sil-weight 0 \
+    # --criterion ctc \
+    # --labels ltr \
+    # --max-tokens 1000000 \
+    # --post-process letter
 python3.8 ../extractWER.py "/home/tkolb/bsc/data/$evalsfolder/$datetime2/$gen_subset" $valid_data_path "base"
 python3.8 ~/bsc/fairseq/examples/speech_recognition/infer.py \
     $valid_data_path \
@@ -74,15 +74,15 @@ python3.8 ~/bsc/fairseq/examples/speech_recognition/infer.py \
     --path ~/bsc/data/$outputsfolder/$datetime3/checkpoints/checkpoint_best.pt \
     --gen-subset $gen_subset \
     --results-path ~/bsc/data/$evalsfolder/$datetime3/$gen_subset \
-    --w2l-decoder fairseqlm \
-    --lm-model ~/bsc/data/models/$lmfile \
-    --lm-weight 2 \
-    --lexicon ~/bsc/data/models/$lexicon \
-    --word-score -1 \
-    --sil-weight 0 \
-    --criterion ctc \
-    --labels ltr \
-    --max-tokens 1000000 \
-    --post-process letter
+    --w2l-decoder viterbi \
+    # --lm-model ~/bsc/data/models/$lmfile \
+    # --lm-weight 2 \
+    # --lexicon ~/bsc/data/models/$lexicon \
+    # --word-score -1 \
+    # --sil-weight 0 \
+    # --criterion ctc \
+    # --labels ltr \
+    # --max-tokens 1000000 \
+    # --post-process letter
 python3.8 ../extractWER.py "/home/tkolb/bsc/data/$evalsfolder/$datetime3/$gen_subset" $valid_data_path "base"
 deactivate
