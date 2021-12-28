@@ -10,12 +10,12 @@
 #SBATCH --mail-type=BEGIN,END,FAIL
 
 # base10
-# datetime1="2021-12-04/16-32-37"
-# datetime2="2021-12-08/15-10-32"
-# datetime3="2021-12-04/16-34-35"
-datetime1="2021-11-14/15-14-42"
-datetime2="2021-11-14/15-23-43"
-datetime3="2021-11-14/15-30-40"
+datetime1="2021-12-04/16-32-37"
+datetime2="2021-12-08/15-10-32"
+datetime3="2021-12-04/16-34-35"
+# datetime1="2021-11-14/15-14-42"
+# datetime2="2021-11-14/15-23-43"
+# datetime3="2021-11-14/15-30-40"
 # xlsr
 # datetime1="2021-12-16/12-12-56"
 # datetime2="2021-12-16/12-15-36"
@@ -23,7 +23,7 @@ datetime3="2021-11-14/15-30-40"
 # datetime1="2021-12-20/16-11-51"
 # datetime2="2021-12-20/16-23-34"
 # datetime3="2021-12-20/16-24-42"
-valid_data_path="/home/tkolb/bsc/data/c2tempdata"
+valid_data_path="/home/tkolb/bsc/data/ctc2tempdata"
 lmfile="c2lmfile.bin"
 lexicon="c2lexicon.txt"
 gen_subset="test"
