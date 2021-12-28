@@ -9,13 +9,13 @@
 #SBATCH --mail-user=thomaskolb@live.nl
 #SBATCH --mail-type=BEGIN,END,FAIL
 # config 1
-datetime1="2021-11-11/18-12-54"
-datetime2="2021-11-12/10-12-27"
-datetime3="2021-11-12/10-34-58"
+# datetime1="2021-11-11/18-12-54"
+# datetime2="2021-11-12/10-12-27"
+# datetime3="2021-11-12/10-34-58"
 # config 2
-# datetime1="2021-11-14/15-14-42"
-# datetime2="2021-11-14/15-23-43"
-# datetime3="2021-11-14/15-30-40"
+datetime1="2021-11-14/15-14-42"
+datetime2="2021-11-14/15-23-43"
+datetime3="2021-11-14/15-30-40"
 # config 3
 # datetime1="2021-11-15/11-44-06"
 # datetime2="2021-11-15/11-45-07"
