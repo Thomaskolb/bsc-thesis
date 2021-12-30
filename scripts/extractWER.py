@@ -59,7 +59,7 @@ def write_WER_data_LM(evalpath, testpath, name, outpath):
             print(hypolines[0].split(' '))
             print(hypolines[0].split(' ')[-1])
             print(hypolines[0].split(' ')[-1][6:-1])
-            hypolines = sorted(hypolines, key=lambda x: int(x[-1].split(' ')[6:-1]))
+            hypolines = sorted(hypolines, key=lambda x: int(x.split(' ')[-1][6:-1]))
             for i in range(len(hypolines)):
                 if len(reflines[i]) > 0:
                     werdata = worderrorrate.WER(reflines[i].split(' '), hypolines[i][:-1].split(' '))
