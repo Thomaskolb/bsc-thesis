@@ -4,6 +4,7 @@
 # It also does the same thing with asr data as hypothesis
 
 import worderrorrate
+import captionparser
 import sys
 
 # Name of output txt files
@@ -54,7 +55,7 @@ def write_WER_data_LM(evalpath, testpath, name, outpath):
             sum_wer = (0, 0)
             hypodata, refdata = hypofile.read().split('\n'), reffile.read().split('\n')
             hypolines = [' '.join(dataline.split(' ')) for dataline in hypodata]
-            reflines = [' '.join(dataline.split(' ')[:-1]) for dataline in refdata]
+            reflines = [' '.join(captionparser.acceptable_caption_text(dataline, ' ').split(' ')) for dataline in refdata]
             for i in range(len(hypolines)):
                 if len(hypolines[i]) > 0:
                     index = int(hypolines[i].split(' ')[-1][6:-1])
