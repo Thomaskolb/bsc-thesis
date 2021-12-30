@@ -53,24 +53,24 @@ def write_WER_data_LM(evalpath, testpath, name, outpath):
                 open(f'{testpath}/{dataset}.wrd') as reffile:
             sum_wer = (0, 0)
             hypodata, refdata = hypofile.read().split('\n'), reffile.read().split('\n')
-            hypolines = [' '.join(dataline.split(' ')[:-1]) for dataline in hypodata]
+            hypolines = [' '.join(dataline.split(' ')) for dataline in hypodata]
             reflines = [' '.join(dataline.split(' ')[:-1]) for dataline in refdata]
-            # Sort based on values of refdata
-            hypolines = [x for _,x in sorted(zip(reflines, hypolines))]
-            reflines = sorted(reflines)
+            # Sort based on none value
+            print(hypolines[0][[-1][6:-1]])
+            hypolines = sorted(hypolines, key=lambda x: int(x[-1][6:-1]))
             for i in range(len(hypolines)):
                 if len(reflines[i]) > 0:
-                    werdata = worderrorrate.WER(reflines[i].split(' '), hypolines[i].split(' '))
+                    werdata = worderrorrate.WER(reflines[i].split(' '), hypolines[i][:-1].split(' '))
                     werfile.write(f'{werdata}WER = {werdata.wer()}\n')
                     sum_wer = (sum_wer[0] + werdata.nerr, sum_wer[1] + len(werdata.ref))
             werfile.write(f'wer = {sum_wer[0]/sum_wer[1]}\n')
 
 if len(sys.argv) < 4:
-    print("Please enter the path with refs & hypos and the path for the asr lines")
-    # print("Please enter the path with hyps, the test path, filename, outpath")
+    # print("Please enter the path with refs & hypos and the path for the asr lines")
+    print("Please enter the path with hyps, the test path, filename, outpath")
 else:
-    write_WER_data(sys.argv[1], sys.argv[2], sys.argv[3])
-    # write_WER_data_LM(sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4])
+    # write_WER_data(sys.argv[1], sys.argv[2], sys.argv[3])
+    write_WER_data_LM(sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4])
 
 
 # TODO verschil wer met asr data
