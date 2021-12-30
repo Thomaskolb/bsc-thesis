@@ -56,6 +56,8 @@ def write_WER_data_LM(evalpath, testpath, name, outpath):
             hypolines = [' '.join(dataline.split(' ')) for dataline in hypodata]
             reflines = [' '.join(dataline.split(' ')[:-1]) for dataline in refdata]
             # Sort based on none value
+            print(hypolines[0])
+            print(hypolines[0][-1])
             print(hypolines[0][-1][6:-1])
             hypolines = sorted(hypolines, key=lambda x: int(x[-1][6:-1]))
             for i in range(len(hypolines)):
