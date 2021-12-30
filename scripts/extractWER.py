@@ -55,14 +55,11 @@ def write_WER_data_LM(evalpath, testpath, name, outpath):
             hypodata, refdata = hypofile.read().split('\n'), reffile.read().split('\n')
             hypolines = [' '.join(dataline.split(' ')) for dataline in hypodata]
             reflines = [' '.join(dataline.split(' ')[:-1]) for dataline in refdata]
-            # Sort based on none value
-            print(hypolines[0].split(' '))
-            print(hypolines[0].split(' ')[-1])
-            print(hypolines[0].split(' ')[-1][6:-1])
-            hypolines = sorted(hypolines, key=lambda x: int(x.split(' ')[-1][6:-1]))
             for i in range(len(hypolines)):
-                if len(reflines[i]) > 0:
-                    werdata = worderrorrate.WER(reflines[i].split(' '), hypolines[i][:-1].split(' '))
+                if len(hypolines[i]) > 0:
+                    print(hypolines.split(' ')[-1][6:-1])
+                    index = int(hypolines.split(' ')[-1][6:-1])
+                    werdata = worderrorrate.WER(reflines[index].split(' '), hypolines[i][:-1].split(' '))
                     werfile.write(f'{werdata}WER = {werdata.wer()}\n')
                     sum_wer = (sum_wer[0] + werdata.nerr, sum_wer[1] + len(werdata.ref))
             werfile.write(f'wer = {sum_wer[0]/sum_wer[1]}\n')
