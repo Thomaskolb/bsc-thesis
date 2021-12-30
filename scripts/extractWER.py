@@ -48,7 +48,7 @@ def write_WER_data(evalpath, asrpath, conf):
             werfile.write(f'wer asr = {sum_wer_asr[0]/sum_wer_asr[1]}\n')
 
 def write_WER_data_LM(evalpath, testpath, name, outpath):
-    with open(f'{outpath}/WERdata_{name}.txt', 'w') as werfile:
+    with open(f'{outpath}/WERdata_{name}', 'w') as werfile:
         with open(f'{evalpath}/{name}', 'r') as hypofile, \
                 open(f'{testpath}/{dataset}.wrd') as reffile:
             sum_wer = (0, 0)
