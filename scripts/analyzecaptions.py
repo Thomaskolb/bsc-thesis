@@ -13,7 +13,7 @@ wer_data_file = 'WERdata_test_base.txt'
 bar = '=' * 30
 
 # type of test currently being analyzed
-value_test = True
+value_test = False
 interpunction_test = False
 eh_test = False
 
@@ -60,7 +60,7 @@ def write_data(outpath, paths):
             if interpunction_test or eh_test:
                 outfile.write(f'Total cases: {cases}, conditioned cases: {correct_cases}\n')
             outfile.write(f'Line count: {line_count}, total line count: {total_line_count}\n')
-            outfile.write(f'Ref word count: {word_counts[0]}, hyp word count: {word_counts[1]}, asr word count: {word_counts[2]}')
+            outfile.write(f'Ref word count: {word_counts[0]}, hyp word count: {word_counts[1]}, asr word count: {word_counts[2]}\n')
 
 if len(sys.argv) < 2:
     print("Please enter the output file and the configuration data paths")
