@@ -45,13 +45,14 @@ def write_data(outpath, paths):
                 asr_value = asr_values[i].split(' ')[-1]
                 int_hyp_count = sum([word in interpunction for word in hyps[i][5:].split(' ')])
                 eh_asr_count = sum([any([word.startswith(eh) for eh in eh_words]) for word in asrs[i][5:].split(' ')])
-                word_counts = (word_counts[0] + len(refs[i][5:].split(' ')), word_counts[1] + len(hyps[i][5:].split(' ')), word_counts[2] + len(asrs[i][5:].split(' ')))
+                word_counts[0] = word_counts[0] + len([x for x in refs[i][5:].split(' ') if not x.startswith('*')]) 
+                word_counts[1] = word_counts[1] + len([x for x in hyps[i][5:].split(' ') if not x.startswith('*')]) 
+                word_counts[2] = word_counts[2] + len([x for x in asrs[i][5:].split(' ') if not x.startswith('*')])
                 if ((not value_test or value < asr_value)
                         and (not interpunction_test or int_hyp_count > 0)
                         and (not eh_test or eh_asr_count > 0)):
                     line_count += 1
                     outfile.write(f'val {value} - asr {asr_value}\nREF={refs[i][5:]}\nHYP={hyps[i][5:]}\nASR={asrs[i][5:]}\n{bar}\n\n')
-                    outfile.write(f'{word_counts}')
                     int_ref_count = sum([word in interpunction for word in refs[i][5:].split(' ')])
                     eh_hyp_count = sum([any([word.startswith(eh) for eh in eh_words]) for word in hyps[i][5:].split(' ')])
                     # Add 1 for each occurence
