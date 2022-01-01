@@ -45,6 +45,8 @@ def write_data(outpath, paths):
                 asr_value = asr_values[i].split(' ')[-1]
                 int_hyp_count = sum([word in interpunction for word in hyps[i][5:].split(' ')])
                 eh_asr_count = sum([any([word.startswith(eh) for eh in eh_words]) for word in asrs[i][5:].split(' ')])
+                print(refs[i][5:].split(' '))
+                print(sum(refs[i][5:].split(' ')))
                 word_counts = (word_counts[0] + sum(refs[i][5:].split(' ')), word_counts[1] + sum(hyps[i][5:].split(' ')), word_counts[2] + sum(asrs[i][5:].split(' ')))
                 if ((not value_test or value < asr_value)
                         and (not interpunction_test or int_hyp_count > 0)
