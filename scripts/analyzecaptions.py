@@ -13,9 +13,9 @@ wer_data_file = 'WERdata_test_base.txt'
 bar = '=' * 30
 
 # type of test currently being analyzed
-value_test = False
+value_test = True
 interpunction_test = False
-eh_test = True
+eh_test = False
 
 # List of interpunction symbols - no '.' because it is not interesting
 interpunction = [',', '!', '?', '-', ':']
@@ -38,12 +38,14 @@ def write_data(outpath, paths):
             correct_cases = 0
             line_count = 0
             total_line_count = 0
+            word_counts = (0, 0, 0)
             for i in range(len(values)):
                 total_line_count += 1
                 value = values[i].split(' ')[-1]
                 asr_value = asr_values[i].split(' ')[-1]
                 int_hyp_count = sum([word in interpunction for word in hyps[i][5:].split(' ')])
                 eh_asr_count = sum([any([word.startswith(eh) for eh in eh_words]) for word in asrs[i][5:].split(' ')])
+                word_counts = (word_counts[0] + sum(refs[i][5:].split(' ')), word_counts[1] + sum(hyps[i][5:].split(' ')), word_counts[2] + sum(asrs[i][5:].split(' ')))
                 if ((not value_test or value < asr_value)
                         and (not interpunction_test or int_hyp_count > 0)
                         and (not eh_test or eh_asr_count > 0)):
@@ -58,6 +60,7 @@ def write_data(outpath, paths):
             if interpunction_test or eh_test:
                 outfile.write(f'Total cases: {cases}, conditioned cases: {correct_cases}\n')
             outfile.write(f'Line count: {line_count}, total line count: {total_line_count}\n')
+            outfile.write(f'Ref word count: {word_counts[0]}, hyp word count: {word_counts[1]}, asr word count: {word_counts[2]}')
 
 if len(sys.argv) < 2:
     print("Please enter the output file and the configuration data paths")
