@@ -54,6 +54,7 @@ def write_data(outpath, paths):
                         and (not eh_test or eh_asr_count > 0)):
                     line_count += 1
                     outfile.write(f'val {value} - asr {asr_value}\nREF={refs[i][5:]}\nHYP={hyps[i][5:]}\nASR={asrs[i][5:]}\n{bar}\n\n')
+                    outfile.write(f'{word_counts}\n')
                     int_ref_count = sum([word in interpunction for word in refs[i][5:].split(' ')])
                     eh_hyp_count = sum([any([word.startswith(eh) for eh in eh_words]) for word in hyps[i][5:].split(' ')])
                     # Add 1 for each occurence
