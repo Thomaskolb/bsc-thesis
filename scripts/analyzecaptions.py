@@ -14,12 +14,12 @@ bar = '=' * 30
 
 # type of test currently being analyzed
 value_test = False
-interpunction_test = True
-eh_test = False
+interpunction_test = False
+eh_test = True
 
 # List of interpunction symbols - no '.' because it is not interesting
-# interpunction = [',', '!', '?', '-', ':']
-interpunction = ['...']
+interpunction = [',', '!', '?', '-', ':']
+# interpunction = ['...']
 
 # list of 'eh' words
 eh_words = ['eh', 'euh', 'uh']
