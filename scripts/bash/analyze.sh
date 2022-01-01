@@ -11,9 +11,9 @@
 
 datetime1="2021-12-16/12-12-56"
 datetime2="2021-12-16/12-15-36"
-datetime3="2021-12-12/11-41-57"
+datetime3="2021-12-12/11-41-57" 
 basepath="/home/tkolb/bsc/data/fairseq-evals-xlsr/opt"
-outfolder="/home/tkolb/bsc/data/analysis-xlsr/interpunction/comma"
+outfolder="/home/tkolb/bsc/data/analysis-xlsr/interpunction/?"
 gen_subset="test"
 
 source ~/.cache/pypoetry/virtualenvs/tkolbpoetry-0grRN4_Q-py3.6/bin/activate
