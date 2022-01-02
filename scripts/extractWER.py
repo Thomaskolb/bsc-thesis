@@ -74,6 +74,5 @@ def main():
         return write_WER_data(sys.argv[1], sys.argv[2], sys.argv[3])
         # write_WER_data_LM(sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4])
 
-
-# TODO verschil wer met asr data
-
+if __name__ == "__main__":
+    main()
