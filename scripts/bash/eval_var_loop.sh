@@ -9,13 +9,13 @@
 #SBATCH --mail-user=thomaskolb@live.nl
 #SBATCH --mail-type=BEGIN,END,FAIL
 
-datetime1="2021-12-20/16-11-51"
+datetime1="2021-11-14/15-14-42"
 valid_data_path="/home/tkolb/bsc/data/c2tempdata"
 lmfile="c2lmfile.bin"
 lexicon="c2lexicon.txt"
 gen_subset="test"
-outputsfolder="fairseq-outputs-xlsr"
-evalsfolder="fairseq-evals-xlsr/varloop"
+outputsfolder="fairseq-outputs"
+evalsfolder="fairseq-evals-base/varloop"
 
 source ~/.cache/pypoetry/virtualenvs/new-env-xry5bPeK-py3.8/bin/activate
 for lmw in $(seq 0.0 .1 4.0)
