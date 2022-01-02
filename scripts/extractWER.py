@@ -65,11 +65,11 @@ def write_WER_data_LM(evalpath, testpath, name, outpath):
             werfile.write(f'wer = {sum_wer[0]/sum_wer[1]}\n')
 
 if len(sys.argv) < 4:
-    # print("Please enter the path with refs & hypos and the path for the asr lines")
-    print("Please enter the path with hyps, the test path, filename, outpath")
+    print("Please enter the path with refs & hypos and the path for the asr lines")
+    # print("Please enter the path with hyps, the test path, filename, outpath")
 else:
-    # write_WER_data(sys.argv[1], sys.argv[2], sys.argv[3])
-    write_WER_data_LM(sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4])
+    write_WER_data(sys.argv[1], sys.argv[2], sys.argv[3])
+    # write_WER_data_LM(sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4])
 
 
 # TODO verschil wer met asr data
