@@ -38,7 +38,7 @@ do
         --max-tokens 1000000 \
         --post-process letter
     OUTPUTLM=$(python3.8 ../extractWER.py "/home/tkolb/bsc/data/$evalsfolder/$datetime1/$gen_subset" $valid_data_path "lm$lmw")
-    cat "${OUTPUTLM}, " >> "/home/tkolb/bsc/data/$evalsfolder/$datetime1/$gen_subset/output-lm.txt"
+    echo "${OUTPUTLM}, " >> "/home/tkolb/bsc/data/$evalsfolder/$datetime1/$gen_subset/output-lm.txt"
 done
 for wsw in $(seq -2.0 .1 2.0)
 do
@@ -60,6 +60,6 @@ do
         --max-tokens 1000000 \
         --post-process letter
     OUTPUTWS=$(python3.8 ../extractWER.py "/home/tkolb/bsc/data/$evalsfolder/$datetime1/$gen_subset" $valid_data_path "ws$wsw")
-    cat "${OUTPUTWS}, " >> "/home/tkolb/bsc/data/$evalsfolder/$datetime1/$gen_subset/output-ws.txt"
+    echo "${OUTPUTWS}, " >> "/home/tkolb/bsc/data/$evalsfolder/$datetime1/$gen_subset/output-ws.txt"
 done
 deactivate
