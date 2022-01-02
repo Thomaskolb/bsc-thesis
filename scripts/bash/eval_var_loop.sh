@@ -18,7 +18,7 @@ outputsfolder="fairseq-outputs-xlsr"
 evalsfolder="fairseq-evals-xlsr/varloop"
 
 source ~/.cache/pypoetry/virtualenvs/new-env-xry5bPeK-py3.8/bin/activate
-for for lmw in $(seq 0.0 .1 4.0)
+for lmw in $(seq 0.0 .1 4.0)
 do
     python3.8 ~/bsc/fairseq/examples/speech_recognition/infer.py \
         $valid_data_path \
@@ -40,7 +40,7 @@ do
     OUTPUTLM=$(python3.8 ../extractWER.py "/home/tkolb/bsc/data/$evalsfolder/$datetime1/$gen_subset" $valid_data_path "lm$lmw")
     cat "${OUTPUTLM}, " >> "/home/tkolb/bsc/data/$evalsfolder/$datetime1/$gen_subset/output-lm.txt"
 done
-for for wsw in $(seq -2.0 .1 2.0)
+for wsw in $(seq -2.0 .1 2.0)
 do
     python3.8 ~/bsc/fairseq/examples/speech_recognition/infer.py \
         $valid_data_path \
