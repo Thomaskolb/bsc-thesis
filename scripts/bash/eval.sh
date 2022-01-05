@@ -17,9 +17,9 @@
 # datetime2="2021-11-14/15-23-43"
 # datetime3="2021-11-14/15-30-40"
 # config 3
-datetime1="2021-11-15/11-44-06"
-datetime2="2021-11-15/11-45-07"
-datetime3="2021-11-15/13-23-43"
+# datetime1="2021-11-15/11-44-06"
+# datetime2="2021-11-15/11-45-07"
+# datetime3="2021-11-15/13-23-43"
 # base10
 # ctc
 # datetime1="2021-12-04/16-32-37"
@@ -35,19 +35,19 @@ datetime3="2021-11-15/13-23-43"
 # datetime2="2021-12-16/12-15-36"
 # datetime3="2021-12-12/11-41-57"
 # c
-# datetime1="2021-12-20/16-11-51"
-# datetime2="2021-12-20/16-23-34"
-# datetime3="2021-12-20/16-24-42"
+datetime1="2021-12-20/16-11-51"
+datetime2="2021-12-20/16-23-34"
+datetime3="2021-12-20/16-24-42"
 
 # configs = 11-12|11-11|11-14|11-15 ctc = 12-04|12-08
 # xlsr = 12-20 ctc = 2021-12-16/12-12-56|2021-12-16/12-15-36|2021-12-12/11-41-57
 
-valid_data_path="/home/tkolb/bsc/data/testset/c3h8"
-lmfile="c3lmfile.bin"
-lexicon="c3lexicon.txt"
+valid_data_path="/home/tkolb/bsc/data/testset/c2h8"
+lmfile="c2lmfile.bin"
+lexicon="c2lexicon.txt"
 gen_subset="test"
-outputsfolder="fairseq-outputs"
-evalsfolder="fairseq-evals-base/newtest"
+outputsfolder="fairseq-outputs-xlsr"
+evalsfolder="fairseq-evals-xlsr/newtest"
 ws=-1
 
 source ~/.cache/pypoetry/virtualenvs/new-env-xry5bPeK-py3.8/bin/activate
