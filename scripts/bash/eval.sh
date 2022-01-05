@@ -9,9 +9,9 @@
 #SBATCH --mail-user=thomaskolb@live.nl
 #SBATCH --mail-type=BEGIN,END,FAIL
 # config 1
-# datetime1="2021-11-11/18-12-54"
-# datetime2="2021-11-12/10-12-27"
-# datetime3="2021-11-12/10-34-58"
+datetime1="2021-11-11/18-12-54"
+datetime2="2021-11-12/10-12-27"
+datetime3="2021-11-12/10-34-58"
 # config 2
 # datetime1="2021-11-14/15-14-42"
 # datetime2="2021-11-14/15-23-43"
@@ -31,9 +31,9 @@
 # datetime3="2021-11-14/15-30-40"
 # xlsr
 # ctc
-datetime1="2021-12-16/12-12-56"
-datetime2="2021-12-16/12-15-36"
-datetime3="2021-12-12/11-41-57"
+# datetime1="2021-12-16/12-12-56"
+# datetime2="2021-12-16/12-15-36"
+# datetime3="2021-12-12/11-41-57"
 # c
 # datetime1="2021-12-20/16-11-51"
 # datetime2="2021-12-20/16-23-34"
@@ -42,12 +42,12 @@ datetime3="2021-12-12/11-41-57"
 # configs = 11-12|11-11|11-14|11-15 ctc = 12-04|12-08
 # xlsr = 12-20 ctc = 2021-12-16/12-12-56|2021-12-16/12-15-36|2021-12-12/11-41-57
 
-valid_data_path="/home/tkolb/bsc/data/testset/c2h8"
-lmfile="c2lmfile.bin"
-lexicon="c2lexicon.txt"
+valid_data_path="/home/tkolb/bsc/data/testset/c1h8"
+lmfile="c1lmfile.bin"
+lexicon="c1lexicon.txt"
 gen_subset="test"
-outputsfolder="fairseq-outputs-xlsr"
-evalsfolder="fairseq-evals-xlsr/newtest/ctc"
+outputsfolder="fairseq-outputs"
+evalsfolder="fairseq-evals-base/newtest"
 ws=-1
 
 source ~/.cache/pypoetry/virtualenvs/new-env-xry5bPeK-py3.8/bin/activate
