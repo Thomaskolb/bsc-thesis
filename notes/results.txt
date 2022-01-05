@@ -229,6 +229,6 @@ ctc2h8:
 
 0.3 variants:
 c2h8o:
--
+-725 of 9306 of data salvaged    total WER sum: 9833.699160663604        data length = 0:43:52.905000
 ctc2h8o:
--
+-725 of 9306 of data salvaged    total WER sum: 9803.491194912242        data length = 0:39:01.705000
