@@ -23,14 +23,14 @@ min_caption_count = 10
 unique_data_check = 5
 
 # Data files starting with this string will be used as test data
-test_data_date = '2021-06'
+test_data_date = '2022-01'
 
 # Number of files for validation (of train data)
-validation_files = 40
+validation_files = 0
 
 # Configurations to enable/disable weblinks and broadcasts, look for double data
 weblinks_allowed = True
-broadcasts_allowed = True
+broadcasts_allowed = False
 doubledata_allowed = False
 
 # Function that traverses all 'webm.vtt' files within a given directory

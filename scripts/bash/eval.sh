@@ -39,6 +39,9 @@ datetime3="2021-12-12/11-41-57"
 # datetime2="2021-12-20/16-23-34"
 # datetime3="2021-12-20/16-24-42"
 
+# configs = 11-12|11-11|11-14|11-15 ctc = 12-04|12-08
+# xlsr = 12-20 ctc = 2021-12-16/12-12-56|2021-12-16/12-15-36|2021-12-12/11-41-57
+
 valid_data_path="/home/tkolb/bsc/data/ctc2tempdata"
 lmfile="c2lmfile.bin"
 lexicon="c2lexicon.txt"

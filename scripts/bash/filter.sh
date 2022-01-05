@@ -10,5 +10,5 @@
 #SBATCH --mail-type=BEGIN,END,FAIL
 
 source ~/.cache/pypoetry/virtualenvs/tkolbpoetry-0grRN4_Q-py3.6/bin/activate
-python3 ../heuristicfilter.py "/home/tkolb/bsc/thomas/data" "/home/tkolb/bsc/bsc-thesis/filtered"
+python3 ../heuristicfilter.py "/home/tkolb/bsc/data/datanew" "/home/tkolb/bsc/bsc-thesis/filtered"
 deactivate
