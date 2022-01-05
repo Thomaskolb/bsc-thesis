@@ -29,7 +29,7 @@ test_data_date = '2022-01'
 validation_files = 0
 
 # Configurations to enable/disable weblinks and broadcasts, look for double data
-weblinks_allowed = True
+weblinks_allowed = False
 broadcasts_allowed = False
 doubledata_allowed = False
 
