@@ -43,7 +43,7 @@ subtract_caption_time = True
 
 # Enable generation of test set
 test_generation = True
-every_n = 5
+every_n = 10
 
 # Function that creates the same folders as found in the datapath directory
 def create_directories(datapath, outputpath):
