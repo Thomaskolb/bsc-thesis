@@ -47,7 +47,7 @@ lmfile="c2lmfile.bin"
 lexicon="c2lexicon.txt"
 gen_subset="test"
 outputsfolder="fairseq-outputs-xlsr"
-evalsfolder="fairseq-evals-xlsr/opt/wut"
+evalsfolder="fairseq-evals-xlsr/opt/false"
 ws=0
 
 source ~/.cache/pypoetry/virtualenvs/new-env-xry5bPeK-py3.8/bin/activate
