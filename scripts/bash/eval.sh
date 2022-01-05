@@ -13,13 +13,13 @@
 # datetime2="2021-11-12/10-12-27"
 # datetime3="2021-11-12/10-34-58"
 # config 2
-datetime1="2021-11-14/15-14-42"
-datetime2="2021-11-14/15-23-43"
-datetime3="2021-11-14/15-30-40"
+# datetime1="2021-11-14/15-14-42"
+# datetime2="2021-11-14/15-23-43"
+# datetime3="2021-11-14/15-30-40"
 # config 3
-# datetime1="2021-11-15/11-44-06"
-# datetime2="2021-11-15/11-45-07"
-# datetime3="2021-11-15/13-23-43"
+datetime1="2021-11-15/11-44-06"
+datetime2="2021-11-15/11-45-07"
+datetime3="2021-11-15/13-23-43"
 # base10
 # ctc
 # datetime1="2021-12-04/16-32-37"
@@ -42,9 +42,9 @@ datetime3="2021-11-14/15-30-40"
 # configs = 11-12|11-11|11-14|11-15 ctc = 12-04|12-08
 # xlsr = 12-20 ctc = 2021-12-16/12-12-56|2021-12-16/12-15-36|2021-12-12/11-41-57
 
-valid_data_path="/home/tkolb/bsc/data/testset/c2h8"
-lmfile="c2lmfile.bin"
-lexicon="c2lexicon.txt"
+valid_data_path="/home/tkolb/bsc/data/testset/c3h8"
+lmfile="c3lmfile.bin"
+lexicon="c3lexicon.txt"
 gen_subset="test"
 outputsfolder="fairseq-outputs"
 evalsfolder="fairseq-evals-base/newtest"
