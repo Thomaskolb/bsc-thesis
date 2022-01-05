@@ -94,11 +94,10 @@ def generate_pairs(filepath, outputpath, folder, file_id, filelist, wrd, ltr, as
             # If caption was accepted the length is > 0
             if len(new_caption_text) > 0:
                 # Check for the WER with the caption and the asr data to be lower than our threshold
-                func = similar_caption_text
-                if subtract_caption_time:
-                    func = similar_caption_text_subtract
-                wer, asr_words, subtract_time, add_time = func(new_caption_text, caption.start, caption.end, wordsequence)
+                wer, asr_words, subtract_time, add_time = similar_caption_text(new_caption_text, caption.start, caption.end, wordsequence)
                 if wer <= min_wer:
+                    if subtract_caption_time:
+                        wer, asr_words, subtract_time, add_time = similar_caption_text_subtract(new_caption_text, caption.start, caption.end, wordsequence)
                     start_seconds = webvttparser.get_time_in_seconds(caption.start) + add_time
                     end_seconds = webvttparser.get_time_in_seconds(caption.end) - subtract_time
                     start_frame = int(start_seconds * wavfile.getframerate())
