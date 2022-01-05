@@ -219,7 +219,8 @@ Run 15:
 
 Testset:
 c1h8: 
--1524 of 10481 of data salvaged  total WER sum: 11998.250190023251       data length = 1:28:52.009000
+-1035 of 7969 of data salvaged   total WER sum: 9962.668757231757        data length = 0:57:52.203000
 c2h8:
 -1007 of 10481 of data salvaged  total WER sum: 10330.141080633035       data length = 1:01:02.640000
 c3h8:
+-832 of 12635 of data salvaged   total WER sum: 12543.94670217699        data length = 0:53:26.550000
