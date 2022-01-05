@@ -9,6 +9,6 @@
 #SBATCH --mail-user=thomaskolb@live.nl
 #SBATCH --mail-type=BEGIN,END,FAIL
 
-source ~/.cache/pypoetry/virtualenvs/tkolbpoetry-0grRN4_Q-py3.6/bin/activate
+source ~/.cache/pypoetry/virtualenvs/new-env-xry5bPeK-py3.8/bin/activate
 python3 ../samplegenerator.py "/home/tkolb/bsc/bsc-thesis/filtered" "/home/tkolb/bsc/data/datanew" "/home/tkolb/bsc/data/testset/c1h8" 
 deactivate
