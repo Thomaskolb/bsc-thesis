@@ -223,6 +223,6 @@ c1h8:
 c2h8:
 -864 of 9306 of data salvaged    total WER sum: 569.3971495094174        data length = 0:49:37.031000
 c3h8:
--
+-864 of 9306 of data salvaged    total WER sum: 597.7532941344862        data length = 0:48:57.831000
 ctc2h8:
 -

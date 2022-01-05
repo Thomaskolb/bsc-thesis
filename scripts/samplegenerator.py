@@ -39,7 +39,7 @@ add_stepsize = 0.1
 add_range = 30
 
 # Allow strict caption time subtraction
-subtract_caption_time = True
+subtract_caption_time = False
 
 # Enable generation of test set
 test_generation = True
