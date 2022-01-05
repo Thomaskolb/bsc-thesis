@@ -46,8 +46,8 @@ valid_data_path="/home/tkolb/bsc/data/testset/c2h8"
 lmfile="c2lmfile.bin"
 lexicon="c2lexicon.txt"
 gen_subset="test"
-outputsfolder="fairseq-outputs"
-evalsfolder="fairseq-evals-base/newtest"
+outputsfolder="fairseq-outputs-xlsr"
+evalsfolder="fairseq-evals-xlsr/newtest"
 ws=-1
 
 source ~/.cache/pypoetry/virtualenvs/new-env-xry5bPeK-py3.8/bin/activate
