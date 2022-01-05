@@ -101,7 +101,7 @@ def generate_pairs(filepath, outputpath, folder, file_id, filelist, wrd, ltr, as
                 if subtract_caption_time:
                     func = similar_caption_text_subtract
                 wer, asr_words, subtract_time, add_time = func(new_caption_text, caption.start, caption.end, wordsequence)
-                if not test_generation or wer <= min_wer:
+                if test_generation or wer <= min_wer:
                     start_seconds = webvttparser.get_time_in_seconds(caption.start) + add_time
                     end_seconds = webvttparser.get_time_in_seconds(caption.end) - subtract_time
                     start_frame = int(start_seconds * wavfile.getframerate())
@@ -175,6 +175,6 @@ else:
     # Training data
     # generate_pairlist(sys.argv[1].replace('\\', '/'), sys.argv[2].replace('\\', '/'), sys.argv[3].replace('\\', '/'), 'train', 1)
     # Test data
-    generate_pairlist(sys.argv[1].replace('\\', '/'), sys.argv[2].replace('\\', '/'), sys.argv[3].replace('\\', '/'), 'test', 750)
+    generate_pairlist(sys.argv[1].replace('\\', '/'), sys.argv[2].replace('\\', '/'), sys.argv[3].replace('\\', '/'), 'test', 2500)
     # Validation data
     # generate_pairlist(sys.argv[1].replace('\\', '/'), sys.argv[2].replace('\\', '/'), sys.argv[3].replace('\\', '/'), 'valid', 0.1)

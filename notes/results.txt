@@ -217,12 +217,12 @@ Run 15:
 -config2: [2021-11-14/15-14-42, 2021-11-14/15-23-43, 2021-11-14/15-30-40]
 -config3: [2021-11-15/11-44-06, 2021-11-15/11-45-07, 2021-11-15/13-23-43]
 
-Testset:
+Testsets:
 c1h8: 
--800 of 5991 of data salvaged    total WER sum: 8195.660467082795        data length = 0:44:21.171000
+-
 c2h8:
--725 of 9306 of data salvaged    total WER sum: 9833.699160663604        data length = 0:43:52.905000
+-
 c3h8:
--478 of 9306 of data salvaged    total WER sum: 10073.119190778003       data length = 0:30:19.392000
+-
 ctc2h8:
 -
