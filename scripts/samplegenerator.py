@@ -43,6 +43,7 @@ subtract_caption_time = True
 
 # Enable generation of test set
 test_generation = True
+every_n = 5
 
 # Function that creates the same folders as found in the datapath directory
 def create_directories(datapath, outputpath):
@@ -87,6 +88,7 @@ def generate_pairs(filepath, outputpath, folder, file_id, filelist, wrd, ltr, as
     caption_count = 0
     seconds_count = 0
     wer_total = 0
+    every_n_ind = 0
     try:
         os.makedirs(f'{outputpath}/{folder}')
     except:
@@ -94,6 +96,11 @@ def generate_pairs(filepath, outputpath, folder, file_id, filelist, wrd, ltr, as
     with wave.open(f'{filepath}.wav', 'r') as wavfile:
         for caption in captions:
             new_caption_text = captionparser.acceptable_caption_text(caption.text, ' ')
+            every_n_ind += 1
+            if every_n_ind < every_n:
+                continue
+            else:
+                every_n_ind = 0
             # If caption was accepted the length is > 0
             if len(new_caption_text) > 0:
                 # Check for the WER with the caption and the asr data to be lower than our threshold
@@ -175,6 +182,6 @@ else:
     # Training data
     # generate_pairlist(sys.argv[1].replace('\\', '/'), sys.argv[2].replace('\\', '/'), sys.argv[3].replace('\\', '/'), 'train', 1)
     # Test data
-    generate_pairlist(sys.argv[1].replace('\\', '/'), sys.argv[2].replace('\\', '/'), sys.argv[3].replace('\\', '/'), 'test', 2500)
+    generate_pairlist(sys.argv[1].replace('\\', '/'), sys.argv[2].replace('\\', '/'), sys.argv[3].replace('\\', '/'), 'test', 1000)
     # Validation data
     # generate_pairlist(sys.argv[1].replace('\\', '/'), sys.argv[2].replace('\\', '/'), sys.argv[3].replace('\\', '/'), 'valid', 0.1)
