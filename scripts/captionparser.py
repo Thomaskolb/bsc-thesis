@@ -13,7 +13,7 @@ forbidden_formats = ['.{1,}\-.{1,}', '[A-Z]{1,}\:', '[0-9]{1,}\.[0-9]{1,}', '[0-
 
 # Configurations
 # Currently active configuration
-active_config = 1
+active_config = 3
 # Allow for capitalization of first word of sentence in configuration
 config_capitalization = [False, False, True, True]
 # Allowed characters
