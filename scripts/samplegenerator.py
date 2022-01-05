@@ -53,12 +53,13 @@ def create_directories(datapath, outputpath):
             pass
 
 # Function that traverses list of datafiles and creates sample subtitle pairs
-def generate_pairlist(listpath, datapath, outputpath, type, part):
+def generate_pairlist(listpath, datapath, outputpath, type, lines):
     caption_count = 0
     total_caption_count = 0
     total_seconds = 0
     wer_sum = 0
-    max_seconds = max_hours * 3600 * part
+    # max_seconds = max_hours * 3600 * part
+    max_lines = lines
     with open(f'{listpath}/{type}.txt', 'r') as data, \
             open(f'{outputpath}/{type}.wrd', 'w') as wrd, \
             open(f'{outputpath}/{type}.ltr', 'w') as ltr, \
@@ -68,7 +69,7 @@ def generate_pairlist(listpath, datapath, outputpath, type, part):
         datalist = data.read().split('\n')
         filepaths = datalist[:len(datalist)-1]
         for filepath in filepaths:
-            if total_seconds < max_seconds:
+            if caption_count < max_lines:
                 file_id = 0
                 tcc, cc, wer, sc = generate_pairs(f'{datapath}/{filepath}', outputpath, filepath, file_id, filelist, wrd, ltr, asr)
                 total_caption_count += tcc
@@ -174,6 +175,6 @@ else:
     # Training data
     # generate_pairlist(sys.argv[1].replace('\\', '/'), sys.argv[2].replace('\\', '/'), sys.argv[3].replace('\\', '/'), 'train', 1)
     # Test data
-    generate_pairlist(sys.argv[1].replace('\\', '/'), sys.argv[2].replace('\\', '/'), sys.argv[3].replace('\\', '/'), 'test', 0.1)
+    generate_pairlist(sys.argv[1].replace('\\', '/'), sys.argv[2].replace('\\', '/'), sys.argv[3].replace('\\', '/'), 'test', 2500)
     # Validation data
     # generate_pairlist(sys.argv[1].replace('\\', '/'), sys.argv[2].replace('\\', '/'), sys.argv[3].replace('\\', '/'), 'valid', 0.1)
