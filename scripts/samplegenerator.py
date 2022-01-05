@@ -19,7 +19,7 @@ import sys
 import os
 
 # Minimum error rate allowed
-min_wer = 0.3
+min_wer = 0.5
 
 # Amount of seconds that are subtracted from start time to compensate for subtitles being displayed too late
 subtract_start_time = 0.1
@@ -40,10 +40,6 @@ add_range = 30
 
 # Allow strict caption time subtraction
 subtract_caption_time = False
-
-# Enable generation of test set
-test_generation = True
-every_n = 10
 
 # Function that creates the same folders as found in the datapath directory
 def create_directories(datapath, outputpath):
@@ -88,7 +84,6 @@ def generate_pairs(filepath, outputpath, folder, file_id, filelist, wrd, ltr, as
     caption_count = 0
     seconds_count = 0
     wer_total = 0
-    every_n_ind = 0
     try:
         os.makedirs(f'{outputpath}/{folder}')
     except:
@@ -96,11 +91,6 @@ def generate_pairs(filepath, outputpath, folder, file_id, filelist, wrd, ltr, as
     with wave.open(f'{filepath}.wav', 'r') as wavfile:
         for caption in captions:
             new_caption_text = captionparser.acceptable_caption_text(caption.text, ' ')
-            every_n_ind += 1
-            if every_n_ind < every_n:
-                continue
-            else:
-                every_n_ind = 0
             # If caption was accepted the length is > 0
             if len(new_caption_text) > 0:
                 # Check for the WER with the caption and the asr data to be lower than our threshold
@@ -108,7 +98,7 @@ def generate_pairs(filepath, outputpath, folder, file_id, filelist, wrd, ltr, as
                 if subtract_caption_time:
                     func = similar_caption_text_subtract
                 wer, asr_words, subtract_time, add_time = func(new_caption_text, caption.start, caption.end, wordsequence)
-                if test_generation or wer <= min_wer:
+                if wer <= min_wer:
                     start_seconds = webvttparser.get_time_in_seconds(caption.start) + add_time
                     end_seconds = webvttparser.get_time_in_seconds(caption.end) - subtract_time
                     start_frame = int(start_seconds * wavfile.getframerate())
