@@ -25,7 +25,7 @@ min_wer = 0.3
 subtract_start_time = 0.1
 
 # Max number of hours data needed
-max_hours = 32
+max_hours = 8
 
 # Domain in which we search for best subtract time for each caption separately, stepsize, start
 # So from subtract_start -> subtract_start + subtract_range * subtract_stepsize
@@ -39,7 +39,10 @@ add_stepsize = 0.1
 add_range = 30
 
 # Allow strict caption time subtraction
-subtract_caption_time = True
+subtract_caption_time = False
+
+# Enable generation of test set
+test_generation = True
 
 # Function that creates the same folders as found in the datapath directory
 def create_directories(datapath, outputpath):
@@ -97,7 +100,7 @@ def generate_pairs(filepath, outputpath, folder, file_id, filelist, wrd, ltr, as
                 if subtract_caption_time:
                     func = similar_caption_text_subtract
                 wer, asr_words, subtract_time, add_time = func(new_caption_text, caption.start, caption.end, wordsequence)
-                if wer <= min_wer:
+                if not test_generation or wer <= min_wer:
                     start_seconds = webvttparser.get_time_in_seconds(caption.start) + add_time
                     end_seconds = webvttparser.get_time_in_seconds(caption.end) - subtract_time
                     start_frame = int(start_seconds * wavfile.getframerate())
@@ -169,8 +172,8 @@ if len(sys.argv) < 4:
     print("Please enter the path of the listed data, the data location, and the output directory.")
 else:
     # Training data
-    generate_pairlist(sys.argv[1].replace('\\', '/'), sys.argv[2].replace('\\', '/'), sys.argv[3].replace('\\', '/'), 'train', 1)
+    # generate_pairlist(sys.argv[1].replace('\\', '/'), sys.argv[2].replace('\\', '/'), sys.argv[3].replace('\\', '/'), 'train', 1)
     # Test data
     generate_pairlist(sys.argv[1].replace('\\', '/'), sys.argv[2].replace('\\', '/'), sys.argv[3].replace('\\', '/'), 'test', 0.1)
     # Validation data
-    generate_pairlist(sys.argv[1].replace('\\', '/'), sys.argv[2].replace('\\', '/'), sys.argv[3].replace('\\', '/'), 'valid', 0.1)
+    # generate_pairlist(sys.argv[1].replace('\\', '/'), sys.argv[2].replace('\\', '/'), sys.argv[3].replace('\\', '/'), 'valid', 0.1)
