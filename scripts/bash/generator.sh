@@ -10,6 +10,6 @@
 #SBATCH --mail-type=BEGIN,END,FAIL
 
 source ~/.cache/pypoetry/virtualenvs/new-env-xry5bPeK-py3.8/bin/activate
-python3 ../samplegenerator.py "/home/tkolb/bsc/bsc-thesis/filtered" "/home/tkolb/bsc/data/datanew" "/home/tkolb/bsc/data/testset/c2h8" 
-python3 ../extractalphabet.py "/home/tkolb/bsc/data/testset/c2h8/test.ltr" "/home/tkolb/bsc/data/testset/c2h8/dict.ltr.txt"
+python3 ../samplegenerator.py "/home/tkolb/bsc/bsc-thesis/filtered" "/home/tkolb/bsc/data/datanew" "/home/tkolb/bsc/data/testset/c1h8" 
+python3 ../extractalphabet.py "/home/tkolb/bsc/data/testset/c1h8/test.ltr" "/home/tkolb/bsc/data/testset/c1h8/dict.ltr.txt"
 deactivate
