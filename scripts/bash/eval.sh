@@ -60,7 +60,7 @@ python3.8 ~/bsc/fairseq/examples/speech_recognition/infer.py \
     --results-path ~/bsc/data/$evalsfolder/$datetime1/$gen_subset \
     --w2l-decoder kenlm \
     --lm-model ~/bsc/data/models/$lmfile \
-    --lm-weight 2 \
+    --lm-weight 1.5 \
     --lexicon ~/bsc/data/models/$lexicon \
     --word-score $ws \
     --sil-weight 0 \
@@ -78,7 +78,7 @@ python3.8 ~/bsc/fairseq/examples/speech_recognition/infer.py \
     --results-path ~/bsc/data/$evalsfolder/$datetime2/$gen_subset \
     --w2l-decoder kenlm \
     --lm-model ~/bsc/data/models/$lmfile \
-    --lm-weight 1.2 \
+    --lm-weight 2.4 \
     --lexicon ~/bsc/data/models/$lexicon \
     --word-score $ws \
     --sil-weight 0 \
@@ -96,7 +96,7 @@ python3.8 ~/bsc/fairseq/examples/speech_recognition/infer.py \
     --results-path ~/bsc/data/$evalsfolder/$datetime3/$gen_subset \
     --w2l-decoder kenlm \
     --lm-model ~/bsc/data/models/$lmfile \
-    --lm-weight 1.2 \
+    --lm-weight 2.8 \
     --lexicon ~/bsc/data/models/$lexicon \
     --word-score $ws \
     --sil-weight 0 \
