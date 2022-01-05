@@ -19,7 +19,7 @@ import sys
 import os
 
 # Minimum error rate allowed
-min_wer = 0.5
+min_wer = 0.3
 
 # Amount of seconds that are subtracted from start time to compensate for subtitles being displayed too late
 subtract_start_time = 0.1
