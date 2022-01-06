@@ -19,7 +19,7 @@ eh_test = False
 
 # List of interpunction symbols - no '.' because it is not interesting
 # interpunction = [',', '!', '?', '-', ':']
-interpunction = ['?']
+interpunction = ['.']
 
 # list of 'eh' words
 eh_words = ['eh', 'euh', 'uh']
