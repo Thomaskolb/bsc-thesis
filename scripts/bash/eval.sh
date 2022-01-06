@@ -42,13 +42,12 @@ datetime3="2021-12-12/11-41-57"
 # configs = 11-12|11-11|11-14|11-15 ctc = 12-04|12-08
 # xlsr = 12-20 ctc = 2021-12-16/12-12-56|2021-12-16/12-15-36|2021-12-12/11-41-57
 
-valid_data_path="/home/tkolb/bsc/data/testset/ctc2h8"
+valid_data_path="/home/tkolb/bsc/data/testset/c2h8"
 lmfile="c2lmfile.bin"
 lexicon="c2lexicon.txt"
 gen_subset="test"
 outputsfolder="fairseq-outputs-xlsr"
 evalsfolder="fairseq-evals-xlsr/opt"
-ws=0
 
 source ~/.cache/pypoetry/virtualenvs/new-env-xry5bPeK-py3.8/bin/activate
 python3.8 ~/bsc/fairseq/examples/speech_recognition/infer.py \
@@ -62,7 +61,7 @@ python3.8 ~/bsc/fairseq/examples/speech_recognition/infer.py \
     --lm-model ~/bsc/data/models/$lmfile \
     --lm-weight 1.5 \
     --lexicon ~/bsc/data/models/$lexicon \
-    --word-score $ws \
+    --word-score  \
     --sil-weight 0 \
     --criterion ctc \
     --labels ltr \
@@ -80,7 +79,7 @@ python3.8 ~/bsc/fairseq/examples/speech_recognition/infer.py \
     --lm-model ~/bsc/data/models/$lmfile \
     --lm-weight 2.4 \
     --lexicon ~/bsc/data/models/$lexicon \
-    --word-score $ws \
+    --word-score  \
     --sil-weight 0 \
     --criterion ctc \
     --labels ltr \
@@ -98,7 +97,7 @@ python3.8 ~/bsc/fairseq/examples/speech_recognition/infer.py \
     --lm-model ~/bsc/data/models/$lmfile \
     --lm-weight 2.8 \
     --lexicon ~/bsc/data/models/$lexicon \
-    --word-score $ws \
+    --word-score  \
     --sil-weight 0 \
     --criterion ctc \
     --labels ltr \
