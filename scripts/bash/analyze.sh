@@ -10,7 +10,7 @@
 #SBATCH --mail-type=BEGIN,END,FAIL
 
 datetime1="2021-12-12/11-41-57" 
-datetime1="2021-12-20/16-24-42"
+datetime2="2021-12-20/16-24-42"
 basepath="/home/tkolb/bsc/data/fairseq-evals-xlsr/opt"
 outfolder="/home/tkolb/bsc/data/analysis-xlsr/interpunction/,"
 gen_subset="test"
