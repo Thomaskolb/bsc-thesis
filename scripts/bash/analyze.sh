@@ -9,18 +9,15 @@
 #SBATCH --mail-user=thomaskolb@live.nl
 #SBATCH --mail-type=BEGIN,END,FAIL
 
-datetime1="2021-12-16/12-12-56"
-datetime2="2021-12-16/12-15-36"
-datetime3="2021-12-12/11-41-57" 
+datetime1="2021-12-12/11-41-57" 
+datetime1="2021-12-20/16-24-42"
 basepath="/home/tkolb/bsc/data/fairseq-evals-xlsr/opt"
-outfolder="/home/tkolb/bsc/data/analysis-xlsr/summary"
+outfolder="/home/tkolb/bsc/data/analysis-xlsr/interpunction/!"
 gen_subset="test"
 
 source ~/.cache/pypoetry/virtualenvs/tkolbpoetry-0grRN4_Q-py3.6/bin/activate
-python3 ../analyzecaptions.py "$outfolder/xlsrs8.txt" \
+python3 ../analyzecaptions.py "$outfolder/ctc32.txt" \
     "$basepath/$datetime1/$gen_subset"
-python3 ../analyzecaptions.py "$outfolder/xlsrs16.txt" \
+python3 ../analyzecaptions.py "$outfolder/c32.txt" \
     "$basepath/$datetime2/$gen_subset"
-python3 ../analyzecaptions.py "$outfolder/xlsrs32.txt" \
-    "$basepath/$datetime3/$gen_subset"
 deactivate
