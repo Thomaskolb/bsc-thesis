@@ -9,7 +9,7 @@
 #SBATCH --mail-user=thomaskolb@live.nl
 #SBATCH --mail-type=BEGIN,END,FAIL
 
-folder=22-p
+folder=22-np
 
 source ~/.cache/pypoetry/virtualenvs/new-env-xry5bPeK-py3.8/bin/activate
 python3.8 ../extractWER.py "/ceph/csedu-scratch/other/david/thomas/$folder" "/home/tkolb/bsc/data/testset/ctc2h8" "8h.hyp" "/home/tkolb/bsc/data/fairseq-evals-xlsr/lm/$folder"
